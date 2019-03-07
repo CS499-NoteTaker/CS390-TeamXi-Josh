@@ -15,12 +15,15 @@ public class BoardTest {
     }
 
     @Test
-    public void testBoard(){
-        Assert.assertTrue(comparePoints(board.getPointAtLocation(0, 0)));
+    public void testPointOnBoard1(){
+        Assert.assertTrue(comparePoints(board.getPointAtLocation(0, 0)), p1);
     }
 
-
-
+    @Test
+    public void testPointOnBoard2(){
+        Assert.assertTrue(comparePoints(board.getPointAtLocation(17, 17)), p2);
+    }
+    
 
     public boolean comparePoints(Point p1, point p2){
         return (p1.getX() == p2.getX()) && (p1.getY() == p2.getY());
