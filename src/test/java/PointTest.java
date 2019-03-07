@@ -1,3 +1,4 @@
+import ConnectSix.GameLogic.Point;
 import org.junit.*;
 
 public class PointTest {
@@ -27,6 +28,24 @@ public class PointTest {
     @Test (expected = IndexOutOfBoundsException.class)
     public void testCreation1(){
         Point poi = new Point(-1, 0);
+    }
+
+    @Test
+    public void testIsOccupied(){
+        Assert.assertFalse(p.isOccupied());
+    }
+
+    @Test
+    public void testOccupation(){
+        p.setOccupied();
+        Assert.assertTrue(p.isOccupied());
+    }
+
+    @Test
+    public void testOccupation2(){
+        p.setOccupied(); //set to true
+        p.setOccupied(); //set to false
+        Assert.assertFalse(p.isOccupied());
     }
 
     @Test
