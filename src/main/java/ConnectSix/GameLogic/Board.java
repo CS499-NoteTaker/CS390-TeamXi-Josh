@@ -19,6 +19,6 @@ public class Board {
     }
 
     public Point getPointAtLocation(int x, int y){
-        return board[x - 1][y - 1];
+        return board[x][y];
     }
 }
