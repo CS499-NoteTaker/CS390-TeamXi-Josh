@@ -1,7 +1,7 @@
 # 390 Project
 Connect Six
 
-##To Run Unit Tests:
+## To Run Unit Tests:
 From the command line while in the project folder type and run:
 
 ./gradlew clean  test --info
