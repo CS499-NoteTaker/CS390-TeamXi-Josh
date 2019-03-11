@@ -3,9 +3,7 @@ import ConnectSix.GameLogic.Board;
 import ConnectSix.GameLogic.Point;
 
 public class BoardTest {
-    private Point p1;
-    private Point p2;
-    private Point p3;
+    private Point p1, p2, p3;
     private Board board;
 
     @Before
