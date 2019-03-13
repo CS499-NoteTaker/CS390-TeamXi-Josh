@@ -5,6 +5,7 @@ public class Point {
     private boolean occupied;
     //the point should never be larger than the size of the board which is 19x19
     private final int boardSize = 19;
+    private Piece piece;
 
 
     /**
@@ -20,6 +21,7 @@ public class Point {
         this.x = x;
         this.y = y;
         this.occupied = false;
+        this.piece = Piece.N;
     }
 
     /**
@@ -46,6 +48,22 @@ public class Point {
      */
     public boolean isOccupied(){
         return this.occupied;
+    }
+
+    /**
+     * Get a piece from the board
+     * @return the piece from a Point on the board
+     */
+    public Piece getPiece(){
+        return this.piece;
+    }
+
+    /**
+     * Set a piece on the board
+     * @param P the color of the piece (or representing no piece)
+     */
+    public void setPiece(Piece P){
+        this.piece = P;
     }
 
     /**
@@ -87,4 +105,39 @@ public class Point {
 
         this.y = y;
     }
+
+    /**
+     * String representation of Point
+     * @return's a string representation of a Point object
+     */
+    public String toString(){
+        return this.x + " " + this.y;
+    }
+}
+
+/**
+ * Piece is used as a flag for the board as a representation of if the point on the board is filled
+ */
+enum Piece{
+    N{
+        @Override
+        public String toString() {
+            return "N";
+        }
+    },
+
+    B{
+        @Override
+        public String toString(){
+            return "B";
+        }
+    },
+
+    W{
+        @Override
+        public String toString(){
+            return "W";
+        };
+    }
+
 }
