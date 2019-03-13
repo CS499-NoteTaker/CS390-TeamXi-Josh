@@ -32,7 +32,7 @@ public class Board {
      * Sets a piece on a point on a given location
      * @param x the x coordinate of the point
      * @param y the y coordinate of the point
-     * @param p the piece type, (B)lack, (W)hite, or (N)o piece.
+     * @param p the piece type, (B)lack, (W)hite, or (O)pen.
      */
     public void setPointAtLocation(int x, int y, Piece p){
         Point po = board[x][y];

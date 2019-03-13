@@ -21,7 +21,7 @@ public class Point {
         this.x = x;
         this.y = y;
         this.occupied = false;
-        this.piece = Piece.N;
+        this.piece = Piece.O;
     }
 
     /**
@@ -119,10 +119,10 @@ public class Point {
  * Piece is used as a flag for the board as a representation of if the point on the board is filled
  */
 enum Piece{
-    N{
+    O{
         @Override
         public String toString() {
-            return "N";
+            return "O";
         }
     },
 
