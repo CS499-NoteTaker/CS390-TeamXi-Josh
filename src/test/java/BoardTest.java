@@ -23,6 +23,22 @@ public class BoardTest {
     public void testPointOnBoard2(){
         Assert.assertTrue(comparePoints(board.getPointAtLocation(17, 17), p2 ));
     }
+
+    //These three tests are for (1) an board with no pieces (2) a board with pieces but no win and (3) winning boar
+
+//    @Test
+//    public void testCheckWinCondition1(){
+//        Assert.assertTrue(!board.checkWinCondition());
+//    }
+//
+//    @Test
+//    public void testCheckWinCondition1(){
+//        Assert.assertTrue(!board.checkWinCondition());
+//    }
+//    @Test
+//    public void testCheckWinCondition1(){
+//        Assert.assertTrue(board.checkWinCondition());
+//    }
     
 
     public boolean comparePoints(Point p1, Point p2){
