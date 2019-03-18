@@ -7,10 +7,7 @@ public class Game {
         Board gameBoard = new Board();
         gameBoard.printBoard();
 
-
-        Point p = new Point(3, 2);
-        System.out.println(p);
-
+        /*
         Point chosenPiece = gameBoard.getPointAtLocation(2, 2);
         System.out.println(chosenPiece.getPiece());
         chosenPiece.setPiece(Piece.B);
@@ -19,10 +16,7 @@ public class Game {
         chosenPiece = gameBoard.getPointAtLocation(5, 5);
         chosenPiece.setPiece(Piece.W);
         gameBoard.setPointAtLocation(5, 5, chosenPiece.getPiece());
-
-        System.out.println(gameBoard.getPointAtLocation(2, 2));
-
-        gameBoard.printBoard();
+        gameBoard.printBoard();*/
 
     }
     public void play(){

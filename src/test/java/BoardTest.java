@@ -1,6 +1,7 @@
 import org.junit.*;
 import ConnectSix.GameLogic.Board;
 import ConnectSix.GameLogic.Point;
+import ConnectSix.GameLogic.*;
 
 public class BoardTest {
     private Point p1, p2, p3;
@@ -22,6 +23,14 @@ public class BoardTest {
     @Test
     public void testPointOnBoard2(){
         Assert.assertTrue(comparePoints(board.getPointAtLocation(17, 17), p2 ));
+    }
+
+    @Test
+    public void testSetPoint(){
+        Point chosenPiece = board.getPointAtLocation(2, 2);
+        System.out.println(chosenPiece.getPiece());
+        chosenPiece.setPiece(Piece.B);
+        Assert.assertEquals(2, board.getPointAtLocation(2, 2).getX());
     }
     
 
