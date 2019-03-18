@@ -70,4 +70,16 @@ public class Board {
             System.out.println();
         }
     }
+
+    //Talking Points: Might consider adding an error throw for if there is more than one win combination for bug catching?...
+    //Also this method shouldn't rely on the last move made so as to decrease dependencies,but this is also...
+    //something we should discuss. Also what should the return value be? Can we determine the winner by...
+    //checking if the returned value is true/false, then checking which player made the last move?
+    /**
+     * Prototype method, want to discuss the particulars with the group during the Sunday meeting
+     * @return If there is a winning set on the board.
+     */
+    public boolean checkWinCondition(){
+        return true;
+    }
 }
