@@ -1,4 +1,4 @@
-package ConnectSix.GameLogic;
+package GameLogic.Components;
 
 //Initializes and stores all the gameboard Points in a 2-D array.
 public class Board {

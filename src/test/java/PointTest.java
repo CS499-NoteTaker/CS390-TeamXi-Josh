@@ -1,4 +1,4 @@
-import ConnectSix.GameLogic.Point;
+import GameLogic.Components.Point;
 import org.junit.*;
 
 public class PointTest {

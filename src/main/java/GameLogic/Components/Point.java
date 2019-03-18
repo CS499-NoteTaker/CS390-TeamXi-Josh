@@ -1,4 +1,4 @@
-package ConnectSix.GameLogic;
+package GameLogic.Components;
 
 public class Point {
     private int x, y;

@@ -1,4 +1,4 @@
-package ConnectSix.GameLogic;
+package GameLogic.Components;
 
 public class Game {
     private boolean play = true;
