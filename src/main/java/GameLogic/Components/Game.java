@@ -80,6 +80,7 @@ public class Game {
         userCreation = createUser.toLowerCase().charAt(0);
 
         if(userCreation == 'y'){
+            //TODO: Spenser, here is where we will need to have the user to enter their username rather than choose a user
             System.out.println("Please choose a user: ");
             System.out.println(uList.printUsers().toString());
         }else{
