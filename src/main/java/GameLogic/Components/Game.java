@@ -32,8 +32,6 @@ public class Game {
 
         System.out.println("\n");
 
-
-<<<<<<< HEAD
         while(play){
             gameBoard.printBoard();
             System.out.println("\nPlayer one, please pick an x coordinate: ");
