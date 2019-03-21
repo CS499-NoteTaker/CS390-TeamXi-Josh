@@ -33,6 +33,7 @@ public class BoardTest {
         for(int i = 1; i <= 6; i++) {
             board.setPointAtLocation(18, i, whitePiece);
         }
+        board.printBoard();
         Assert.assertTrue(board.checkWinCondition());
     }
 
@@ -81,7 +82,6 @@ public class BoardTest {
         for(int i = 1; i <= 6; i++) {
             board.setPointAtLocation(i, 0, blackPiece);
         }
-
         Assert.assertTrue(board.checkWinCondition());
     }
 
