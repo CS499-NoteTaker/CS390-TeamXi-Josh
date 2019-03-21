@@ -141,7 +141,7 @@ public class BoardTest {
         for(int i = 1; i < 5; i++) {
             board.setPointAtLocation(i, i, whitePiece);
         }
-        Assert.assertTrue(board.checkWinCondition());
+        Assert.assertTrue(!board.checkWinCondition());
     }
 
     @Test
@@ -149,16 +149,8 @@ public class BoardTest {
         for(int i = 1; i < 5; i++) {
             board.setPointAtLocation(i, i, blackPiece);
         }
-        Assert.assertTrue(board.checkWinCondition());
+        Assert.assertTrue(!board.checkWinCondition());
     }
-
-
-
-
-
-
-
-
 
     @Test
     public void testPointOnBoard1(){
@@ -177,11 +169,6 @@ public class BoardTest {
         chosenPiece.setPiece(Piece.B);
         Assert.assertEquals(2, board.getPointAtLocation(2, 2).getX());
     }
-
-
-
-
-    
 
     public boolean comparePoints(Point p1, Point p2){
         return ((p1.getX() == p2.getX()) && (p1.getY() == p2.getY()));
