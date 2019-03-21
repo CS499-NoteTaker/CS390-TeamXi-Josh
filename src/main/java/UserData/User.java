@@ -8,7 +8,7 @@ public class User {
         can begin playing by joining the game.
     */
     String userName;
-    int win, loss;
+    int win, loss, userID;
     /**
      * User object
      * @param user the username of the user

@@ -1,6 +1,8 @@
 package GameLogic.Components;
 
-public class GameList {
+import java.io.Serializable;
+
+public class GameList implements Serializable {
     public GameList(){
 
     }
