@@ -7,16 +7,16 @@ public class Game {
         Board gameBoard = new Board();
         gameBoard.printBoard();
 
-        /*
-        Point chosenPiece = gameBoard.getPointAtLocation(2, 2);
-        System.out.println(chosenPiece.getPiece());
-        chosenPiece.setPiece(Piece.B);
-        System.out.println(chosenPiece.getPiece());
-        gameBoard.setPointAtLocation(2, 2, chosenPiece.getPiece());
-        chosenPiece = gameBoard.getPointAtLocation(5, 5);
-        chosenPiece.setPiece(Piece.W);
-        gameBoard.setPointAtLocation(5, 5, chosenPiece.getPiece());
-        gameBoard.printBoard();*/
+
+//        Point chosenPiece = gameBoard.getPointAtLocation(2, 2);
+//        System.out.println(chosenPiece.getPiece());
+//        chosenPiece.setPiece(Piece.B);
+//        System.out.println(chosenPiece.getPiece());
+//        gameBoard.setPointAtLocation(2, 2, chosenPiece.getPiece());
+//        chosenPiece = gameBoard.getPointAtLocation(5, 5);
+//        chosenPiece.setPiece(Piece.W);
+//        gameBoard.setPointAtLocation(5, 5, chosenPiece.getPiece());
+//        gameBoard.printBoard();
 
     }
     public void play(){
@@ -32,3 +32,27 @@ public class Game {
         //loop to allow game to be played until gameIsWon or similar method
     }
 }
+
+
+/*
+afjalkfs
+ds
+df
+sf
+s
+ff
+sd
+fsd
+fsfafadsfasf;asfasdfjafd
+adf
+asf
+asdf
+asdfaadsgasgas
+asdf
+asa
+asdf
+asdf
+asdf
+asf
+as
+ */

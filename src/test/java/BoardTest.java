@@ -20,7 +20,7 @@ public class BoardTest {
     }
 
     @Test
-    public void testCheckWinConditionForWhiteWin1(){  //(1, 1) --> (6, 1)
+    public void testCheckWinConditionForWhiteWin1(){  //(1, 0) --> (6, 0)
         for(int i = 1; i < 6; i++) {
             board.setPointAtLocation(i, 0, whitePiece);
         }
