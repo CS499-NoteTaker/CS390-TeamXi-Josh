@@ -1,5 +1,7 @@
 package GameLogic.Components;
 
+import java.util.ArrayList;
+
 //Initializes and stores all the gameboard Points in a 2-D array.
 public class Board {
     private int boardSize = 19;
@@ -71,15 +73,119 @@ public class Board {
         }
     }
 
-    //Talking Points: Might consider adding an error throw for if there is more than one win combination for bug catching?...
-    //Also this method shouldn't rely on the last move made so as to decrease dependencies,but this is also...
-    //something we should discuss. Also what should the return value be? Can we determine the winner by...
-    //checking if the returned value is true/false, then checking which player made the last move?
     /**
-     * Prototype method, want to discuss the particulars with the group during the Sunday meeting
+     * Evaluates entirety of the board to ascertain if there is a winning combination on the board. PROTOTYPE
      * @return If there is a winning set on the board.
      */
     public boolean checkWinCondition(){
-        return true;
+        //get all the rows
+        ArrayList<Point[]> rows = new ArrayList<>();
+        for(int i = 0; i < boardSize; i++){
+            rows.add(getRowOfPoints(i));
+        }
+        //get all the columns
+        ArrayList<Point[]> columns = new ArrayList<>();
+        for(int i = 0; i < boardSize; i++) {
+            columns.add(getColumnOfPoints(i));
+        }
+        //get all the diagonals
+        ArrayList<Point[]> diagonals = new ArrayList<>();
+        for(int i = 0; i < boardSize; i++){
+            //will debug this later
+        }
+        //Evaluate all the ArrayLists for a winning combination
+        return (checkAggregatePointArrayListForWins(rows) && checkAggregatePointArrayListForWins(columns)
+                && checkAggregatePointArrayListForWins(diagonals));
+    }
+
+    /**
+     * Checks and ArrayList of arrays of Point objects for any winning runs
+     * @param aggregateArrayList - An ArrayList of arrays of Point objects
+     * @return true if there is a winning run
+     */
+    private boolean checkAggregatePointArrayListForWins(ArrayList<Point[]> aggregateArrayList){
+        for(int i = 0; i < aggregateArrayList.size(); i++){
+            if(checkFiveInARow(aggregateArrayList.get(i))){ return true; }
+        }
+        return false;
+    }
+
+    /**
+     *  Checks an array of Point objects for a run of 5 same-colored Pieces
+     * @param points An ordered array of Point objects
+     * @return true if there is a run of 5
+     */
+    private boolean checkFiveInARow(Point[] points){
+        int counter = 1;
+        for(int i = 1; i < points.length; i++) {
+            try {
+                if ((points[i - 1].getPiece() != points[i].getPiece()) || (points[i].getPiece() == Piece.O)) {
+                    counter = 1;
+                } else {
+                    counter++;
+                }
+                if (counter == 5) {
+                    return true;
+                }
+            } catch (Exception e){
+
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Gets a row of Point objects given a y coordinate
+     * @param y - a y value on the board
+     * @return An array of Point objects
+     */
+    private Point[] getRowOfPoints(int y){
+        Point[] points = new Point[boardSize];
+        for(int i = 0; i < boardSize; i++){
+            points[i] = getPointAtLocation(i, y);
+        }
+        return points;
+    }
+
+    /**
+     * Gets a column of Point objects given an x coordinate
+     * @param x - an x value on the board
+     * @return An array of Point objects
+     */
+    private Point[] getColumnOfPoints(int x){
+        Point[] points = new Point[boardSize];
+        for(int i = 0; i < boardSize; i++){
+            points[i] = getPointAtLocation(i, x);
+        }
+        return points;
+    }
+
+    /**
+     * Gets a diagonal of Point objects going North and East of the given coordinate
+     * @param x - an X-value, should be zero if the other is non-zero
+     * @param y - a Y-value, should be zero if the other is non-zero
+     * @return An array of Point objects
+     */
+    private Point[] getDiagonalSouthEastOfPoints(int x, int y){
+        Point[] points = new Point[boardSize - x - y];
+        for(int i = 0; i < boardSize - x - y; i++){
+            points[i] = getPointAtLocation(x + i, y + i);
+        }
+        return points;
+    }
+
+    /**
+     * Gets a diagonal of Point objects going North and West of the given coordinate
+     * @param x - an X-value, should be zero if the other is non-zero
+     * @param y - a Y-value, should be zero if the other is non-zero
+     * @return An array of Point objects
+     */
+    private Point[] getSouthWestDiagonalOfPoints(int x, int y){
+        Point[] points = new Point[boardSize];
+        for(int i = 0; i < x + y; i++){
+            System.out.println((x - i) + ", " + (y + i) + "  x = " + x + " y = " + y);
+            points[i] = getPointAtLocation(x - i, y + i);
+        }
+        return points;
     }
 }
