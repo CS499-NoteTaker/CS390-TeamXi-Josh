@@ -35,4 +35,6 @@ public class User {
         return this.loss;
     }
 
+    public double getWinLossRatio(){ return this.win / this.loss; }
+
 }
