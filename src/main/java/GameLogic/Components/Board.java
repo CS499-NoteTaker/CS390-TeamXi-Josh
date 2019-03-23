@@ -127,7 +127,7 @@ public class Board {
                 } else {
                     counter++;
                 }
-                if (counter == 5) {
+                if (counter == 6) {
                     return true;
                 }
             } catch (Exception e){
@@ -158,7 +158,7 @@ public class Board {
     private Point[] getColumnOfPoints(int x){
         Point[] points = new Point[boardSize];
         for(int i = 0; i < boardSize; i++){
-            points[i] = getPointAtLocation(i, x);
+            points[i] = getPointAtLocation(x, i);
         }
         return points;
     }

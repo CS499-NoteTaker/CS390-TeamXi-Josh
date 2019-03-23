@@ -153,6 +153,21 @@ public class BoardTest {
         Assert.assertTrue(!board.checkWinCondition());
     }
 
+    @Test // 5-row Vertical White
+    public void testCheckWinConditionForNearWhiteWin1(){  //(1, 0) --> (6, 0)
+        for(int i = 1; i <= 5; i++) {
+            board.setPointAtLocation(i, 0, whitePiece);
+        }
+        Assert.assertFalse(board.checkWinCondition());
+    }
+
+    @Test // 5-row Horizontal White
+    public void testCheckWinConditionForNearWhiteWin2(){  //(18, 1) --> (18, 6)
+        for(int i = 1; i <= 5; i++) {
+            board.setPointAtLocation(18, i, whitePiece);
+        }
+        Assert.assertFalse(board.checkWinCondition());
+    }
 
     @Test
     public void testPointOnBoard1(){
