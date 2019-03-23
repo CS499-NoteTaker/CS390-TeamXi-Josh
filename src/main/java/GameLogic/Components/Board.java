@@ -93,9 +93,12 @@ public class Board {
         for(int i = 0; i < boardSize; i++){
             //will debug this later
         }
-        //Evaluate all the ArrayLists for a winning combination
-        return (checkAggregatePointArrayListForWins(rows) && checkAggregatePointArrayListForWins(columns)
-                && checkAggregatePointArrayListForWins(diagonals));
+
+        // Evaluate all the ArrayLists for a winning combination, if EITHER direction
+        // has a 6-in-a-row
+        return (checkAggregatePointArrayListForWins(rows)
+                || checkAggregatePointArrayListForWins(columns)
+                || checkAggregatePointArrayListForWins(diagonals));
     }
 
     /**
@@ -105,7 +108,7 @@ public class Board {
      */
     private boolean checkAggregatePointArrayListForWins(ArrayList<Point[]> aggregateArrayList){
         for(int i = 0; i < aggregateArrayList.size(); i++){
-            if(checkFiveInARow(aggregateArrayList.get(i))){ return true; }
+            if(checkSixInARow(aggregateArrayList.get(i))){ return true; }
         }
         return false;
     }
@@ -115,7 +118,7 @@ public class Board {
      * @param points An ordered array of Point objects
      * @return true if there is a run of 5
      */
-    private boolean checkFiveInARow(Point[] points){
+    private boolean checkSixInARow(Point[] points){
         int counter = 1;
         for(int i = 1; i < points.length; i++) {
             try {
