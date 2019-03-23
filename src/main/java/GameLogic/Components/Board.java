@@ -90,8 +90,10 @@ public class Board {
         }
         //get all the diagonals
         ArrayList<Point[]> diagonals = new ArrayList<>();
-        for(int i = 0; i < boardSize; i++){
-            //will debug this later
+        // Redundancy warning: gets diagonal from (0, 0) twice
+        for(int i = 0; i < boardSize - 5; i++) {
+            diagonals.add(getDiagonalNegativeSlopePoints(0, i));
+            diagonals.add(getDiagonalNegativeSlopePoints(i, 0));
         }
 
         // Evaluate all the ArrayLists for a winning combination, if EITHER direction
@@ -164,14 +166,14 @@ public class Board {
     }
 
     /**
-     * Gets a diagonal of Point objects going North and East of the given coordinate
+     * Gets a diagonal of Point objects in a NEGATIVE SLOPE direction.
      * @param x - an X-value, should be zero if the other is non-zero
      * @param y - a Y-value, should be zero if the other is non-zero
      * @return An array of Point objects
      */
-    private Point[] getDiagonalSouthEastOfPoints(int x, int y){
+    private Point[] getDiagonalNegativeSlopePoints(int x, int y){
         Point[] points = new Point[boardSize - x - y];
-        for(int i = 0; i < boardSize - x - y; i++){
+        for(int i = 0; i < points.length; i++){
             points[i] = getPointAtLocation(x + i, y + i);
         }
         return points;
