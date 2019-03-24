@@ -105,7 +105,6 @@ public class Board {
         // TOP half of Positive slope Diagonals
         ArrayList<Point[]> diagonalsPositive = new ArrayList<>();
         for(int i = boardSize-1; i >= 5; i--) {
-            System.out.println("(" + i + ", " + 0 + ")");
             diagonalsPositive.add(getDiagonalTopPositiveSlopePoints(i, 0));
         }
         // BOTTOM half of Positive slope Diagonals
@@ -210,7 +209,6 @@ public class Board {
             points[index] = getPointAtLocation(i, j);
             index++;
         }
-        System.out.println(Arrays.toString(points));
         return points;
     }
 
