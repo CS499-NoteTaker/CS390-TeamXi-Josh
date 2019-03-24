@@ -51,6 +51,8 @@ public class BoardTest {
             int j = 6-(i-1);
                 board.setPointAtLocation(i, j, whitePiece);
         }
+        board.printBoard();
+
         Assert.assertTrue(board.checkWinCondition());
     }
 
@@ -106,7 +108,6 @@ public class BoardTest {
             int j = 6-(i-1);
             board.setPointAtLocation(i, j, blackPiece);
         }
-        board.printBoard();
         Assert.assertTrue(board.checkWinCondition());
     }
 

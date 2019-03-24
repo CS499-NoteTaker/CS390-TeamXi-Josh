@@ -1,6 +1,8 @@
 package GameLogic.Components;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 //Initializes and stores all the gameboard Points in a 2-D array.
 public class Board {
@@ -88,19 +90,35 @@ public class Board {
         for(int i = 0; i < boardSize; i++) {
             columns.add(getColumnOfPoints(i));
         }
-        //get all the diagonals
-        ArrayList<Point[]> diagonals = new ArrayList<>();
+
+        // Gets NEGATIVE Slope Diagonals
+        ArrayList<Point[]> diagonalsNegative = new ArrayList<>();
         // Redundancy warning: gets diagonal from (0, 0) twice
         for(int i = 0; i < boardSize - 5; i++) {
-            diagonals.add(getDiagonalNegativeSlopePoints(0, i));
-            diagonals.add(getDiagonalNegativeSlopePoints(i, 0));
+            diagonalsNegative.add(getDiagonalNegativeSlopePoints(0, i));
+            diagonalsNegative.add(getDiagonalNegativeSlopePoints(i, 0));
+        }
+
+        // TODO: Fix traversal, not ready
+        // Gets POSITIVE Slope Diagonals
+
+        // TOP half of Positive slope Diagonals
+        ArrayList<Point[]> diagonalsPositive = new ArrayList<>();
+        for(int i = boardSize-1; i >= 5; i--) {
+            System.out.println("(" + i + ", " + 0 + ")");
+            diagonalsPositive.add(getDiagonalTopPositiveSlopePoints(i, 0));
+        }
+        // BOTTOM half of Positive slope Diagonals
+        for(int j = 0; j < boardSize; j++) {
+            diagonalsPositive.add(getDiagonalBottomPositiveSlopePoints(boardSize-1, j));
         }
 
         // Evaluate all the ArrayLists for a winning combination, if EITHER direction
         // has a 6-in-a-row
         return (checkAggregatePointArrayListForWins(rows)
                 || checkAggregatePointArrayListForWins(columns)
-                || checkAggregatePointArrayListForWins(diagonals));
+                || checkAggregatePointArrayListForWins(diagonalsNegative)
+                || checkAggregatePointArrayListForWins(diagonalsPositive));
     }
 
     /**
@@ -180,16 +198,34 @@ public class Board {
     }
 
     /**
-     * Gets a diagonal of Point objects going North and West of the given coordinate
-     * @param x - an X-value, should be zero if the other is non-zero
-     * @param y - a Y-value, should be zero if the other is non-zero
+     * For loop traversed to get the TOP POSITIVE slop of diagonal point objects
+     * @param x - an X-value - x = row of the first point to start collecting point objects
+     * @param y - a Y-value - y = column of the first point to start collecting point objects
      * @return An array of Point objects
      */
-    private Point[] getSouthWestDiagonalOfPoints(int x, int y){
-        Point[] points = new Point[boardSize];
-        for(int i = 0; i < x + y; i++){
-            System.out.println((x - i) + ", " + (y + i) + "  x = " + x + " y = " + y);
-            points[i] = getPointAtLocation(x - i, y + i);
+    private Point[] getDiagonalTopPositiveSlopePoints(int x, int y){
+        Point[] points = new Point[boardSize-((boardSize - 1)- x)];
+        int index = 0;
+        for(int i = x, j = y; i>=0; i--, j++) {
+            points[index] = getPointAtLocation(i, j);
+            index++;
+        }
+        System.out.println(Arrays.toString(points));
+        return points;
+    }
+
+    /**
+     * For loop traversed to get the BOTTOM POSITIVE slop of diagonal point objects
+     * @param x - an X-value - x = row of the first point to start collecting point objects
+     * @param y - a Y-value - y = column of the first point to start collecting point objects
+     * @return An array of Point objects
+     */
+    private Point[] getDiagonalBottomPositiveSlopePoints(int x, int y){
+        Point[] points = new Point[boardSize - y];
+        int index = 0;
+        for(int i = x, j = y; j < boardSize; i--, j++) {
+            points[index] = getPointAtLocation(i, j);
+            index++;
         }
         return points;
     }
