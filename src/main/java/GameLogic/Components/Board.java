@@ -1,8 +1,6 @@
 package GameLogic.Components;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 //Initializes and stores all the gameboard Points in a 2-D array.
 public class Board {
@@ -45,7 +43,7 @@ public class Board {
     }
 
     /**
-     * prints the board to the command line, for Sprint 2 only.
+     * Prints the board to the command line, for Sprint 2 only.
      */
     public void printBoard(){
         System.out.print("  ");
@@ -76,7 +74,7 @@ public class Board {
     }
 
     /**
-     * Evaluates entirety of the board to ascertain if there is a winning combination on the board. PROTOTYPE
+     * Evaluates entirety of the board to ascertain if there is a winning combination on the board.
      * @return If there is a winning set on the board.
      */
     public boolean checkWinCondition(){
@@ -99,17 +97,16 @@ public class Board {
             diagonalsNegative.add(getDiagonalNegativeSlopePoints(i, 0));
         }
 
-        // TODO: Fix traversal, not ready
         // Gets POSITIVE Slope Diagonals
 
         // TOP half of Positive slope Diagonals
         ArrayList<Point[]> diagonalsPositive = new ArrayList<>();
         for(int i = boardSize-1; i >= 5; i--) {
-            diagonalsPositive.add(getDiagonalTopPositiveSlopePoints(i, 0));
+            diagonalsPositive.add(getTopHalfDiagonalPositiveSlopePoints(i, 0));
         }
         // BOTTOM half of Positive slope Diagonals
         for(int j = 0; j < boardSize; j++) {
-            diagonalsPositive.add(getDiagonalBottomPositiveSlopePoints(boardSize-1, j));
+            diagonalsPositive.add(getBottomHalfDiagonalPositiveSlopePoints(boardSize-1, j));
         }
 
         // Evaluate all the ArrayLists for a winning combination, if EITHER direction
@@ -121,7 +118,7 @@ public class Board {
     }
 
     /**
-     * Checks and ArrayList of arrays of Point objects for any winning runs
+     * Checks an ArrayList of arrays of Point objects for any winning runs
      * @param aggregateArrayList - An ArrayList of arrays of Point objects
      * @return true if there is a winning run
      */
@@ -202,7 +199,7 @@ public class Board {
      * @param y - a Y-value - y = column of the first point to start collecting point objects
      * @return An array of Point objects
      */
-    private Point[] getDiagonalTopPositiveSlopePoints(int x, int y){
+    private Point[] getTopHalfDiagonalPositiveSlopePoints(int x, int y){
         Point[] points = new Point[boardSize-((boardSize - 1)- x)];
         int index = 0;
         for(int i = x, j = y; i>=0; i--, j++) {
@@ -218,7 +215,7 @@ public class Board {
      * @param y - a Y-value - y = column of the first point to start collecting point objects
      * @return An array of Point objects
      */
-    private Point[] getDiagonalBottomPositiveSlopePoints(int x, int y){
+    private Point[] getBottomHalfDiagonalPositiveSlopePoints(int x, int y){
         Point[] points = new Point[boardSize - y];
         int index = 0;
         for(int i = x, j = y; j < boardSize; i--, j++) {
