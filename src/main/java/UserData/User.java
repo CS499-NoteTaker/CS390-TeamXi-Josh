@@ -1,6 +1,6 @@
 package UserData;
 
-public class User {
+public class User implements java.io.Serializable {
     /*
     * Stories associated with the User class:
     * 1. As a player, I want to be able to create a user so that I can play games.
@@ -17,6 +17,7 @@ public class User {
         this.userName = user;
         win = 0;
         loss = 0;
+        //userID = ID;
     }
 
     public void addWin(){
@@ -36,5 +37,20 @@ public class User {
     }
 
     public double getWinLossRatio(){ return this.win / this.loss; }
+
+    //Spenser's persistence method
+    public String toString(){
+        return "Username:" + this.userName + "";
+    }
+
+    public boolean UsernameEquals(String otherUserName){
+        if(this.userName.equals(otherUserName)){
+            return true;
+        }
+        else
+            return false;
+    }
+
+
 
 }

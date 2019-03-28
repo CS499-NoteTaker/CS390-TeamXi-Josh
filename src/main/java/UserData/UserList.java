@@ -21,7 +21,35 @@ public class UserList implements Serializable {
             String user = users.get(i).userName;
             return user;
         }
+
         return null;
+    }
+
+    //Spenser's Persistence test method
+    //Returns a User
+    public User FindUser(String TheUser) {
+        for(int i = 0; i < users.size(); i++) {
+            if(TheUser.compareTo(users.get(i).userName) == 0) {
+                User user = users.get(i);
+                int TheUserInt = users.indexOf(user);
+                return users.get(TheUserInt);
+            }
+        }
+        return null;
+    }
+
+    public Boolean Contains(String UserName){
+        for(int i = 0; i < users.size(); i ++){
+            if(UserName.compareTo(users.get(i).userName) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public int GetSize(){
+        return users.size();
     }
 
     /*
