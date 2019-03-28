@@ -1,5 +1,6 @@
 package GameLogic.Components;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 //Initializes and stores all the gameboard Points in a 2-D array.
@@ -78,17 +79,60 @@ public class Board {
      * @return If there is a winning set on the board.
      */
     public boolean checkWinCondition(){
+
+        // Retrieves set of points in each possible direction
+        ArrayList<Point[]> rows, columns, diagonalsNegative, diagonalsPositive;
+        rows = getRowsOfGameBoard();
+        columns = getColumnsOfGameBoard();
+        diagonalsNegative = getNegativeSlopeDiagonalsOfGameBoard();
+        diagonalsPositive = getPostiveSlopeDiagonalsOfGameBoard();
+
+
+
+        // Evaluate all the ArrayLists for a winning combination, if EITHER direction
+        // has a 6-in-a-row
+        return (checkAggregatePointArrayListForWins(rows)
+                || checkAggregatePointArrayListForWins(columns)
+                || checkAggregatePointArrayListForWins(diagonalsNegative)
+                || checkAggregatePointArrayListForWins(diagonalsPositive));
+    }
+
+    /**
+     * Gets and ArrayList of Points[] such that each Point[] object is a row
+     * of points from the Game Board.
+     * @return - returns array of points objects
+     */
+    private ArrayList<Point[]> getRowsOfGameBoard() {
         //get all the rows
         ArrayList<Point[]> rows = new ArrayList<>();
         for(int i = 0; i < boardSize; i++){
             rows.add(getRowOfPoints(i));
         }
+
+        return rows;
+    }
+
+    /**
+     * Gets and ArrayList of Points[] such that each Point[] object is a column
+     * of points from the Game Board.
+     * @return - returns array of points objects
+     */
+    private ArrayList<Point[]> getColumnsOfGameBoard() {
         //get all the columns
         ArrayList<Point[]> columns = new ArrayList<>();
         for(int i = 0; i < boardSize; i++) {
             columns.add(getColumnOfPoints(i));
         }
+        return columns;
+    }
 
+    /**
+     * Gets and ArrayList of Points[] such that each Point[] object is a set of
+     * points in the Negative Slope direction at every diagonal set of points
+     * from the y-intercept
+     * @return - returns array of points objects
+     */
+    private ArrayList<Point[]> getNegativeSlopeDiagonalsOfGameBoard() {
         // Gets NEGATIVE Slope Diagonals
         ArrayList<Point[]> diagonalsNegative = new ArrayList<>();
         // Redundancy warning: gets diagonal from (0, 0) twice
@@ -96,7 +140,16 @@ public class Board {
             diagonalsNegative.add(getDiagonalNegativeSlopePoints(0, i));
             diagonalsNegative.add(getDiagonalNegativeSlopePoints(i, 0));
         }
+        return  diagonalsNegative;
+    }
 
+    /**
+     * Gets and ArrayList of Points[] such that each Point[] object is a set of
+     * points in the Positive Slope direction at every diagonal set of points
+     * from the y-intercept
+     * @return - returns array of points objects
+     */
+    private ArrayList<Point[]> getPostiveSlopeDiagonalsOfGameBoard() {
         // Gets POSITIVE Slope Diagonals
 
         // TOP half of Positive slope Diagonals
@@ -109,13 +162,18 @@ public class Board {
             diagonalsPositive.add(getBottomHalfDiagonalPositiveSlopePoints(boardSize-1, j));
         }
 
-        // Evaluate all the ArrayLists for a winning combination, if EITHER direction
-        // has a 6-in-a-row
-        return (checkAggregatePointArrayListForWins(rows)
-                || checkAggregatePointArrayListForWins(columns)
-                || checkAggregatePointArrayListForWins(diagonalsNegative)
-                || checkAggregatePointArrayListForWins(diagonalsPositive));
+        return diagonalsPositive;
     }
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Checks an ArrayList of arrays of Point objects for any winning runs
