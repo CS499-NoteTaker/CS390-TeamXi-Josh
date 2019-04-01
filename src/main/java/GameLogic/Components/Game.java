@@ -8,19 +8,27 @@ import java.io.*;
 //TODO: Add a win and loss to the correct users
 
 public class Game implements java.io.Serializable {
-    private boolean play = true;
+    private boolean play = true, menu = true;
     String createUser, userName;
     char userCreation;
     Scanner keyboard = new Scanner(System.in);
     UserList uList = new UserList();
-    int x, y;
+    int x, y, userInterface;
 
 
     public void play(){
         Board gameBoard = new Board();
         System.out.println("Welcome to Connect Six!");
 
-        //create a new game (or choose from a list)?
+        while(menu){
+        System.out.println("What would you like to do? (Pick a number, 1-3)");
+        System.out.println("1. Create a game!");
+        System.out.println("2. View the leaderboard!");
+        System.out.println("3. View game history!");
+        userInterface = keyboard.nextInt();
+        keyboard.nextLine();
+
+        if(userInterface == 1){
         System.out.println("Player One: ");
         User one = chooseUser();
         while(one == null){
@@ -33,8 +41,16 @@ public class Game implements java.io.Serializable {
             System.out.println("Could not find your UserName, please try again.");
             two = chooseUser();
         }
-
-        System.out.println("\n");
+        menu = false;
+        System.out.println("\n");}
+        else if(userInterface == 2){
+            //print the leaderboard, return to the menu screen
+            System.out.println("This is the leaderboard!\n");
+        }
+        else if(userInterface == 3){
+            //print the game history, return to menu screen
+            System.out.println("Here is your game history!\n");
+        }}
 
         while(play){
             gameBoard.printBoard();
