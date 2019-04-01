@@ -23,6 +23,5 @@ public enum Piece {
         public String toString() {
             return "W";
         }
-        ;
     }
 }
