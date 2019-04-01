@@ -102,7 +102,7 @@ public class Game implements java.io.Serializable {
                 String ReturnUser = keyboard.nextLine();
                 //System.out.println("@Game@ chooseUser: ReturnUser =" + ReturnUser);
                 //System.out.println("@Game@ chooseuser: uList data =" + uList.toString());
-                return uList.FindUser(ReturnUser);
+                return uList.findUser(ReturnUser);
             }else{
                 //create a user
                 System.out.println("Please enter a UserName: ");

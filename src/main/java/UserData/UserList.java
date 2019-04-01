@@ -3,13 +3,13 @@ import java.io.Serializable;
 import java.util.*;
 
 public class UserList implements Serializable {
-    ArrayList<User> users = new ArrayList<>();
+    static ArrayList<User> users = new ArrayList<>();
 
     /**
      * Adds the new user to the list of all users
      * @param user the username that the user chose
      */
-    public void addUser(User user){
+    public static void addUser(User user){
         users.add(user);
     }
     public ArrayList<User> printUsers(){
