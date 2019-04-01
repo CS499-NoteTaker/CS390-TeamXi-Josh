@@ -17,4 +17,5 @@ out/
 a.out
 *.exe
 *.dll
+file.ser
 *~
