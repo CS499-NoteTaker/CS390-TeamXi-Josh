@@ -12,31 +12,71 @@ public class Game implements java.io.Serializable {
     static User User1, User2;
     Scanner keyboard = new Scanner(System.in);
     int x, y;
+    private boolean play = true, menu = true;
+    String createUser, userName;
+    char userCreation;
+    Scanner keyboard = new Scanner(System.in);
+    UserList uList = new UserList();
+    int x, y, userInterface;
 
-    public Game(User PlayerOne, User PlayerTwo){
+    public Game(User PlayerOne, User PlayerTwo) {
         this.User1 = PlayerOne;
         this.User2 = PlayerTwo;
     }
 
-    public void assignPlayers(User FirstPlayer, User Secondplayer){
+    public void assignPlayers(User FirstPlayer, User Secondplayer) {
         this.User1 = FirstPlayer;
         this.User2 = Secondplayer;
     }
 
-    public void play(){
+    public void play() {
 
         Board gameBoard = new Board();
         System.out.println("Welcome to Connect Six!");
         System.out.println("\n");
-        while(play){
+
+
+        while (menu) {
+            System.out.println("What would you like to do? (Pick a number, 1-3)");
+            System.out.println("1. Create a game!");
+            System.out.println("2. View the leaderboard!");
+            System.out.println("3. View game history!");
+            userInterface = keyboard.nextInt();
+            keyboard.nextLine();
+
+            if (userInterface == 1) {
+                System.out.println("Player One: ");
+                User one = chooseUser();
+                while (one == null) {
+                    System.out.println("Could not find your UserName, please try again.");
+                    one = chooseUser();
+                }
+                System.out.println("Player Two: ");
+                User two = chooseUser();
+                while (two == null) {
+                    System.out.println("Could not find your UserName, please try again.");
+                    two = chooseUser();
+                }
+                menu = false;
+                System.out.println("\n");
+            } else if (userInterface == 2) {
+                //print the leaderboard, return to the menu screen
+                System.out.println("This is the leaderboard!\n");
+            } else if (userInterface == 3) {
+                //print the game history, return to menu screen
+                System.out.println("Here is your game history!\n");
+            }
+        }
+        while (play) {
             gameBoard.printBoard();
             System.out.println("\nPlayer one, please pick an x coordinate: ");
             x = keyboard.nextInt();
             System.out.println("Player one, please pick a y coordinate: ");
             y = keyboard.nextInt();
             Point chosenPiece = gameBoard.getPointAtLocation(y, x);
-            while(chosenPiece.isOccupied()){
-                System.out.println("Invalid coordinates!");System.out.println("\nPlayer one, please pick an x coordinate: ");
+            while (chosenPiece.isOccupied()) {
+                System.out.println("Invalid coordinates!");
+                System.out.println("\nPlayer one, please pick an x coordinate: ");
                 x = keyboard.nextInt();
                 System.out.println("Player one, please pick a y coordinate: ");
                 y = keyboard.nextInt();
@@ -46,7 +86,7 @@ public class Game implements java.io.Serializable {
             gameBoard.setPointAtLocation(y, x, chosenPiece.getPiece());
             System.out.println("\n");
             gameBoard.printBoard();
-            if(gameBoard.checkWinCondition() == true){
+            if (gameBoard.checkWinCondition() == true) {
                 endGame(User1);
                 return;
             }
@@ -56,7 +96,7 @@ public class Game implements java.io.Serializable {
             y = keyboard.nextInt();
             chosenPiece = gameBoard.getPointAtLocation(y, x);
 
-            while(chosenPiece.isOccupied()){
+            while (chosenPiece.isOccupied()) {
                 System.out.println("Invalid coordinates!");
                 System.out.println("\nPlayer two, please pick an x coordinate: ");
                 x = keyboard.nextInt();
@@ -68,18 +108,73 @@ public class Game implements java.io.Serializable {
             chosenPiece.setPiece(Piece.W);
             gameBoard.setPointAtLocation(y, x, chosenPiece.getPiece());
             System.out.println("\n");
-            if(gameBoard.checkWinCondition() == true){
+
+            if (gameBoard.checkWinCondition() == true) {
                 endGame(User2);
                 return;
+
+
             }
-
         }
-    }
 
-    public void endGame(User u){
-        System.out.println("Congratulations " + u.userNametoString() + ", You won the game!");
-    }
+        public User chooseUser () {
+            try {
+                System.out.println("Have you played before? Y/N");
+                createUser = keyboard.nextLine();
+                userCreation = createUser.toLowerCase().charAt(0);
+                String filename = "file.ser";
 
+                if (userCreation == 'y' || userCreation == 'Y') {
+                    //TODO: Spenser, here is where we will need to have the user to enter their username rather than choose a user
+                    //Deserialization
+                    //Reading the object from a file
+                    FileInputStream file = new FileInputStream(filename);
+                    ObjectInputStream in = new ObjectInputStream(file);
+                    //Method for deserialization
+                    uList = (UserList) in.readObject();
+                    in.close();
+                    file.close();
+
+                    System.out.println(uList.printUsers().toString());
+
+                    System.out.println("Please enter your userName:");
+                    String ReturnUser = keyboard.nextLine();
+                    //System.out.println("@Game@ chooseUser: ReturnUser =" + ReturnUser);
+                    //System.out.println("@Game@ chooseuser: uList data =" + uList.toString());
+                    return uList.findUser(ReturnUser);
+                } else {
+                    //create a user
+                    System.out.println("Please enter a UserName: ");
+                    userName = keyboard.nextLine();
+                    //System.out.println("please enter a UserID");
+                    //int userID = keyboard.nextInt();
+                    User u = new User(userName);
+                    if (uList.contains(userName)) {
+                        return null;
+                    }
+                    uList.addUser(u);
+
+                    //Serialization
+                    //Saving object to file
+                    FileOutputStream file = new FileOutputStream(filename);
+                    ObjectOutputStream out = new ObjectOutputStream(file);
+                    //Method for Serialization
+                    out.writeObject(uList);
+                    out.close();
+                    file.close();
+
+                    return u;
+
+                }
+
+            }
+        }
+
+        public void endGame (User u){
+            System.out.println("Congratulations " + u.userNametoString() + ", You won the game!");
+        }
+
+    }
 }
 
   /*
