@@ -39,9 +39,11 @@ public class Leaderboard {
         return usersSorted;
     }
 
-    public void printLeaderboard(){
+    public String toString(){
+        String output = "";
         for(int i = 0; i < leaderboard.size(); i++){
-            System.out.println(leaderboard.get(i).toString() + " W/L Ratio: " + leaderboard.get(i).getWinLossRatio());
+            output += "\n" + leaderboard.get(i).toString() + " W/L Ratio: " + leaderboard.get(i).getWinLossRatio();
         }
+        return output;
     }
 }
