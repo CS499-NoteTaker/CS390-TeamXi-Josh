@@ -76,14 +76,12 @@ public class Game implements java.io.Serializable {
             if (gameBoard.checkWinCondition() == true) {
                 endGame(User2);
                 return;
-
-
             }
         }
     }
 
     private void endGame(User u) {
-        System.out.println("Congratulations " + u.userNametoString() + ", You won the game!");
+        System.out.println("Congratulations " + u.userNametoString() + ", You won the game!\n");
     }
 }
 

@@ -34,9 +34,7 @@ public class Main {
                     System.out.println("Could not find your Username, please try again.");
                     one = H.findExistingUserOrCreateNewUser();
                 }
-                while(H != null){
                     H.NewGameOrWatchOldGame();
-                }
             } else if(userMenuChoice == 2){
                 System.out.println("Leaderboard!\n");
             }
