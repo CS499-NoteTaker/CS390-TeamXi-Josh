@@ -36,7 +36,7 @@ public class UserList implements Serializable {
         return null;
     }
 
-    public Boolean Contains(String UserName){
+    public Boolean contains(String UserName){
         for(int i = 0; i < users.size(); i ++){
             if(UserName.compareTo(users.get(i).userName) == 0){
                 return true;

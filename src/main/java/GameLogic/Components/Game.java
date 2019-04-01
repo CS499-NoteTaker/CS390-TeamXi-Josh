@@ -126,7 +126,7 @@ public class Game implements java.io.Serializable {
                 //System.out.println("please enter a UserID");
                 //int userID = keyboard.nextInt();
                 User u = new User(userName);
-                if(uList.Contains(userName)){
+                if(uList.contains(userName)){
                     return null;
                 }
                 uList.addUser(u);
