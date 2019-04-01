@@ -89,7 +89,7 @@ public class GamePreparation {
     }
 
     public void NewGameOrWatchOldGame(){
-        System.out.println("Would you like to play a new game or look at a previous game? N(New)/P(Previous)");
+        System.out.println("Would you like to play a new game or play a current game? N(New)/P(in-Progress)");
         char flag = keyboard.nextLine().charAt(0);
         if (flag == 'N' || flag == 'n'){
             try{
