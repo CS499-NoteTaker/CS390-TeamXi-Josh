@@ -55,7 +55,7 @@ public class UserList implements Serializable {
         return false;
     }
 
-    public ArrayList<User> getUserList(){
+    public ArrayList<User> getUsers(){
         return users;
     }
 
