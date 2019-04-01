@@ -11,9 +11,6 @@ public class Game implements java.io.Serializable {
     static User User1, User2;
     Scanner keyboard = new Scanner(System.in);
     private boolean play = true, menu = true;
-    String createUser, userName;
-    char userCreation;
-    UserList uList = new UserList();
     int x, y, userInterface;
 
     public Game(User PlayerOne, User PlayerTwo) {

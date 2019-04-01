@@ -3,13 +3,13 @@ import java.io.Serializable;
 import java.util.*;
 
 public class UserList implements Serializable {
-    ArrayList<User> users = new ArrayList<>();
+    static ArrayList<User> users = new ArrayList<>();
 
     /**
      * Adds the new user to the list of all users
      * @param user the username that the user chose
      */
-    public void addUser(User user){
+    public static void addUser(User user){
         users.add(user);
     }
     public ArrayList<User> printUsers(){
@@ -25,6 +25,11 @@ public class UserList implements Serializable {
         return null;
     }
 
+    /**
+     * Finds a User
+     * @param TheUser
+     * @return
+     */
     public User findUser(String TheUser) {
         for(int i = 0; i < users.size(); i++) {
             if(TheUser.compareTo(users.get(i).userName) == 0) {
@@ -36,6 +41,11 @@ public class UserList implements Serializable {
         return null;
     }
 
+    /**
+     * Checks if the users list has a User by the given username.
+     * @param UserName - String username of the user it is looking for
+     * @return - true if the userlist contains the user by the given username
+     */
     public Boolean contains(String UserName){
         for(int i = 0; i < users.size(); i ++){
             if(UserName.compareTo(users.get(i).userName) == 0){
@@ -50,7 +60,7 @@ public class UserList implements Serializable {
     }
 
 
-    public int GetSize(){
+    public int getSize(){
         return users.size();
     }
 
@@ -58,18 +68,8 @@ public class UserList implements Serializable {
 
     Stubs for potential methods needed for later.
 
-    public User[] getOnlineUsers(){
-        return (User[])users.toArray();
-    }
-
     private void updateUserStatus(){
 
-    }*/
-
-    /*
-    public User[] getLeaderboard(){
-        User[] leaderboard = Leaderboard.getLeaderboard();
-        return leaderboard;
     }*/
 
     //SPENCER'S PERSISTENCE TEST METHOD
