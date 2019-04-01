@@ -59,14 +59,14 @@ public class GamePreperation {
 
                 System.out.println("Please enter your UserName:");
                 String ReturnUser = keyboard.nextLine();
-                setUserOne(uList.FindUser(ReturnUser));
-                return uList.FindUser(ReturnUser);
+                setUserOne(uList.findUser(ReturnUser));
+                return uList.findUser(ReturnUser);
             }else{
                 //create a user
                 System.out.println("Please enter a new UserName: ");
                 String NewUserName = keyboard.nextLine();
                 User u = new User(NewUserName);
-                if(uList.Contains(NewUserName)){
+                if(uList.contains(NewUserName)){
                     return null;
                 }
                 uList.addUser(u);
@@ -110,8 +110,8 @@ public class GamePreperation {
                 in.close();
                 file.close();
                 Game g = new Game(UserOne, UserTwo);
-                uList.FindUser(UserOne.userNametoString()).addGame(g);
-                uList.FindUser(UserTwo.userNametoString()).addGame(g);
+                uList.findUser(UserOne.userNametoString()).addGame(g);
+                uList.findUser(UserTwo.userNametoString()).addGame(g);
                 g.assignPlayers(UserOne, UserTwo);
 
                 System.out.println("GAMEPREP: U1Games: " + UserOne.getCurrentGames());
