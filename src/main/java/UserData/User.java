@@ -1,14 +1,29 @@
 package UserData;
 
+import GameLogic.Components.Game;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class User implements java.io.Serializable {
+
+
+    String userName;
+    int win, loss, userID;
+
+    static ArrayList<Game> CurrentGames = new ArrayList<>();
+    //ArrayList<Game> PreviousGames = new ArrayList<>();
+
+
+
     /*
     * Stories associated with the User class:
     * 1. As a player, I want to be able to create a user so that I can play games.
       2. As a player, I want to be able to create a new game (or several) by specifying the users involved so that I
         can begin playing by joining the game.
     */
-    String userName;
-    int win, loss, userID;
+
     /**
      * User object
      * @param user the username of the user
@@ -18,6 +33,13 @@ public class User implements java.io.Serializable {
         win = 0;
         loss = 0;
         //userID = ID;
+    }
+    public void addGame(Game NewGame){
+        this.CurrentGames.add(NewGame);
+    }
+
+    public Game getGameAtindex(int i){
+        return this.CurrentGames.get(i);
     }
 
     public void addWin(){
@@ -42,6 +64,7 @@ public class User implements java.io.Serializable {
     public String toString(){
         return "Username:" + this.userName + "";
     }
+    public String userNametoString() {return this.userName;}
 
     public boolean UsernameEquals(String otherUserName){
         if(this.userName.equals(otherUserName)){
@@ -50,6 +73,12 @@ public class User implements java.io.Serializable {
         else
             return false;
     }
+
+    public String getCurrentGames(){
+        return this.CurrentGames.toString();
+    }
+
+
 
 
 
