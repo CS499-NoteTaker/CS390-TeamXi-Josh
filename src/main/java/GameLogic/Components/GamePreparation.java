@@ -114,9 +114,6 @@ public class GamePreparation {
                 uList.findUser(UserTwo.userNametoString()).addGame(g);
                 g.assignPlayers(UserOne, UserTwo);
 
-                System.out.println("GAMEPREP: U1Games: " + UserOne.getCurrentGames());
-
-
                 //Serialization
                 //Saving object to file
                 FileOutputStream fileout = new FileOutputStream(filename);

@@ -29,7 +29,6 @@ public class Game implements java.io.Serializable {
     public void play() {
 
         Board gameBoard = new Board();
-        System.out.println("Welcome to Connect Six!");
         System.out.println("\n");
 
         while (play) {
