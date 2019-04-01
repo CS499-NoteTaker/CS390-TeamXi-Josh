@@ -1,6 +1,5 @@
 package GameLogic.Components;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 //Initializes and stores all the gameboard Points in a 2-D array.
@@ -182,7 +181,7 @@ public class Board {
      */
     private boolean checkAggregatePointArrayListForWins(ArrayList<Point[]> aggregateArrayList){
         for(int i = 0; i < aggregateArrayList.size(); i++){
-            if(checkSixInARow(aggregateArrayList.get(i))){ return true; }
+            if(checkForSixInARow(aggregateArrayList.get(i))){ return true; }
         }
         return false;
     }
@@ -192,7 +191,7 @@ public class Board {
      * @param points An ordered array of Point objects
      * @return true if there is a run of 5
      */
-    private boolean checkSixInARow(Point[] points){
+    private boolean checkForSixInARow(Point[] points){
         int counter = 1;
         for(int i = 1; i < points.length; i++) {
             try {
