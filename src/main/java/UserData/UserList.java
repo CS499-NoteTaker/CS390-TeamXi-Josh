@@ -25,9 +25,7 @@ public class UserList implements Serializable {
         return null;
     }
 
-    //Spenser's Persistence test method
-    //Returns a User
-    public User FindUser(String TheUser) {
+    public User findUser(String TheUser) {
         for(int i = 0; i < users.size(); i++) {
             if(TheUser.compareTo(users.get(i).userName) == 0) {
                 User user = users.get(i);
@@ -69,5 +67,17 @@ public class UserList implements Serializable {
         User[] leaderboard = Leaderboard.getLeaderboard();
         return leaderboard;
     }*/
+
+    //SPENCER'S PERSISTENCE TEST METHOD
+    //    public User FindUser(String TheUser) {
+//        for(int i = 0; i < users.size(); i++) {
+//            if(TheUser.compareTo(users.get(i).userName) == 0) {
+//                User user = users.get(i);
+//                int TheUserInt = users.indexOf(user);
+//                return users.get(TheUserInt);
+//            }
+//        }
+//        return null;
+//    }
 
 }

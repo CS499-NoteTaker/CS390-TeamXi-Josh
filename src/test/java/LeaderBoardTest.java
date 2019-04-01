@@ -18,10 +18,14 @@ public class LeaderBoardTest {
         chad.addWin();
         chad.addWin();
         chad.addLoss();
+        UserList userList = new UserList();
+        UserList.addUser(chad);
+        UserList.addUser(joe);
+        UserList.addUser(adam);
     }
 
-//    @Test
-//    public void testLeaderBoard(){
-//
-//    }
+    @Test
+    public void testLeaderBoard(){
+        Assert.assertEquals(true, true);
+    }
 }
