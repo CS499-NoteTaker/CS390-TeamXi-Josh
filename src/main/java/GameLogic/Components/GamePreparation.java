@@ -6,14 +6,14 @@ import UserData.UserList;
 import java.io.*;
 import java.util.Scanner;
 
-public class GamePreperation {
+public class GamePreparation {
     User UserOne,UserTwo;
     Scanner keyboard = new Scanner(System.in);
     char userCreation;
     UserList uList = new UserList();
 
 
-    public GamePreperation(){
+    public GamePreparation(){
 
     }
 
@@ -57,16 +57,16 @@ public class GamePreperation {
 
                 System.out.println(uList.printUsers().toString());
 
-                System.out.println("Please enter your UserName:");
+                System.out.println("Please enter your Username:");
                 String ReturnUser = keyboard.nextLine();
-                setUserOne(uList.FindUser(ReturnUser));
-                return uList.FindUser(ReturnUser);
+                setUserOne(uList.findUser(ReturnUser));
+                return uList.findUser(ReturnUser);
             }else{
                 //create a user
-                System.out.println("Please enter a new UserName: ");
+                System.out.println("Please enter a new Username: ");
                 String NewUserName = keyboard.nextLine();
                 User u = new User(NewUserName);
-                if(uList.Contains(NewUserName)){
+                if(uList.contains(NewUserName)){
                     return null;
                 }
                 uList.addUser(u);
@@ -96,7 +96,7 @@ public class GamePreperation {
                 System.out.println("Player Two: ");
                 User two = findExistingUserOrCreateNewUser();
                 while(two == null){
-                    System.out.println("Could not find your UserName, please try again.");
+                    System.out.println("Could not find your Username, please try again.");
                     two = findExistingUserOrCreateNewUser();
                 }
                 setUserTwo(two);
@@ -110,8 +110,8 @@ public class GamePreperation {
                 in.close();
                 file.close();
                 Game g = new Game(UserOne, UserTwo);
-                uList.FindUser(UserOne.userNametoString()).addGame(g);
-                uList.FindUser(UserTwo.userNametoString()).addGame(g);
+                uList.findUser(UserOne.userNametoString()).addGame(g);
+                uList.findUser(UserTwo.userNametoString()).addGame(g);
                 g.assignPlayers(UserOne, UserTwo);
 
                 System.out.println("GAMEPREP: U1Games: " + UserOne.getCurrentGames());
