@@ -1,4 +1,4 @@
-import GameLogic.Components.Point;
+import GameLogic.Point;
 import UserData.User;
 import UserData.UserList;
 import org.junit.Assert;

@@ -1,6 +1,6 @@
 package UserData;
 
-import GameLogic.Components.Game;
+import GameLogic.Game;
 
 import java.io.*;
 import java.util.ArrayList;

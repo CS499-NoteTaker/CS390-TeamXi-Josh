@@ -1,7 +1,6 @@
-import GameLogic.Components.Piece;
+import GameLogic.*;
 import org.junit.*;
-import GameLogic.Components.Board;
-import GameLogic.Components.Point;
+
 
 
 public class BoardTest {

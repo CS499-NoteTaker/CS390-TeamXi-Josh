@@ -24,7 +24,6 @@ public class Game implements java.io.Serializable {
     }
 
     public void play() {
-
         Board gameBoard = new Board();
         System.out.println("\n");
 
@@ -81,14 +80,3 @@ public class Game implements java.io.Serializable {
         System.out.println("Congratulations " + u.userNametoString() + ", You won the game!\n");
     }
 }
-
-  /*
-        Point chosenPiece = gameBoard.getPointAtLocation(2, 2);
-        System.out.println(chosenPiece.getPiece());
-        chosenPiece.setPiece(Piece.B);
-        System.out.println(chosenPiece.getPiece());
-        gameBoard.setPointAtLocation(2, 2, chosenPiece.getPiece());
-        chosenPiece = gameBoard.getPointAtLocation(5, 5);
-        chosenPiece.setPiece(Piece.W);
-        gameBoard.setPointAtLocation(5, 5, chosenPiece.getPiece());
-        gameBoard.printBoard();*/
