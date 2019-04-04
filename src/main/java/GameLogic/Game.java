@@ -1,4 +1,4 @@
-package GameLogic.Components;
+package GameLogic;
 import UserData.*;
 import java.util.*;
 import java.io.*;

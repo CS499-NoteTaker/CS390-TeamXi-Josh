@@ -1,5 +1,5 @@
-package GameLogic.Components;
-import java.util.*;
+package GameLogic;
+
 import UserData.User;
 import UserData.UserList;
 

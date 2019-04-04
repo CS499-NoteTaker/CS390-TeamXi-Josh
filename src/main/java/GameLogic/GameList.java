@@ -1,4 +1,4 @@
-package GameLogic.Components;
+package GameLogic;
 
 import java.io.Serializable;
 import java.util.ArrayList;
