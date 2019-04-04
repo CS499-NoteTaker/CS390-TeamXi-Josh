@@ -47,7 +47,7 @@ public class Game implements java.io.Serializable {
             gameBoard.setPointAtLocation(y, x, chosenPiece.getPiece());
             System.out.println("\n");
             gameBoard.printBoard();
-            if (gameBoard.checkWinCondition() == true) {
+            if (gameBoard.checkWinCondition()) {
                 endGame(User1);
                 return;
             }
@@ -70,7 +70,7 @@ public class Game implements java.io.Serializable {
             gameBoard.setPointAtLocation(y, x, chosenPiece.getPiece());
             System.out.println("\n");
 
-            if (gameBoard.checkWinCondition() == true) {
+            if (gameBoard.checkWinCondition()) {
                 endGame(User2);
                 return;
             }
@@ -81,14 +81,3 @@ public class Game implements java.io.Serializable {
         System.out.println("Congratulations " + u.userNametoString() + ", You won the game!\n");
     }
 }
-
-  /*
-        Point chosenPiece = gameBoard.getPointAtLocation(2, 2);
-        System.out.println(chosenPiece.getPiece());
-        chosenPiece.setPiece(Piece.B);
-        System.out.println(chosenPiece.getPiece());
-        gameBoard.setPointAtLocation(2, 2, chosenPiece.getPiece());
-        chosenPiece = gameBoard.getPointAtLocation(5, 5);
-        chosenPiece.setPiece(Piece.W);
-        gameBoard.setPointAtLocation(5, 5, chosenPiece.getPiece());
-        gameBoard.printBoard();*/
