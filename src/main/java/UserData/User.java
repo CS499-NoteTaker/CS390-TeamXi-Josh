@@ -1,10 +1,8 @@
 package UserData;
 
-import GameLogic.Components.Game;
+import GameLogic.Game;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class User implements java.io.Serializable {
 
