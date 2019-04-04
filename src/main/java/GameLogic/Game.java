@@ -1,7 +1,6 @@
 package GameLogic;
 import UserData.*;
 import java.util.*;
-import java.io.*;
 
 //TODO: Implement the ability to choose a user from a list,
 //TODO: Implement the win condition, set play to false when the game is complete
@@ -78,6 +77,6 @@ public class Game implements java.io.Serializable {
     }
 
     private void endGame(User u) {
-        System.out.println("Congratulations " + u.userNametoString() + ", You won the game!\n");
+        System.out.println("Congratulations " + u.usernameToString() + ", You won the game!\n");
     }
 }

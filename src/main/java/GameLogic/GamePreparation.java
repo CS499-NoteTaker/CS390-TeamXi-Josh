@@ -110,8 +110,8 @@ public class GamePreparation {
                 in.close();
                 file.close();
                 Game g = new Game(UserOne, UserTwo);
-                uList.findUser(UserOne.userNametoString()).addGame(g);
-                uList.findUser(UserTwo.userNametoString()).addGame(g);
+                uList.findUser(UserOne.usernameToString()).addGame(g);
+                uList.findUser(UserTwo.usernameToString()).addGame(g);
                 g.assignPlayers(UserOne, UserTwo);
 
                 //Serialization

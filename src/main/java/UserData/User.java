@@ -62,7 +62,7 @@ public class User implements java.io.Serializable {
     public String toString(){
         return "Username:" + this.userName + "";
     }
-    public String userNametoString() {return this.userName;}
+    public String usernameToString() {return this.userName;}
 
     public boolean UsernameEquals(String otherUserName){
         if(this.userName.equals(otherUserName)){
