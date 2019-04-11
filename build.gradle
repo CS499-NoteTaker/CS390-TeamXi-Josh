@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClassName = "GameLogic.Components.Main"
+    mainClassName = "GameLogic.Main"
 }
 
 dependencies {
