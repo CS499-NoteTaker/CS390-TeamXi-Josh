@@ -7,36 +7,56 @@ import java.io.*;
 import java.util.Scanner;
 
 public class GamePreparation {
+
     User UserOne,UserTwo;
     Scanner keyboard = new Scanner(System.in);
     char userCreation;
     UserList uList = new UserList();
 
-
+    /**
+     * Method that will be run before each game is created.
+     */
     public GamePreparation(){
 
     }
 
-    public void PrepareGame(){
-        findExistingUserOrCreateNewUser();
-    }
-
+    /**
+     * Returns the first of two users attached to a game.
+     * @return The User assigned to UserOne
+     */
     public User getUserOne(){
         return UserOne;
     }
 
+    /**
+     * Returns the second of two users attached to a game.
+     * @return The User assigned to UserOne
+     */
     public User getUserTwo(){
         return UserTwo;
     }
 
+    /**
+     * Assigns the first of two Users of a game.
+     * @param USERONE
+     */
     public void setUserOne(User USERONE){
         UserOne = USERONE;
     }
+
+    /**
+     * Assigns the second of two Users of a game.
+     * @param USERTWO
+     */
     public void setUserTwo(User USERTWO){
         UserTwo = USERTWO;
     }
 
-    //Username = The second user in game
+    /**
+     * Finds a User if it is in the current User list or creates a new user and add
+     * it to the current user list.
+     * @return The new of old User
+     */
     public User findExistingUserOrCreateNewUser(){
             System.out.println("Have you played before? Y/N");
             String createUser = keyboard.nextLine();
@@ -64,6 +84,9 @@ public class GamePreparation {
             }
     }
 
+    /**
+     * Method that sets up new games or allows User to select an old game (replay)
+     */
     public void NewGameOrWatchOldGame(){
         System.out.println("Would you like to play a new game or play a current game? N(New)/P(in-Progress)");
         char flag = keyboard.nextLine().charAt(0);

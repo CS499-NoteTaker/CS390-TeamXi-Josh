@@ -9,6 +9,11 @@ public class GameList implements Serializable {
     public GameList(){
 
     }
+
+    /**
+     * Adds the given game into the List of games
+     * @param g Game to add
+     */
     public void addGameToList(Game g){
         Games.add(g);
     }

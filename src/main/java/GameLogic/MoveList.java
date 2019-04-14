@@ -7,7 +7,9 @@ public class MoveList {
     private ArrayList<Move> moves; // Array List of moves
 
 
-    // Constructor
+    /**
+     *Base Constructor for creating a moveList
+     */
     public MoveList (){
         moves = new ArrayList<Move>();
     }
@@ -27,7 +29,10 @@ public class MoveList {
         moves.clear();
     }
 
-
+    /**
+     * Returns the String representation of the move List
+     * @return String
+     */
     @Override
     public String toString() {
         if( moves.isEmpty() )

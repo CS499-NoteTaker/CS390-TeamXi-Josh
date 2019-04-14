@@ -9,19 +9,33 @@ import java.util.*;
 public class Game implements java.io.Serializable {
     static User User1, User2;
     Scanner keyboard = new Scanner(System.in);
-    private boolean play = true, menu = true;
-    int x, y, userInterface;
+    private boolean play = true;
+    int x, y;
 
+    /**
+     * Constructor for creating a game given the two Users that will
+     * participate in the game.
+     * @param PlayerOne The First User
+     * @param PlayerTwo The Second User
+     */
     public Game(User PlayerOne, User PlayerTwo) {
         this.User1 = PlayerOne;
         this.User2 = PlayerTwo;
     }
 
+    /**
+     * Assigns two Users to a given game
+     * @param FirstPlayer The First User
+     * @param Secondplayer The Second User
+     */
     public void assignPlayers(User FirstPlayer, User Secondplayer) {
         this.User1 = FirstPlayer;
         this.User2 = Secondplayer;
     }
 
+    /**
+     * Begins the game logic and continues up to the end
+     */
     public void play() {
         Board gameBoard = new Board();
         System.out.println("\n");
@@ -75,6 +89,10 @@ public class Game implements java.io.Serializable {
         }
     }
 
+    /**
+     * Ends the current game and prints the winning line
+     * @param u The winner of the game
+     */
     private void endGame(User u) {
         System.out.println("Congratulations " + u.usernameToString() + ", You won the game!\n");
     }

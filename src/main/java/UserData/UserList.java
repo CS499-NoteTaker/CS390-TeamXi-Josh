@@ -16,6 +16,10 @@ public class UserList implements Serializable {
         return users;
     }
 
+    /**
+     * returns the first User in the users List
+     * @return The first User
+     */
     public String toString(){
         for(int i = 0; i < users.size(); i++){
             String user = users.get(i).userName;
@@ -55,33 +59,28 @@ public class UserList implements Serializable {
         return false;
     }
 
+    /**
+     * Returns the entire users list
+     * @return A List of Users in the users list
+     */
     public ArrayList<User> getUsers(){
         return users;
     }
 
 
+    /**
+     * Returns the size of the users size
+     * @return users size
+     */
     public int getSize(){
         return users.size();
     }
 
     /*
-
     Stubs for potential methods needed for later.
 
     private void updateUserStatus(){
 
     }*/
-
-    //SPENCER'S PERSISTENCE TEST METHOD
-    //    public User FindUser(String TheUser) {
-//        for(int i = 0; i < users.size(); i++) {
-//            if(TheUser.compareTo(users.get(i).userName) == 0) {
-//                User user = users.get(i);
-//                int TheUserInt = users.indexOf(user);
-//                return users.get(TheUserInt);
-//            }
-//        }
-//        return null;
-//    }
 
 }

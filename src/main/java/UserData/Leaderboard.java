@@ -38,7 +38,7 @@ import java.util.*;
         public String toString(){
             String output = "";
             for(int i = 0; i < leaderboard.size(); i++){
-                output += "\n" + leaderboard.get(i).toString() + " W/L Ratio: " + leaderboard.get(i).getWinLossRatio();
+                output += "\n" + leaderboard.get(i).getUserName() + " W/L Ratio: " + leaderboard.get(i).getWinLossRatio();
             }
             return output;
         }
