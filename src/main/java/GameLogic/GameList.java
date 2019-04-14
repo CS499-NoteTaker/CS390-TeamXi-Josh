@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class GameList implements Serializable {
+    //The List of all Games
     ArrayList<Game> Games = new ArrayList<>();
 
     public GameList(){

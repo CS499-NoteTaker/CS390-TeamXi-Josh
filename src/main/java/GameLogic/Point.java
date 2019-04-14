@@ -1,7 +1,9 @@
 package GameLogic;
 
 public class Point {
+    //Variables used to set pieces
     private int x, y;
+    //Boolean used to tell if a piece is in a particular spot
     private boolean occupied;
     //the point should never be larger than the size of the board which is 19x19
     private final int boardSize = 19;

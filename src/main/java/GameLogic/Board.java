@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 //Initializes and stores all the gameboard Points in a 2-D array.
 public class Board {
+    //Int to know how large the board is
     private int boardSize = 19;
+    //The array that stores every point and piece
     private Point[][] board;
 
     /**

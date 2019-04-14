@@ -8,9 +8,13 @@ import java.util.Scanner;
 
 public class GamePreparation {
 
+    //The two Users needed for each game
     User UserOne,UserTwo;
+    //Scanner for keyboard input
     Scanner keyboard = new Scanner(System.in);
+    //Character Used for determining what the User inputs
     char userCreation;
+    //The list of all Users
     UserList uList = new UserList();
 
     /**

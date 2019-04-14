@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.*;
 
 public class UserList implements Serializable {
+    //An array that stores all the unique users
     static ArrayList<User> users = new ArrayList<>();
 
     /**

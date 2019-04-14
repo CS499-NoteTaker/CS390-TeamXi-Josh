@@ -7,9 +7,13 @@ import java.util.*;
 //TODO: Add a win and loss to the correct users
 
 public class Game implements java.io.Serializable {
+    //The two Users Needed for each game
     static User User1, User2;
+    //Scanner for keyboard input
     Scanner keyboard = new Scanner(System.in);
+    //Used to know if the game is still in progress
     private boolean play = true;
+    //Ints used for placing a piece at a specific location
     int x, y;
 
     /**

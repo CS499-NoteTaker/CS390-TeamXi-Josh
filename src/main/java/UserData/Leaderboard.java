@@ -1,16 +1,31 @@
 package UserData;
 import java.util.*;
     public class Leaderboard {
+        //Array used to Sort the leaderboard object
         private ArrayList<User> leaderboard;
 
+        /**
+         * Constructor for the leaderboaroard
+         * @param users The Users that are apart of the leaderboard
+         */
         public Leaderboard(ArrayList<User> users){
             leaderboard = sortUsersByWinLossRatioHighestToLowest(users);
         }
 
+        /**
+         * Returns the leaderboard object
+         * @return the leaderboard
+         */
         public ArrayList<User> getLeaderboard(){
             return leaderboard;
         }
 
+
+        /**
+         * Sorts the Users By their win/loss ration with the Highest being at the top
+         * @param users The Users of the Leader board
+         * @return The List of users on the Leader board
+         */
         private ArrayList<User> sortUsersByWinLossRatioHighestToLowest(ArrayList<User> users){
             ArrayList<User> usersSorted = new ArrayList<User>();
             for(int i = 0; i < users.size(); i++){
@@ -35,6 +50,10 @@ import java.util.*;
             return usersSorted;
         }
 
+        /**
+         * Outputs the string representation of the Leader board
+         * @return The Leader board
+         */
         public String toString(){
             String output = "";
             for(int i = 0; i < leaderboard.size(); i++){

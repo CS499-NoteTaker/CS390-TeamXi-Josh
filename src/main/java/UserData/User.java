@@ -5,10 +5,10 @@ import GameLogic.Game;
 import java.util.ArrayList;
 
 public class User implements java.io.Serializable {
-
-
+    //The Name that the users will give their account
     String userName;
-    int win, loss, userID;
+    //Attributes to keep each users wins and losses
+    int win, loss;
 
     static ArrayList<Game> CurrentGames = new ArrayList<>();
     //ArrayList<Game> PreviousGames = new ArrayList<>();
