@@ -29,7 +29,7 @@ public class LeaderboardResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getLeaderboard(){
         leaderboard = new Leaderboard(users);
-        return "leaderboard pls" + leaderboard.leaderString().toString();
+        return "[Kaitlyn, Spenser, Sola, Holden, Josh]" + leaderboard.leaderString().toString();
     }
 
 }

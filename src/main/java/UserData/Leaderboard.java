@@ -58,7 +58,7 @@ import java.util.*;
         public StringBuilder leaderString(){
             StringBuilder build = new StringBuilder();
             for(int i = 0; i < leaderboard.size(); i++){
-                build.append("\n" + leaderboard.get(i).getUserName());/*+ " W/L Ratio: " + leaderboard.get(i).getWinLossRatio())*/
+                build.append("\n" + leaderboard.get(i).getUserName());
             }
             return build;
         }

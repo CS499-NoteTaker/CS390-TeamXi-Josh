@@ -84,7 +84,7 @@ public class ResourceTests {
                 .request()
                 .get(String.class);
 
-        Assert.assertEquals("leaderboard pls" ,response);
+        Assert.assertEquals("[Kaitlyn, Spenser, Sola, Holden, Josh]",response);
     }
 
     //TODO: Need to fix this test

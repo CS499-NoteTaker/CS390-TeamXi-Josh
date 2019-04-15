@@ -89,7 +89,7 @@ public class User implements java.io.Serializable {
      * @return String
      */
     public String getUserName(){
-        return "Username:" + this.userName + "";
+        return this.userName;
     }
 
     /**
