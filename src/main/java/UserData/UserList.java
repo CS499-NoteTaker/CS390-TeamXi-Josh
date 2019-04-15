@@ -6,6 +6,18 @@ public class UserList{
     //An array that stores all the unique users
     static ArrayList<User> users = new ArrayList<>();
 
+
+    /**
+     * Returns the arrayList of all Users
+     * @return ArrayList
+     */
+    public static ArrayList<User> getAllUsers(){
+        return users;
+    }
+
+
+
+
     /**
      * Adds the new user to the list of all users
      * @param user the username that the user chose
