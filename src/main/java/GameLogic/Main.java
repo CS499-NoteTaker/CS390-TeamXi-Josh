@@ -29,7 +29,6 @@ public class Main {
                 //create a new game (or choose from a list)?
                 System.out.println("Player One: ");
                 GamePreparation H = new GamePreparation();
-                //H.PrepareGame();
                 User one = H.findExistingUserOrCreateNewUser();
                 while(one == null) {
                     System.out.println("Could not find your Username, please try again.");
