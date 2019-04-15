@@ -13,7 +13,7 @@ import java.util.*;
 @Singleton
 @Path("leaderboard")
 public class LeaderboardResource {
-    private UserList users = new UserList();
+    public UserList users = new UserList();
     private Leaderboard leaderboard;
 
     public LeaderboardResource(){

@@ -52,7 +52,13 @@ public class MenuResource {
             H.NewGameOrWatchOldGame();
 
         } else if(input == 2){
-            Leaderboard newleaderboard = new Leaderboard(UserList.getAllUsers());
+            UserList users = new UserList();
+            users.addUser(new User("Kaitlyn"));
+            users.addUser(new User("Spenser"));
+            users.addUser(new User("Sola"));
+            users.addUser(new User("Holden"));
+            users.addUser(new User("Josh"));
+            Leaderboard newleaderboard = new Leaderboard(users);
             System.out.print("LeaderBoard!\n");
             System.out.println(newleaderboard.toString());
         } else if(input == 3) {
