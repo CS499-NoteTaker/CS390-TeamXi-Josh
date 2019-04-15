@@ -5,7 +5,6 @@ import UserData.Leaderboard;
 import UserData.User;
 import UserData.UserList;
 import com.google.gson.Gson;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

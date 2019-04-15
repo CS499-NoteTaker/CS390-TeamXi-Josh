@@ -7,6 +7,10 @@ public class UserList implements Serializable {
     static ArrayList<User> users = new ArrayList<>();
 
 
+    /**
+     * Returns the arrayList of all Users
+     * @return ArrayList
+     */
     public static ArrayList<User> getAllUsers(){
         return users;
     }
