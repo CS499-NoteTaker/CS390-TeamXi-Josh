@@ -7,13 +7,11 @@ import UserData.UserList;
 import com.google.gson.Gson;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 
 @Path("menu")
 public class MenuResource {
 
     @GET
-    @Produces (MediaType.TEXT_PLAIN)
     public String getStartMenu(){
         StringBuilder output = new StringBuilder();
         output.append("Welcome to Connect Six!");
@@ -28,22 +26,21 @@ public class MenuResource {
 
 
     @GET
-    @Path("id")
-    public void secondaryMenu(@PathParam("id") String inputNumber){
-        int id = -1;
+    @Path("input")
+    public void secondaryMenu(@PathParam("input") String inputNumber){
+        int input = -1;
         try {
-            id = Integer.parseInt(inputNumber);
+            input = Integer.parseInt(inputNumber);
         }
         catch(NumberFormatException e){
             throw new WebApplicationException(404);
         }
 
-        if(id != 1 || id != 2 || id != 3){
+        if(input != 1 || input != 2 || input != 3){
             throw new WebApplicationException(404);
         }
 
-        if(id == 1){
-            StringBuilder text = new StringBuilder();
+        if(input == 1){
             //create a new game (or choose from a list)?
             System.out.println("Player One: ");
             GamePreparation H = new GamePreparation();
@@ -54,11 +51,11 @@ public class MenuResource {
             }
             H.NewGameOrWatchOldGame();
 
-        } else if(id == 2){
+        } else if(input == 2){
             Leaderboard newleaderboard = new Leaderboard(UserList.getAllUsers());
             System.out.print("LeaderBoard!\n");
             System.out.println(newleaderboard.toString());
-        } else if(id == 3) {
+        } else if(input == 3) {
             System.out.println("Game history!\n");
         }
     }

@@ -15,6 +15,8 @@ public class Game implements java.io.Serializable {
     private boolean play = true;
     //Ints used for placing a piece at a specific location
     int x, y;
+    //Board used for storing every point
+     public Board gameBoard = new Board();
 
     /**
      * Constructor for creating a game given the two Users that will
@@ -41,7 +43,6 @@ public class Game implements java.io.Serializable {
      * Begins the game logic and continues up to the end
      */
     public void play() {
-        Board gameBoard = new Board();
         System.out.println("\n");
 
         while (play) {
