@@ -2,7 +2,7 @@ package UserData;
 import java.io.Serializable;
 import java.util.*;
 
-public class UserList implements Serializable {
+public class UserList{
     //An array that stores all the unique users
     static ArrayList<User> users = new ArrayList<>();
 
@@ -75,6 +75,10 @@ public class UserList implements Serializable {
      */
     public int getSize(){
         return users.size();
+    }
+
+    public User getUser(int i){
+        return users.get(i);
     }
 
     /*

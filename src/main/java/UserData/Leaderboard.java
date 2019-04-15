@@ -8,7 +8,7 @@ import java.util.*;
          * Constructor for the leaderboaroard
          * @param users The Users that are apart of the leaderboard
          */
-        public Leaderboard(ArrayList<User> users){
+        public Leaderboard(UserList users){
             leaderboard = sortUsersByWinLossRatioHighestToLowest(users);
         }
 
@@ -26,10 +26,10 @@ import java.util.*;
          * @param users The Users of the Leader board
          * @return The List of users on the Leader board
          */
-        private ArrayList<User> sortUsersByWinLossRatioHighestToLowest(ArrayList<User> users){
+        private ArrayList<User> sortUsersByWinLossRatioHighestToLowest(UserList users){
             ArrayList<User> usersSorted = new ArrayList<User>();
-            for(int i = 0; i < users.size(); i++){
-                usersSorted = putUserInRightPlace(users.get(i), usersSorted);
+            for(int i = 0; i < users.getSize(); i++){
+                usersSorted = putUserInRightPlace(users.getUser(i), usersSorted);
             }
             return usersSorted;
         }
@@ -53,13 +53,14 @@ import java.util.*;
         /**
          * Outputs the string representation of the Leader board
          * @return The Leader board
-         */
-        public String toString(){
-            String output = "";
+
+        */
+        public StringBuilder leaderString(){
+            StringBuilder build = new StringBuilder();
             for(int i = 0; i < leaderboard.size(); i++){
-                output += "\n" + leaderboard.get(i).getUserName() + " W/L Ratio: " + leaderboard.get(i).getWinLossRatio();
+                build.append("\n" + leaderboard.get(i).getUserName());/*+ " W/L Ratio: " + leaderboard.get(i).getWinLossRatio())*/
             }
-            return output;
+            return build;
         }
     }
 
