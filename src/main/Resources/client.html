@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connect Six Game</title>
+    <style>
+        #board-canvas{
+            border: 1px solid black;
+            width: 400px;
+            height:400px;
+            margin: 10px auto;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .topnav a{
+            display:inline-block;
+            float: none;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+<h1 style ="text-align:center"> Connect Six Game</h1>
+<div style="text-align: center">
+<div class ="topnav">
+    <a href = "#play"> Play</a>
+    <a href = "#create"> Create New Game</a>
+    <a href = "#review"> Review Previous Games </a>
+    <a href = "#leaderboard">Leaderboard</a>
+</div>
+</div>
+<div id = "board-canvas">
+<canvas width="400" height = "400"></canvas>
+</div>
+
+<script src="/client/client.js"></script>
+</body>
+</html>
