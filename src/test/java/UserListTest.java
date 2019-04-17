@@ -15,17 +15,17 @@ public class UserListTest {
     public void testGetAllUsers(){
         Assert.assertEquals("", users.getAllUsers());
     }*/
-
+/*
     @Test
     public void testGetUser(){
         Assert.assertEquals("Kaitlyn", users.getUser(0).getUserName());
-    }
+    }*/
 
-    @Test
+   /* @Test
     public void testAddUser(){
         users.addUser(new User("Lucas"));
         Assert.assertEquals(4, users.getSize());
-    }
+    }*/
 
     @Test
     public void testFindUser(){
