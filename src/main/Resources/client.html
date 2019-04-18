@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Connect Six Game</title>
+    <!--Title on the tab in the window -->
+    <title>Connect Six: Team Xi</title>
     <style>
-        #board-canvas{
+        #canvas-center{
             border: 1px solid black;
-            width: 400px;
-            height:400px;
+            width: 418px;
+            height:418px;
             margin: 10px auto;
         }
 
@@ -29,7 +30,10 @@
 </head>
 
 <body>
+<!-- Main Title of the Page -->
 <h1 style ="text-align:center"> Connect Six Game</h1>
+
+<!-- Nav bar items, alignment, and style -->
 <div style="text-align: center">
 <div class ="topnav">
     <a href = "#play"> Play Current Game</a>
@@ -38,10 +42,15 @@
     <a href = "#leaderboard">Leaderboard</a>
 </div>
 </div>
-<div id = "board-canvas">
-<canvas width="400" height = "400" id = "canvas-board"></canvas>
+
+<!--Canvas to draw the board onto-->
+<div id = "canvas-center">
+<canvas width="418" height = "418" id = "canvas-board"></canvas>
 </div>
 
+
+<!--load the javascript script for the client application-->
 <script src="/client/client.js"></script>
+
 </body>
 </html>
