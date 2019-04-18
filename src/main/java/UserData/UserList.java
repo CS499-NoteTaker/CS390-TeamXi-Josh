@@ -30,16 +30,15 @@ public class UserList{
     }
 
     /**
-     * returns the first User in the users List
-     * @return The first User
+     * returns All the usernames in string form
+     * @return the usernames
      */
     public String toString(){
-        for(int i = 0; i < users.size(); i++){
-            String user = users.get(i).userName;
-            return user;
+        StringBuilder build = new StringBuilder();
+        for (int i = 0; i < users.size(); i++) {
+            build.append(users.get(i).usernameToString());
         }
-
-        return null;
+        return build.toString();
     }
 
     /**

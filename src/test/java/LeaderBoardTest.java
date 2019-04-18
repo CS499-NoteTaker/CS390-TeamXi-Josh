@@ -6,8 +6,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LeaderBoardTest {
+import java.net.InetSocketAddress;
 
+public class LeaderBoardTest {
+    private Leaderboard leaderboard;
+//TODO: make leaderboard work
     @Before
     public void setUp(){
         User joe = new User("Joe");  //0.0
@@ -23,16 +26,15 @@ public class LeaderBoardTest {
         userList.addUser(chad);
         userList.addUser(joe);
         userList.addUser(adam);
+        System.out.println("UserlistSize:   "+userList.toString());
 
-        Leaderboard lead = new Leaderboard(userList);
-        String uList = lead.leaderString().toString();
-        System.out.println(uList);
-        System.out.println("k");
+        Leaderboard leaderboard = new Leaderboard(userList);
+        this.leaderboard = leaderboard;
     }
 
     @Test
-    public void testLeaderBoard()
+    public void testToString()
     {
-        Assert.assertEquals(true, true);
+        Assert.assertEquals(leaderboard.toString(), "");
     }
 }

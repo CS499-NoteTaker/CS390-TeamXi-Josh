@@ -2,6 +2,7 @@ package Server.Resources;
 
 import com.google.gson.Gson;
 import UserData.*;
+import com.google.gson.JsonObject;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -29,7 +30,10 @@ public class LeaderboardResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getLeaderboard(){
         leaderboard = new Leaderboard(users);
-        return "[Kaitlyn, Spenser, Sola, Holden, Josh]" + leaderboard.leaderString().toString();
+        Gson g = new Gson();
+        //return g.toJson(users);
+        return leaderboard.toString();
+        //return g.toJson(leaderboard.getLeaderboard());
     }
 
 }

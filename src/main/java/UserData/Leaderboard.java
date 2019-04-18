@@ -55,12 +55,13 @@ import java.util.*;
          * @return The Leader board
 
         */
-        public StringBuilder leaderString(){
+        public String toString(){
+            //TODO:Make this work
             StringBuilder build = new StringBuilder();
-            for(int i = 0; i < leaderboard.size(); i++){
-                build.append("\n" + leaderboard.get(i).getUserName());
+            for (int i = 0; i < leaderboard.size(); i++) {
+                build.append(leaderboard.get(i).usernameToString());
             }
-            return build;
+            return build.toString();
         }
     }
 
