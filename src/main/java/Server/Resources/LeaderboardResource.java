@@ -7,6 +7,7 @@ import com.google.gson.JsonObject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.io.InputStream;
 import java.util.*;
 
 //TODO: leaderboard does not print out the string, users should be added to this list elsewhere
@@ -14,6 +15,20 @@ import java.util.*;
 @Singleton
 @Path("leaderboard")
 public class LeaderboardResource {
+    @GET
+    public InputStream getClient() {return this.getClass().getResourceAsStream("/leaderboard.html");}
+
+    @GET
+    @Path("{file}")
+    @Produces("application/javascript")
+    public InputStream getClientJavascript(@PathParam("file") String fileName){
+        InputStream stream = this.getClass().getResourceAsStream("/" + fileName);
+        if(stream == null){
+            throw new WebApplicationException(404);
+        }
+        return stream;
+    }
+
     public UserList users = new UserList();
     private Leaderboard leaderboard;
 

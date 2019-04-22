@@ -53,7 +53,6 @@ import java.util.*;
         /**
          * Outputs the string representation of the Leader board
          * @return The Leader board
-
         */
         public String toString(){
             //TODO:Make this work
