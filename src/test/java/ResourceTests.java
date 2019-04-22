@@ -77,6 +77,7 @@ public class ResourceTests {
         Assert.assertEquals("",response);
     }
 
+    /*
     @Test
     public void testGETleaderboard(){
         String response = client.target(HOST_URI)
@@ -85,7 +86,7 @@ public class ResourceTests {
                 .get(String.class);
 
         Assert.assertEquals("[Kaitlyn, Spenser, Sola, Holden, Josh]",response);
-    }
+    }*/
 
     //TODO: Need to fix this test
     /*
