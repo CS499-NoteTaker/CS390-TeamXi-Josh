@@ -14,24 +14,22 @@ public class LeaderBoardTest {
     @Before
     public void setUp(){
         User joe = new User("Joe");  //0.0
-        joe.addLoss();
-        User adam = new User("Adam"); //1.0
-        adam.addLoss();
-        adam.addWin();
-        User chad = new User("Chad"); //2.0
-        chad.addWin();
-        chad.addWin();
-        chad.addLoss();
+//        joe.addLoss();
+//        User adam = new User("Adam"); //1.0
+//        adam.addLoss();
+//        adam.addWin();
+//        User chad = new User("Chad"); //2.0
+//        chad.addWin();
+//        chad.addWin();
+//        chad.addLoss();
         UserList userList = new UserList();
-        userList.addUser(chad);
+//        userList.addUser(chad);
         userList.addUser(joe);
-        userList.addUser(adam);
-        System.out.println("UserlistSize:   " + userList.toString());
+//        userList.addUser(adam);
+        System.out.println("UserList Contents:   " + userList.toString());
 
-        Leaderboard leaderboard = new Leaderboard(userList);
-        this.leaderboard = leaderboard;
-        System.out.println("leaderboard: " + leaderboard.toString());
-        System.out.println("sort: " + leaderboard.sortUsersByWinLossRatioHighestToLowest(userList))
+        this.leaderboard = new Leaderboard(userList);
+        //System.out.println("leaderboardAtIndexZero: " + leaderboard.getUsernameAtIndex(0));
 ;    }
 
     @Test

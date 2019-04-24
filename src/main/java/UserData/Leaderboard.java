@@ -29,9 +29,16 @@ import java.util.*;
         public ArrayList<User> sortUsersByWinLossRatioHighestToLowest(UserList users){
             ArrayList<User> usersSorted = new ArrayList<User>();
             for(int i = 0; i < users.getSize(); i++){
+                System.out.println("SORTING PROCESS: [" + i + "] " + users.getUser(i).getUserName());
                 usersSorted = putUserInRightPlace(users.getUser(i), usersSorted);
             }
             return usersSorted;
+        }
+
+
+        //METHOD FOR LEADERBOARD TESTING, DELETE ME LATER PLS <3
+        public String getUsernameAtIndex(int index){
+            return leaderboard.get(index).getUserName();
         }
 
         /**
@@ -42,7 +49,9 @@ import java.util.*;
             //TODO: Perhaps add a check method to see if the user is already in the usersSorted ArrayList?
             boolean userHasBeenInserted = false;
             for(int i = 0; i < usersSorted.size(); i++) {
+                System.out.println("Loop has been initiated!! " + user.getUserName());
                 if(!userHasBeenInserted && user.getWinLossRatio() >= usersSorted.get(i).getWinLossRatio()){
+                    System.out.println("USER HAS BEEN PLACED" + user.getUserName());
                     usersSorted.add(i, user);
                     userHasBeenInserted = true;
                 }
