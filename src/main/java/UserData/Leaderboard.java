@@ -35,25 +35,20 @@ import java.util.*;
             return usersSorted;
         }
 
-
-        //METHOD FOR LEADERBOARD TESTING, DELETE ME LATER PLS <3
-        public String getUsernameAtIndex(int index){
-            return leaderboard.get(index).getUserName();
-        }
-
         /**
          * Puts a single user in the right part of the "sorted" userList based on W/L ratio
          * @return The ArrayList, with the user added to it
          */
         private ArrayList<User> putUserInRightPlace(User user, ArrayList<User> usersSorted){
             //TODO: Perhaps add a check method to see if the user is already in the usersSorted ArrayList?
-            boolean userHasBeenInserted = false;
-            for(int i = 0; i < usersSorted.size(); i++) {
-                System.out.println("Loop has been initiated!! " + user.getUserName());
-                if(!userHasBeenInserted && user.getWinLossRatio() >= usersSorted.get(i).getWinLossRatio()){
-                    System.out.println("USER HAS BEEN PLACED" + user.getUserName());
-                    usersSorted.add(i, user);
-                    userHasBeenInserted = true;
+            if(usersSorted.size() == 0){
+                usersSorted.add(user);
+            } else {
+                int i = 0;
+                while(!usersSorted.contains(user) && (i < usersSorted.size())){
+                    if(usersSorted.get(i).getWinLossRatio() <= user.getWinLossRatio()){
+                        usersSorted.add(user);
+                    }
                 }
             }
             return usersSorted;
@@ -67,7 +62,7 @@ import java.util.*;
             //TODO:Make this work
             StringBuilder build = new StringBuilder();
             for (int i = 0; i < leaderboard.size(); i++) {
-                build.append(leaderboard.get(i).userName);
+                build.append(leaderboard.get(i).userName + " ");
             }
             return build.toString();
         }
