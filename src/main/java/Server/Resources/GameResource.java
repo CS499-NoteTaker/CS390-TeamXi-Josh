@@ -2,7 +2,7 @@ package Server.Resources;
 
 
 import GameLogic.Game;
-import GameLogic.GameList;
+import UserData.GameList;
 import UserData.User;
 import com.google.gson.Gson;
 import jdk.nashorn.internal.objects.annotations.Getter;
@@ -50,7 +50,7 @@ public class GameResource {
 
         // Validate range
         //todo: change to gameList.getSize()
-        if( id < 0 || id >= 000000000000000000000 ) {
+        if( id < 0 || id >= gameList.getSize() ) {
             throw new WebApplicationException(404);
         }
 
