@@ -2,7 +2,7 @@ package Server.Resources;
 
 
 import GameLogic.Game;
-import GameLogic.GameList;
+import UserData.GameList;
 import UserData.User;
 import com.google.gson.Gson;
 import jdk.nashorn.internal.objects.annotations.Getter;

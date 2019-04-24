@@ -3,11 +3,11 @@ package Server.Resources;
 import javax.ws.rs.*;
 import java.io.InputStream;
 
-@Path("PlayCurrentGame")
-public class PlayCurrentGameResource {
+@Path("watch")
+public class ReviewResource {
 
     @GET
-    public InputStream getPlay() { return this.getClass().getResourceAsStream("/PlayCurrentGame.html");}
+    public InputStream getReview() { return this.getClass().getResourceAsStream("/watch.html");}
 
     @GET
     @Path("{file}")
