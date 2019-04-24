@@ -15,6 +15,7 @@ import java.util.*;
 @Singleton
 @Path("leaderboard")
 public class LeaderboardResource {
+
     @GET
     public InputStream getClient() {return this.getClass().getResourceAsStream("/leaderboard.html");}
 
@@ -29,17 +30,9 @@ public class LeaderboardResource {
         return stream;
     }
 
-    public UserList users = new UserList();
-    private Leaderboard leaderboard;
 
-    public LeaderboardResource(){
-        //users = uList.getUsers();
-        users.addUser(new User("Kaitlyn"));
-        users.addUser(new User("Spenser"));
-        users.addUser(new User("Sola"));
-        users.addUser(new User("Holden"));
-        users.addUser(new User("Josh"));
-    }
+    private Leaderboard leaderboard;
+    UserList users;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

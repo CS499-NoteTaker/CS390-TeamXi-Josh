@@ -2,7 +2,7 @@ package Server.Resources;
 
 
 import GameLogic.Game;
-import GameLogic.GameList;
+import UserData.GameList;
 import javax.ws.rs.*;
 
 @Path("game")
