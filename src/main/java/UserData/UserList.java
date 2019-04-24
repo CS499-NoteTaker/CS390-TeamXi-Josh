@@ -25,6 +25,7 @@ public class UserList{
     public static void addUser(User user){
         users.add(user);
     }
+
     public ArrayList<User> printUsers(){
         return users;
     }
