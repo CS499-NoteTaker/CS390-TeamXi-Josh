@@ -8,11 +8,11 @@ import java.util.*;
 
 public class Game{
     //The two Users Needed for each game
-    static User User1, User2;
+    private User User1, User2;
     //Used to know if the game is still in progress
     private boolean play = true;
     //Ints used for placing a piece at a specific location
-    int x, y;
+    private int x, y;
     //Board used for storing every point
     private Board gameBoard = new Board();  //JOsh changed from public to private
 

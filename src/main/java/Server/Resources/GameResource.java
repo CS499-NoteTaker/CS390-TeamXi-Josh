@@ -19,8 +19,6 @@ public class GameResource {
 
     public GameResource() {
         gameList.addGameToList( new Game( new User("Josh"), new User("Daniel")) );
-        gameList.addGameToList( new Game( new User("aaaaaaa"), new User("bbbbbbb")) );
-        gameList.addGameToList( new Game( new User("ooooooo"), new User("llllllll")) );
     }
 
 
@@ -33,7 +31,7 @@ public class GameResource {
     @GET
     public String getAllGames() {
         Gson gson = new Gson();
-        return gson.toJson( gameList );
+        return gson.toJson( gameList.getGameAtIndex(0) );
     }
 
     @Path("{id}")
