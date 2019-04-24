@@ -7,14 +7,19 @@ import UserData.User;
 import com.google.gson.Gson;
 import jdk.nashorn.internal.objects.annotations.Getter;
 
+import javax.inject.Singleton;
 import javax.ws.rs.*;
 import java.io.InputStream;
+import java.util.ArrayList;
 
+
+@Singleton
 @Path("game")
 public class GameResource {
 
     //Fields
-    private GameList gameList = new GameList();
+    // reference to the games in the GameList class
+    private GameList gameList;
 
 
     public GameResource() {
