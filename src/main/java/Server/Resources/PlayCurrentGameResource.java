@@ -3,7 +3,7 @@ package Server.Resources;
 import javax.ws.rs.*;
 import java.io.InputStream;
 
-@Path("PlayCurrentGame")
+@Path("play")
 public class PlayCurrentGameResource {
 
     @GET

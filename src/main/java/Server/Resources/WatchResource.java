@@ -4,7 +4,7 @@ import javax.ws.rs.*;
 import java.io.InputStream;
 
 @Path("watch")
-public class ReviewResource {
+public class WatchResource {
 
     @GET
     public InputStream getReview() { return this.getClass().getResourceAsStream("/watch.html");}
@@ -12,7 +12,7 @@ public class ReviewResource {
     @GET
     @Path("{file}")
     @Produces("application/javascript")
-    public InputStream getPlayJavascript(@PathParam("file") String fileName) {
+    public InputStream getWatchJavascript(@PathParam("file") String fileName) {
         InputStream stream = this.getClass().getResourceAsStream("/" + fileName);
         if (stream == null){
             throw new WebApplicationException(404);

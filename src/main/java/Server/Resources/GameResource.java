@@ -5,7 +5,6 @@ import GameLogic.Game;
 import UserData.GameList;
 import UserData.User;
 import com.google.gson.Gson;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 import javax.ws.rs.*;
 import java.io.InputStream;

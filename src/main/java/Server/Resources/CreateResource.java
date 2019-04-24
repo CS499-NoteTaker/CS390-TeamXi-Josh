@@ -12,7 +12,7 @@ public class CreateResource {
     @GET
     @Path("{file}")
     @Produces("application/javascript")
-    public InputStream getPlayJavascript(@PathParam("file") String fileName) {
+    public InputStream getCreateJavascript(@PathParam("file") String fileName) {
         InputStream stream = this.getClass().getResourceAsStream("/" + fileName);
         if (stream == null){
             throw new WebApplicationException(404);
