@@ -7,10 +7,10 @@ public class UserListTest {
     public void setUp(){
        users = new UserList();
     }
-/*
+
     @Test
     public void testGetAllUsers(){
-        Assert.assertEquals("", users.getAllUsers().toString());
+        Assert.assertEquals("Kaitlyn Spenser Sola Holden Josh ", users.toString());
     }
 
     @Test
@@ -27,11 +27,11 @@ public class UserListTest {
 
     @Test
     public void testContains(){
-        Assert.assertEquals(true, users.contains("Hanz"));
+        Assert.assertEquals(true, users.contains("Spenser"));
     }
 
-   /* @Test
+    @Test
     public void testSize(){
-        Assert.assertEquals(3, users.getSize());
-    } works when ran individually from other tests*/
+        Assert.assertEquals(5, users.getSize());
+    }
 }

@@ -30,20 +30,18 @@ public class UserList{
         users.add(user);
     }
 
-    public ArrayList<User> printUsers(){
-        return users;
-    }
-
     /**
      * returns All the usernames in string form
      * @return the usernames
      */
+    @Override
     public String toString(){
         StringBuilder build = new StringBuilder();
         for (int i = 0; i < users.size(); i++) {
-            build.append(users.get(i).userName.toString());
+            build.append(users.get(i).usernameToString() + " ");
         }
-        return build.toString();
+        String build1 = build.toString();
+        return build1;
     }
 
     /**
@@ -77,15 +75,6 @@ public class UserList{
     }
 
     /**
-     * Returns the entire users list
-     * @return A List of Users in the users list
-     */
-    public ArrayList<User> getUsers(){
-        return users;
-    }
-
-
-    /**
      * Returns the size of the users size
      * @return users size
      */
@@ -97,11 +86,5 @@ public class UserList{
         return users.get(i);
     }
 
-    /*
-    Stubs for potential methods needed for later.
-
-    private void updateUserStatus(){
-
-    }*/
 
 }
