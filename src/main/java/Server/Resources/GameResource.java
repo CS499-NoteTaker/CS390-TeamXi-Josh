@@ -4,11 +4,15 @@ package Server.Resources;
 import GameLogic.Game;
 import GameLogic.GameList;
 import javax.ws.rs.*;
+import java.io.InputStream;
 
 @Path("game")
 public class GameResource {
 
+    //Todo: Uncomment next two lines
     @GET
+    public InputStream getClient() {return this.getClass().getResourceAsStream("GameResource/.html");}
+
     @Path("{id}")
     public String printGameGivenID(@PathParam("id") String GameID){
         int id = -1;

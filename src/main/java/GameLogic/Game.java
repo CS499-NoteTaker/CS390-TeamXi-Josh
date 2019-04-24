@@ -16,7 +16,7 @@ public class Game implements java.io.Serializable {
     //Ints used for placing a piece at a specific location
     int x, y;
     //Board used for storing every point
-     public Board gameBoard = new Board();
+    private Board gameBoard = new Board();  //JOsh changed from public to private
 
     /**
      * Constructor for creating a game given the two Users that will
