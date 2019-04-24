@@ -27,6 +27,7 @@ public class LeaderboardResource {
         if(stream == null){
             throw new WebApplicationException(404);
         }
+
         return stream;
     }
 
