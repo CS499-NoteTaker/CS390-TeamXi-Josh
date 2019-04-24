@@ -24,7 +24,7 @@ public class GameResource {
 
     //Todo: Uncomment next two lines
     //@GET
-    //public InputStream getClient() {return this.getClass().getResourceAsStream("GameResource/.html");}
+    //public InputStream getClient() {return this.getClass().getResourceAsStream("/GameResource.html");}
 
     //Get List of all games
     @GET
