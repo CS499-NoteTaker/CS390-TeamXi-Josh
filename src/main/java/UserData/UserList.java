@@ -1,28 +1,32 @@
 package UserData;
-import java.io.Serializable;
+import UserData.*;
 import java.util.*;
 
 public class UserList{
     //An array that stores all the unique users
-    static ArrayList<User> users = new ArrayList<>();
+     private ArrayList<User> users = new ArrayList<>();
 
+    public UserList(){
+        users.add(new User("Kaitlyn"));
+        users.add(new User("Spenser"));
+        users.add(new User("Sola"));
+        users.add(new User("Holden"));
+        users.add(new User("Josh"));
+    }
 
     /**
      * Returns the arrayList of all Users
      * @return ArrayList
      */
-    public static ArrayList<User> getAllUsers(){
+    public ArrayList<User> getAllUsers(){
         return users;
     }
-
-
-
 
     /**
      * Adds the new user to the list of all users
      * @param user the username that the user chose
      */
-    public static void addUser(User user){
+    public void addUser(User user){
         users.add(user);
     }
 
@@ -37,7 +41,7 @@ public class UserList{
     public String toString(){
         StringBuilder build = new StringBuilder();
         for (int i = 0; i < users.size(); i++) {
-            build.append(users.get(i).usernameToString());
+            build.append(users.get(i).userName.toString());
         }
         return build.toString();
     }

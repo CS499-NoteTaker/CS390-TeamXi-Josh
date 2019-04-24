@@ -10,16 +10,8 @@ public class User implements java.io.Serializable {
     //Attributes to keep each users wins and losses
     int win, loss;
 
-    static ArrayList<Game> CurrentGames = new ArrayList<>();
-    //ArrayList<Game> PreviousGames = new ArrayList<>();
-
-    /*
-    * Stories associated with the User class:
-    * 1. As a player, I want to be able to create a user so that I can play games.
-      2. As a player, I want to be able to create a new game (or several) by specifying the users involved so that I
-        can begin playing by joining the game.
-    */
-
+    ArrayList<Game> currentGames = new ArrayList<>();
+    ArrayList<Game> previousGames = new ArrayList<>();
     /**
      * Constructor for a User Object
      * @param user the username of the user
@@ -28,7 +20,6 @@ public class User implements java.io.Serializable {
         this.userName = user;
         win = 0;
         loss = 0;
-        //userID = ID;
     }
 
     /**
@@ -36,7 +27,7 @@ public class User implements java.io.Serializable {
      * @param NewGame Game to be added
      */
     public void addGame(Game NewGame){
-        this.CurrentGames.add(NewGame);
+        this.currentGames.add(NewGame);
     }
 
     /**
@@ -45,7 +36,7 @@ public class User implements java.io.Serializable {
      * @return The game at index i
      */
     public Game getGameAtindex(int i){
-        return this.CurrentGames.get(i);
+        return this.currentGames.get(i);
     }
 
     /**
@@ -116,7 +107,7 @@ public class User implements java.io.Serializable {
      * @return String
      */
     public String getCurrentGames(){
-        return this.CurrentGames.toString();
+        return this.currentGames.toString();
     }
 
 

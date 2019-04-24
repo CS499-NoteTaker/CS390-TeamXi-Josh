@@ -26,11 +26,13 @@ public class LeaderBoardTest {
         userList.addUser(chad);
         userList.addUser(joe);
         userList.addUser(adam);
-        System.out.println("UserlistSize:   "+userList.toString());
+        System.out.println("UserlistSize:   " + userList.toString());
 
         Leaderboard leaderboard = new Leaderboard(userList);
         this.leaderboard = leaderboard;
-    }
+        System.out.println("leaderboard: " + leaderboard.toString());
+        System.out.println("sort: " + leaderboard.sortUsersByWinLossRatioHighestToLowest(userList))
+;    }
 
     @Test
     public void testToString()
