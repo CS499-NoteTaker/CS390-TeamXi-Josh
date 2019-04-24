@@ -1,11 +1,12 @@
-package GameLogic;
+package UserData;
 
-import java.io.Serializable;
+import GameLogic.Game;
+
 import java.util.ArrayList;
 
-public class GameList implements Serializable {
+public class GameList {
     //The List of all Games
-    public static ArrayList<Game> Games = new ArrayList<>();
+    public ArrayList<Game> games = new ArrayList<>();
 
     public GameList(){
 
@@ -16,7 +17,7 @@ public class GameList implements Serializable {
      * @param g Game to add
      */
     public void addGameToList(Game g){
-        Games.add(g);
+        games.add(g);
     }
 
 
@@ -25,7 +26,7 @@ public class GameList implements Serializable {
      * @return ArrayList<Game> Holds all the Games</Game>
      */
     public ArrayList<Game> getAllGames(){
-        return Games;
+        return games;
     }
 
     /**
@@ -34,6 +35,8 @@ public class GameList implements Serializable {
      * @return Game object
      */
     public Game getGameAtIndex(int i){
-        return Games.get(i);
+        return games.get(i);
     }
+
+    public int getSize(){return games.size();}
 }

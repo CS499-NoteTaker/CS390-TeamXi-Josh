@@ -26,7 +26,7 @@ import java.util.*;
          * @param users The Users of the Leader board
          * @return The List of users on the Leader board
          */
-        private ArrayList<User> sortUsersByWinLossRatioHighestToLowest(UserList users){
+        public ArrayList<User> sortUsersByWinLossRatioHighestToLowest(UserList users){
             ArrayList<User> usersSorted = new ArrayList<User>();
             for(int i = 0; i < users.getSize(); i++){
                 usersSorted = putUserInRightPlace(users.getUser(i), usersSorted);
@@ -58,7 +58,7 @@ import java.util.*;
             //TODO:Make this work
             StringBuilder build = new StringBuilder();
             for (int i = 0; i < leaderboard.size(); i++) {
-                build.append(leaderboard.get(i).usernameToString());
+                build.append(leaderboard.get(i).userName);
             }
             return build.toString();
         }
