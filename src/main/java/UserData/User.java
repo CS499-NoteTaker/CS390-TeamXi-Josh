@@ -115,6 +115,10 @@ public class User implements java.io.Serializable {
         return this.currentGames.toString();
     }
 
+    public String toString(){
+        return usernameToString() + " Wins: " + getWin() + "  Losses: " + getLoss();
+    }
+
 
 
 

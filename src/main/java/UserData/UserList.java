@@ -82,8 +82,12 @@ public class UserList{
         return users.size();
     }
 
-    public User getUser(int i){
+    public User getUserByIndex(int i){
         return users.get(i);
+    }
+
+    public User getUserByUsername(String username){
+        return findUser(username);
     }
 
 

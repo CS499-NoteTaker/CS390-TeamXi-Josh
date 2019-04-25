@@ -29,8 +29,8 @@ import java.util.*;
         public ArrayList<User> sortUsersByWinLossRatioHighestToLowest(UserList users){
             ArrayList<User> usersSorted = new ArrayList<User>();
             for(int i = 0; i < users.getSize(); i++){
-                System.out.println("SORTING PROCESS: [" + i + "] " + users.getUser(i).getUserName());
-                usersSorted = putUserInRightPlace(users.getUser(i), usersSorted);
+                System.out.println("SORTING PROCESS: [" + i + "] " + users.getUserByIndex(i).getUserName());
+                usersSorted = putUserInRightPlace(users.getUserByIndex(i), usersSorted);
             }
             return usersSorted;
         }
