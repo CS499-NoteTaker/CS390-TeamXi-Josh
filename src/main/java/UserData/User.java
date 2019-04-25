@@ -73,7 +73,12 @@ public class User implements java.io.Serializable {
      * Return the computed sum of the User's wins over their losses
      * @return win/loss
      */
-    public double getWinLossRatio(){ return this.win / this.loss; }
+    public double getWinLossRatio(){
+        if(this.win == 0 || this.loss == 0){
+            return 0.0;
+        }
+        return this.win / this.loss;
+    }
 
     /**
      * Returns the User's Username with the UserName: attached
@@ -108,6 +113,10 @@ public class User implements java.io.Serializable {
      */
     public String getCurrentGames(){
         return this.currentGames.toString();
+    }
+
+    public String toString(){
+        return usernameToString() + " Wins: " + getWin() + "  Losses: " + getLoss();
     }
 
 

@@ -33,16 +33,21 @@ public class LeaderboardResource {
 
 
     private Leaderboard leaderboard;
-    UserList users;
+    UserList users = new UserList();
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getLeaderboard(){
         leaderboard = new Leaderboard(users);
         Gson g = new Gson();
-        //return g.toJson(users);
-        return leaderboard.toString();
-        //return g.toJson(leaderboard.getLeaderboard());
+        return g.toJson(leaderboard.getLeaderboard());
     }
+
+    @POST
+    @Path("{username}")
+    public void addUserToLeaderboard(@PathParam("username") String username){
+        leaderboard.addUserToLeaderboard(users.findUser(username));
+    }
+
 
 }

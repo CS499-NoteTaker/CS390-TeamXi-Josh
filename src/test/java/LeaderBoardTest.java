@@ -10,7 +10,6 @@ import java.net.InetSocketAddress;
 
 public class LeaderBoardTest {
     private Leaderboard leaderboard;
-//TODO: make leaderboard work
     @Before
     public void setUp(){
         User joe = new User("Joe");  //0.0
@@ -23,20 +22,16 @@ public class LeaderBoardTest {
         chad.addWin();
         chad.addLoss();
         UserList userList = new UserList();
-        userList.addUser(chad);
-        userList.addUser(joe);
         userList.addUser(adam);
-        System.out.println("UserlistSize:   " + userList.toString());
+        userList.addUser(joe);
+        userList.addUser(chad);
 
-        Leaderboard leaderboard = new Leaderboard(userList);
-        this.leaderboard = leaderboard;
-        System.out.println("leaderboard: " + leaderboard.toString());
-        System.out.println("sort: " + leaderboard.sortUsersByWinLossRatioHighestToLowest(userList))
+        this.leaderboard = new Leaderboard(userList);
 ;    }
 
     @Test
     public void testToString()
     {
-        Assert.assertEquals(leaderboard.toString(), "");
+        Assert.assertEquals("Kaitlyn Spenser Sola Holden Josh Joe Adam Chad ", leaderboard.toString());
     }
 }

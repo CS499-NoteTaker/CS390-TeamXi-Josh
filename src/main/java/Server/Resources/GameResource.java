@@ -5,7 +5,6 @@ import GameLogic.Game;
 import UserData.GameList;
 import UserData.User;
 import com.google.gson.Gson;
-import jdk.nashorn.internal.objects.annotations.Getter;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -30,7 +29,7 @@ public class GameResource {
 
     //Todo: Uncomment next two lines
     //@GET
-    //public InputStream getClient() {return this.getClass().getResourceAsStream("GameResource/.html");}
+    //public InputStream getClient() {return this.getClass().getResourceAsStream("/GameResource.html");}
 
     //Get List of all games
     @GET

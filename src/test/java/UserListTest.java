@@ -14,10 +14,12 @@ public class UserListTest {
     }
 
     @Test
-    public void testGetUser(){
-        Assert.assertEquals("Kaitlyn", users.getUser(0).getUserName());
+    public void testGetUser1(){
+        Assert.assertEquals("Kaitlyn", users.getUserByIndex(0).getUserName());
     }
 
+    @Test
+    public void testGetUser2() { Assert.assertEquals("Spenser", users.getUserByIndex(1).getUserName()); }
 
 
     @Test

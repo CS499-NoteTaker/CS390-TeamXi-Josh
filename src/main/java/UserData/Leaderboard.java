@@ -29,7 +29,8 @@ import java.util.*;
         public ArrayList<User> sortUsersByWinLossRatioHighestToLowest(UserList users){
             ArrayList<User> usersSorted = new ArrayList<User>();
             for(int i = 0; i < users.getSize(); i++){
-                usersSorted = putUserInRightPlace(users.getUser(i), usersSorted);
+                System.out.println("SORTING PROCESS: [" + i + "] " + users.getUserByIndex(i).getUserName());
+                usersSorted = putUserInRightPlace(users.getUserByIndex(i), usersSorted);
             }
             return usersSorted;
         }
@@ -39,15 +40,22 @@ import java.util.*;
          * @return The ArrayList, with the user added to it
          */
         private ArrayList<User> putUserInRightPlace(User user, ArrayList<User> usersSorted){
-            //TODO: Perhaps add a check method to see if the user is already in the usersSorted ArrayList?
-            boolean userHasBeenInserted = false;
-            for(int i = 0; i < usersSorted.size(); i++) {
-                if(!userHasBeenInserted && user.getWinLossRatio() >= usersSorted.get(i).getWinLossRatio()){
-                    usersSorted.add(i, user);
-                    userHasBeenInserted = true;
+            if(usersSorted.size() == 0){
+                usersSorted.add(user);
+            } else {
+                int i = usersSorted.size() - 1;
+                while(!usersSorted.contains(user) && (i >= 0)){
+                    if(usersSorted.get(i).getWinLossRatio() <= user.getWinLossRatio()){
+                        usersSorted.add(i + 1, user);
+                    }
+                    i--;
                 }
             }
             return usersSorted;
+        }
+
+        public void addUserToLeaderboard(User user){
+            leaderboard = putUserInRightPlace(user, leaderboard);
         }
 
         /**
@@ -55,10 +63,9 @@ import java.util.*;
          * @return The Leader board
         */
         public String toString(){
-            //TODO:Make this work
             StringBuilder build = new StringBuilder();
             for (int i = 0; i < leaderboard.size(); i++) {
-                build.append(leaderboard.get(i).userName);
+                build.append(leaderboard.get(i).userName + " ");
             }
             return build.toString();
         }
