@@ -43,4 +43,11 @@ public class LeaderboardResource {
         return g.toJson(leaderboard.getLeaderboard());
     }
 
+    @POST
+    @Path("{username}")
+    public void addUserToLeaderboard(@PathParam("username") String username){
+        leaderboard.addUserToLeaderboard(users.findUser(username));
+    }
+
+
 }

@@ -54,6 +54,10 @@ import java.util.*;
             return usersSorted;
         }
 
+        public void addUserToLeaderboard(User user){
+            leaderboard = putUserInRightPlace(user, leaderboard);
+        }
+
         /**
          * Outputs the string representation of the Leader board
          * @return The Leader board
