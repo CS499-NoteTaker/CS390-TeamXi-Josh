@@ -44,11 +44,12 @@ import java.util.*;
             if(usersSorted.size() == 0){
                 usersSorted.add(user);
             } else {
-                int i = 0;
-                while(!usersSorted.contains(user) && (i < usersSorted.size())){
+                int i = usersSorted.size() - 1;
+                while(!usersSorted.contains(user) && (i >= 0)){
                     if(usersSorted.get(i).getWinLossRatio() <= user.getWinLossRatio()){
-                        usersSorted.add(user);
+                        usersSorted.add(i + 1, user);
                     }
+                    i--;
                 }
             }
             return usersSorted;

@@ -22,8 +22,8 @@ public class LeaderBoardTest {
         chad.addWin();
         chad.addLoss();
         UserList userList = new UserList();
-        userList.addUser(joe);
         userList.addUser(adam);
+        userList.addUser(joe);
         userList.addUser(chad);
         System.out.println("UserList Contents:   " + userList.toString());
 
