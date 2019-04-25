@@ -40,7 +40,6 @@ import java.util.*;
          * @return The ArrayList, with the user added to it
          */
         private ArrayList<User> putUserInRightPlace(User user, ArrayList<User> usersSorted){
-            //TODO: Perhaps add a check method to see if the user is already in the usersSorted ArrayList?
             if(usersSorted.size() == 0){
                 usersSorted.add(user);
             } else {
@@ -60,7 +59,6 @@ import java.util.*;
          * @return The Leader board
         */
         public String toString(){
-            //TODO:Make this work
             StringBuilder build = new StringBuilder();
             for (int i = 0; i < leaderboard.size(); i++) {
                 build.append(leaderboard.get(i).userName + " ");

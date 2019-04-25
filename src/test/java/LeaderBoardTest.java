@@ -25,7 +25,6 @@ public class LeaderBoardTest {
         userList.addUser(adam);
         userList.addUser(joe);
         userList.addUser(chad);
-        System.out.println("UserList Contents:   " + userList.toString());
 
         this.leaderboard = new Leaderboard(userList);
 ;    }
