@@ -2,6 +2,7 @@ package Server.Resources;
 
 
 import GameLogic.Game;
+import UserData.Controller;
 import UserData.GameList;
 import UserData.User;
 import com.google.gson.Gson;
@@ -10,19 +11,18 @@ import javax.inject.Singleton;
 import javax.ws.rs.*;
 import java.io.InputStream;
 import java.util.ArrayList;
-
+import UserData.Controller;
 
 @Singleton
 @Path("game")
 public class GameResource {
 
-    //Fields
-    // reference to the games in the GameList class
-    private GameList gameList;
+    // Fields
+    // Now referring to Controller.games static variable
 
 
     public GameResource() {
-        gameList.addGameToList( new Game( new User("Josh"), new User("Daniel")) );
+        Controller.gameList.addGameToList( new Game( new User("Josh"), new User("Daniel")) );
     }
 
 
@@ -35,7 +35,7 @@ public class GameResource {
     @GET
     public String getAllGames() {
         Gson gson = new Gson();
-        return gson.toJson( gameList.getGameAtIndex(0) );
+        return gson.toJson( Controller.gameList.getGameAtIndex(0) );
     }
 
     @Path("{id}")
@@ -52,13 +52,13 @@ public class GameResource {
 
         // Validate range
         //todo: change to gameList.getSize()
-        if( id < 0 || id >= gameList.getSize() ) {
+        if( id < 0 || id >= Controller.gameList.getSize() ) {
             throw new WebApplicationException(404);
         }
 
 
         //Gets the game at index 'id'
-        Game gameId = gameList.getGameAtIndex(id);
+        Game gameId = Controller.gameList.getGameAtIndex(id);
 
         Gson gson = new Gson();
 
