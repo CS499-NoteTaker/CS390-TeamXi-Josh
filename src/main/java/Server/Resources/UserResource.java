@@ -3,27 +3,43 @@ package Server.Resources;
 import UserData.Controller;
 import UserData.User;
 import UserData.UserList;
+import com.google.gson.Gson;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.InputStream;
-import java.io.InvalidObjectException;
 
 @Path("user")
 public class UserResource {
 
+    private UserList users = new UserList();
+
     @GET
     public InputStream getClient() {return this.getClass().getResourceAsStream("/user.html");}
 
-    private UserList users = new UserList();
-
+    /**
+     * Takes a username and returns the user as a Json object if found in the Controller userList
+     * @param username - username of the requested user
+     * @return Json object of the user, if found, null otherwise
+     */
     @GET
     @Path("{username}")
     @Produces(MediaType.TEXT_PLAIN)
     public String getUser(@PathParam("username") String username){
-        return users.getUserByUsername(username).toString();
+        try {
+            User user;
+            user = Controller.userList.getUserByUsername(username);
+            Gson gson = new Gson();
+            return gson.toJson(user);
+        } catch (Exception e){
+            throw new WebApplicationException(350);
+        }
     }
 
+    /**
+     * Takes a username and creates a new user and adds it to the Controller userList
+     * @param username - username of the new user
+     */
     @POST
     public void createNewUser(String username){
         User newUser;
@@ -31,11 +47,9 @@ public class UserResource {
             newUser = new User(username);
             Controller.userList.addUser(newUser);
         } catch (Exception e) {
-            System.out.println("You have done something wrong.");
+            throw new WebApplicationException(350);
         }
     }
-
-
 
 
 }
