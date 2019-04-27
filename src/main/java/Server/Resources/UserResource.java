@@ -1,13 +1,13 @@
 package Server.Resources;
 
+import UserData.Controller;
+import UserData.User;
 import UserData.UserList;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.InputStream;
+import java.io.InvalidObjectException;
 
 @Path("user")
 public class UserResource {
@@ -23,6 +23,18 @@ public class UserResource {
     public String getUser(@PathParam("username") String username){
         return users.getUserByUsername(username).toString();
     }
+
+    @POST
+    public void createNewUser(String username){
+        User newUser;
+        try{
+            newUser = new User(username);
+            Controller.userList.addUser(newUser);
+        } catch (Exception e) {
+            System.out.println("You have done something wrong.");
+        }
+    }
+
 
 
 
