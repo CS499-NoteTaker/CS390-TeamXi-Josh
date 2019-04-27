@@ -11,6 +11,8 @@ import javax.inject.Singleton;
 import javax.ws.rs.*;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import UserData.Controller;
 
 @Singleton
@@ -78,22 +80,47 @@ public class GameResource {
      * @param user2Name - user name from player 2
      * @return
      */
-    @PUT
-    @Path("{user1}/{user2}/create")
-    public int createGame(@PathParam("user1") String user1Name, @PathParam("user2") String user2Name) {
+    @POST
+    public int createGame(String twoUsers) {
+        Scanner scan = new Scanner(twoUsers);
+
+        // Checks to see if there have been an input of two users
+        if( !hasTwoUsers( twoUsers ))
+            throw new WebApplicationException( 406 );
+
+        // Separates the input
+        String user1Name = scan.next();
+        String user2Name = scan.next();
 
         // Creates two users
         User user1 = Controller.userList.getUserByUsername( user1Name );
         User user2 = Controller.userList.getUserByUsername( user2Name );
 
-
-        // Creates new game
+        // Creates new game with two users
         Game newGame = new Game( user1, user2 );
         Controller.gameList.addGameToList( newGame );
-
-        Gson gson = new Gson();
-
+        
         return 200;
+    }
+
+    private boolean hasTwoUsers( String twoUsers ) {
+        // Removes whitespaces at the end
+        twoUsers = twoUsers.trim();
+        Scanner scan = new Scanner(twoUsers);
+
+        int counter = 0;
+
+        while ( scan.hasNext() ) {
+            counter++;
+            scan.next();
+        }
+
+        // checks to if there were two Strings
+        if( counter == 2 )
+            return true;
+        else
+            return false;
+
     }
 
 
