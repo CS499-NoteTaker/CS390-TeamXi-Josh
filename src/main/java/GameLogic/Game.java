@@ -50,4 +50,8 @@ public class Game{
     private int assignId(){
         return id++;
     }
+
+    public int getID(){return this.id;}
+
+
 }

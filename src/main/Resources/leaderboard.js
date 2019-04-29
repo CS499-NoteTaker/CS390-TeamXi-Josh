@@ -17,7 +17,7 @@ var buttonClickEvent = function(e) {
               } else {
                   response.text().then( function(value) {
                       value = value;
-                      el.innerText = "Response: \n" + value;
+                      el.innerText = "Leaderboard: \n" + value;
                       el.style.color = "green";
                       el.style.fontWeight = "bold";
                   });

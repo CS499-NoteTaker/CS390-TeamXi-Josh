@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>watch</title>
+    <title>PlayCurrentGame</title>
     <style>
         .topnav {
             overflow: hidden;
@@ -35,10 +35,14 @@
     </div>
 </div>
 <div style = "text-align: center">
-
+    <form>
+        gameID:<br>
+        <input type=text" onclick="location.href='/playingGame';"> <br>
+        <button id = "watch-game-button">Enter Game</button>
+    </form>
 </div>
 
-<h2>I need the ability to look through and watch old games as they were played.</h2>
+
 
 <!-- Load the JavaScript script for the client application-->
 <script src="/watch/watch.js"> </script>
