@@ -16,7 +16,8 @@ var buttonClickEvent = function(e) {
                   el.style.color = "red";
               } else {
                   response.text().then( function(value) {
-                      el.innerText = "Response: " + value;
+                      value = value;
+                      el.innerText = "Response: \n" + value;
                       el.style.color = "green";
                       el.style.fontWeight = "bold";
                   });

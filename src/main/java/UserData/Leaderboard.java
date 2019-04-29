@@ -59,13 +59,26 @@ import java.util.*;
         }
 
         /**
-         * Outputs the string representation of the Leader board
+         * Outputs a String with all the usernames in order of Win Loss ratio
          * @return The Leader board
         */
         public String toString(){
             StringBuilder build = new StringBuilder();
             for (int i = 0; i < leaderboard.size(); i++) {
                 build.append(leaderboard.get(i).userName + " ");
+            }
+            return build.toString();
+        }
+
+        /**
+         * Outputs a string representation of the leaderboard suitable for the web client. Includes username and ...
+         * win/loss ratio.
+         * @return
+         */
+        public String toStringForWebClientDisplay(){
+            StringBuilder build = new StringBuilder();
+            for (int i = 0; i < leaderboard.size(); i++) {
+                build.append(leaderboard.get(i).userName + ": " + leaderboard.get(i).getWinLossRatio() + " ");
             }
             return build.toString();
         }
