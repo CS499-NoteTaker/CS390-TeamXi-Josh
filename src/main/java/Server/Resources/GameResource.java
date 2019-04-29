@@ -41,8 +41,6 @@ public class GameResource {
     }
 
 
-
-
     /**
      * This will help to create game with user1 and user 2
      * @param twoUsers - twoUsers separated by a white space
@@ -53,8 +51,7 @@ public class GameResource {
         Scanner scan = new Scanner(twoUsers);
 
         // Checks to see if there have been an input of two users
-        if( !hasTwoUsers( twoUsers ))
-            throw new WebApplicationException( 406 );
+        if( !hasTwoUsers( twoUsers ) ) { throw new WebApplicationException(406); }
 
         // Separates the input
         String user1Name = scan.next();
