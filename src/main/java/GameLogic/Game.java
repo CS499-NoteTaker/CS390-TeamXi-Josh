@@ -15,6 +15,7 @@ public class Game{
     private int x, y;
     //Board used for storing every point
     private Board gameBoard = new Board();  //JOsh changed from public to private
+    private int id = 0;
 
     /**
      * Constructor for creating a game given the two Users that will
@@ -25,6 +26,7 @@ public class Game{
     public Game(User PlayerOne, User PlayerTwo) {
         this.User1 = PlayerOne;
         this.User2 = PlayerTwo;
+        this.id = assignId();
     }
 
     /**
@@ -43,5 +45,9 @@ public class Game{
      */
     private void endGame(User u) {
         System.out.println("Congratulations " + u.usernameToString() + ", You won the game!\n");
+    }
+
+    private int assignId(){
+        return id++;
     }
 }
