@@ -78,7 +78,7 @@ import java.util.*;
         public String toStringForWebClientDisplay(){
             StringBuilder build = new StringBuilder();
             for (int i = 0; i < leaderboard.size(); i++) {
-                build.append(leaderboard.get(i).userName + ": " + leaderboard.get(i).getWinLossRatio() + " ");
+                build.append(leaderboard.get(i).userName + ": " + leaderboard.get(i).getWin() + ' ');
             }
             return build.toString();
         }

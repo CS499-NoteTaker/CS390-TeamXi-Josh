@@ -54,7 +54,6 @@ public class Game{
     private int assignId(){
         return id++;
     }
-
     /**
      * Returns the first user
      * @return The first User

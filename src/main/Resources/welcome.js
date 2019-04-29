@@ -28,7 +28,17 @@ var drawBoard = function(){
     ctx.font = "15px Arial";
     ctx.fillText("⚫", 3, 18);
     ctx.fillText("⚪", 3, 85);
-    ctx.fillText("⚫", 3, 40);
+    ctx.fillText("⚪", 3, 40);
+    ctx.fillText("⚫", 113, 40);
+    ctx.fillText("⚪", 113, 172);
+    ctx.fillText("⚫", 157, 216);
+    ctx.fillText("⚪", 200, 150);
+    ctx.fillText("⚪", 135, 216);
+    ctx.fillText("⚫", 47, 62);
+    ctx.fillText("⚫", 311, 238);
+    ctx.fillText("⚪", 399, 414);
+    ctx.fillText("⚫", 311, 83);
+
 
 
 };

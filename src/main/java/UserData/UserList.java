@@ -11,21 +11,25 @@ public class UserList{
         Kaitlyn.addWin();
         Kaitlyn.addWin();
         Kaitlyn.addWin();
-        Kaitlyn.addWin();
-        Kaitlyn.addWin();
+
+
+
         User Spenser = new User("Spenser");
         Spenser.addWin();
         Spenser.addWin();
         Spenser.addWin();
-        Spenser.addWin();
+
+
         User Sola = new User("Sola");
         Sola.addWin();
         Sola.addWin();
-        Sola.addWin();
+
         User Holden = new User("Holden");
         Holden.addWin();
         Holden.addWin();
+
         User Josh = new User("Josh");
+        Josh.addWin();
         Josh.addWin();
 
         users.add(Kaitlyn);
