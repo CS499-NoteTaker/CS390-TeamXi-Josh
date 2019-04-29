@@ -25,10 +25,10 @@ var drawBoard = function(){
             }
         }
     ctx.stroke();
-    /*ctx.font = "20px Arial";
-    ctx.fillText("B", 4, 20);
-    ctx.fillText("W", 3, 85);
-    ctx.fillText("B", 4, 40);*/
+    ctx.font = "15px Arial";
+    ctx.fillText("⚫", 3, 18);
+    ctx.fillText("⚪", 3, 85);
+    ctx.fillText("⚫", 3, 40);
 
 
 };
