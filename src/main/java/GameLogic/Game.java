@@ -43,11 +43,39 @@ public class Game{
      * Ends the current game and prints the winning line
      * @param u The winner of the game
      */
-    private void endGame(User u) {
+    public void endGame(User u) {
         System.out.println("Congratulations " + u.usernameToString() + ", You won the game!\n");
     }
 
+    /**
+     * Creates a unique ID for each game created
+     * @return Game ID
+     */
     private int assignId(){
         return id++;
+    }
+
+    /**
+     * Returns the first user
+     * @return The first User
+     */
+    public User getUser1(){
+        return User1;
+    }
+
+    /**
+     * Returns the second user
+     * @return The second user
+     */
+    public User getUser2(){
+        return User2;
+    }
+
+    /**
+     * Returns the game's ID
+     * @return game's ID
+     */
+    public int getID(){
+        return id;
     }
 }

@@ -44,37 +44,6 @@ public class Board {
         po.setPiece(p);
     }
 
-    /**
-     * Prints the board to the command line, for Sprint 2 only.
-     */
-    //TODO: CHECK BEFORE WE PRESENT FOR SPRINT 4. MIGHT NOT NEED AND NOT IN CLASS MODEL DIAGRAM
-//    public void printBoard(){
-//        System.out.print("  ");
-//        for(int i = 0; i < 19; i++){
-//            if(i < 10){
-//                System.out.print(" " + i + " ");
-//            }
-//            else{
-//                System.out.print(i + " ");
-//            }
-//        }
-//        System.out.println();
-//        for(int i = 0; i  < 19; i++){
-//            if(i < 10){
-//                System.out.print(i + "  ");
-//            }
-//            else{
-//                System.out.print(i + " ");
-//            }
-//            for(int j = 0; j < 19; j++){
-//                Point temp;
-//                temp = this.getPointAtLocation(i, j);
-//                System.out.print(temp.getPiece() + "  ");
-//
-//            }
-//            System.out.println();
-//        }
-//    }
 
     /**
      * Evaluates entirety of the board to ascertain if there is a winning combination on the board.
