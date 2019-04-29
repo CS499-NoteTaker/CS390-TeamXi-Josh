@@ -1,10 +1,26 @@
 package Server.Resources;
 
+import UserData.User;
+
 import javax.ws.rs.*;
 import java.io.InputStream;
 
+
+
+
 @Path("welcome")
 public class WelcomeResource {
+
+    private User currentUser;
+
+
+    public WelcomeResource() {
+        
+    }
+
+
+
+
 
     @GET
     public InputStream getClient() {return this.getClass().getResourceAsStream("/welcome.html");}
@@ -19,4 +35,9 @@ public class WelcomeResource {
         }
         return stream;
     }
+
+
+
+
+
 }
