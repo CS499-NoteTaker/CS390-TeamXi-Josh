@@ -12,10 +12,10 @@ import java.io.InputStream;
 public class CurrentGameResource {
 
 
-    private GameList usersCurrentGameList;
+
 
     public CurrentGameResource() {
-        
+
     }
 
 
