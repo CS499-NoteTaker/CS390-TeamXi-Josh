@@ -65,7 +65,7 @@ public class GameResource {
         // Assigning the current user.
         user1 = WelcomeResource.currentUser;
 
-        
+
         // Try to make a game with another existing user
         // otherwise it will run into error.
         try {

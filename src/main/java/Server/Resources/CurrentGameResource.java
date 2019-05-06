@@ -11,9 +11,7 @@ import java.io.InputStream;
 @Path("current")
 public class CurrentGameResource {
 
-    // Current Game
-    Game currentGame;
-
+ 
     public CurrentGameResource() {
 
     }
@@ -66,8 +64,6 @@ public class CurrentGameResource {
         //Gets the game at index 'id'
         Game gameAtId = Controller.gameList.getGameAtIndex(id);
 
-        //Since it retrieves the game at id, we make that the current game.
-        currentGame = gameAtId;
 
         Gson gson = new Gson();
 
