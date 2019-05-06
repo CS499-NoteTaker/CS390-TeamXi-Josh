@@ -9,12 +9,10 @@ import java.util.*;
 public class Game{
     private User User1, User2;      //The two Users Needed for each game
     private boolean play = true;    //Used to know if the game is still in progress
-    private int x, y;               //Ints used for placing a piece at a specific location
 
     //Board used for storing every point
     public Board gameBoard = new Board();  //Josh changed back to public
 
-    private int id = 0;
 
     /**
      * Constructor for creating a game given the two Users that will
@@ -25,7 +23,6 @@ public class Game{
     public Game(User PlayerOne, User PlayerTwo) {
         this.User1 = PlayerOne;
         this.User2 = PlayerTwo;
-        this.id = assignId();
     }
 
     /**
@@ -49,13 +46,7 @@ public class Game{
         System.out.println("Congratulations " + u.getUserName() + ", You won the game!\n");
     }
 
-    /**
-     * Creates a unique ID for each game created
-     * @return Game ID
-     */
-    private int assignId(){
-        return id++;
-    }
+
     /**
      * Returns the first user
      * @return The first User
@@ -72,11 +63,5 @@ public class Game{
         return User2;
     }
 
-    /**
-     * Returns the game's ID
-     * @return game's ID
-     */
-    public int getID(){
-        return id;
-    }
+
 }
