@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class GameList {
     //The List of all Games
-    public ArrayList<Game> games = new ArrayList<>();
+    public ArrayList<Game> games;
 
-    public GameList(){
-
+    public GameList() {
+        games = new ArrayList<>();
     }
 
     /**
