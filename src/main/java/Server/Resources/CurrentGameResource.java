@@ -11,7 +11,8 @@ import java.io.InputStream;
 @Path("current")
 public class CurrentGameResource {
 
- 
+    public static int currentGameId;
+
     public CurrentGameResource() {
 
     }
@@ -39,16 +40,16 @@ public class CurrentGameResource {
 
     /**
      * This will get the board information in json
-     * @param GameID -  gameIndex
+     * @param GameId -  gameIndex
      * @return - json representation of game[id]
      */
     @Path("{id}")
-    public String getGameInfo(@PathParam("id") String GameID){
+    public String getGameInfo(@PathParam("id") String GameId){
 
         // Checks for 404 error
         int id = -1;
         try {
-            id = Integer.parseInt(GameID);
+            id = Integer.parseInt(GameId);
         }
         catch(NumberFormatException e){
             throw new WebApplicationException(404);
@@ -60,10 +61,10 @@ public class CurrentGameResource {
             throw new WebApplicationException(404);
         }
 
+        currentGameId = id;
 
         //Gets the game at index 'id'
         Game gameAtId = Controller.gameList.getGameAtIndex(id);
-
 
         Gson gson = new Gson();
 
@@ -72,6 +73,27 @@ public class CurrentGameResource {
     }
 
 
+
+
+    @PUT
+    @Path("{id}/placePoint")
+    public String placePointOnBoard(@PathParam("id") String GameId ) {
+        // Convert to an integer
+        int id = -1;
+        try {
+            id = Integer.parseInt( GameId );
+        } catch( NumberFormatException e ) {
+            throw new WebApplicationException(404);
+        }
+
+        // Validate range
+        if( id < 0 || id >= Controller.gameList.getSize() ) {
+            throw new WebApplicationException(404);
+        }
+
+
+        return "";
+    }
 
 
 
