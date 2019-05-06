@@ -27,10 +27,7 @@ public class GameTest {
         Assert.assertEquals(Josh, testGame3.getUser2());
     }
 
-    @Test
-    public void testGameID01(){
-        Assert.assertEquals(0,testGame.getID());
-    }
+
 
     @Test
     public void testAssignPlayers01(){
