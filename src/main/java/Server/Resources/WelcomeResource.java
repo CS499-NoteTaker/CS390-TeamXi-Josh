@@ -11,7 +11,7 @@ import java.io.InputStream;
 @Path("welcome")
 public class WelcomeResource {
 
-    private User currentUser;
+    public static User currentUser;
 
 
     public WelcomeResource() {

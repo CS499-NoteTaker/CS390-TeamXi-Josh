@@ -41,6 +41,7 @@ public class GameResource {
     }
 
 
+    //Todo this does so by retrieving string, has not tried aaccepting json object
     /**
      * This will help to create game with user1 and user 2
      * @param twoUsers - twoUsers separated by a white space
@@ -57,9 +58,23 @@ public class GameResource {
         String user1Name = scan.next();
         String user2Name = scan.next();
 
-        // Creates two users
-        User user1 = Controller.userList.getUserByUsername( user1Name );
-        User user2 = Controller.userList.getUserByUsername( user2Name );
+        // Creates two users for a game
+        User user1;
+        User user2;
+
+        // Assigning the current user.
+        user1 = WelcomeResource.currentUser;
+
+        
+        // Try to make a game with another existing user
+        // otherwise it will run into error.
+        try {
+            user2 = Controller.userList.getUserByUsername(user2Name);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("User 2 not found ");
+            return 500;
+        }
+
 
         // Creates new game with two users
         Game newGame = new Game( user1, user2 );
@@ -67,6 +82,9 @@ public class GameResource {
         
         return 200;
     }
+
+
+
 
     private boolean hasTwoUsers( String twoUsers ) {
         // Removes whitespaces at the end
