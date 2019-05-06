@@ -35,4 +35,8 @@ public class Move {
                 "Point: (" + this.point.toString() + ")\n" +
                 this.date.toString();
     }
+
+    public Point getPoint() {
+        return point;
+    }
 }

@@ -14,7 +14,7 @@ public class Game{
     //Ints used for placing a piece at a specific location
     private int x, y;
     //Board used for storing every point
-    private Board gameBoard = new Board();  //JOsh changed from public to private
+    private Board gameBoard = new Board();  //Josh changed from public to private
     private int id = 0;
 
     /**
@@ -44,7 +44,10 @@ public class Game{
      * @param u The winner of the game
      */
     public void endGame(User u) {
-        System.out.println("Congratulations " + u.usernameToString() + ", You won the game!\n");
+        this.play = false;
+        u.addWin();
+        this.User2.addLoss();
+        System.out.println("Congratulations " + u.getUserName() + ", You won the game!\n");
     }
 
     /**

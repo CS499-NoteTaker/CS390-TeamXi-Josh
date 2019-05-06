@@ -35,7 +35,7 @@ public class User implements java.io.Serializable {
      * @param i index
      * @return The game at index i
      */
-    public Game getGameAtindex(int i){
+    public Game getCurrentGameAtIndex(int i){
         return this.currentGames.get(i);
     }
 
@@ -81,18 +81,13 @@ public class User implements java.io.Serializable {
     }
 
     /**
-     * Returns the User's Username with the UserName: attached
+     * Returns the User's Username
      * @return String
      */
     public String getUserName(){
         return this.userName;
     }
 
-    /**
-     * Returns the User's username
-     * @return username
-     */
-    public String usernameToString() {return this.userName;}
 
     /**
      * Indicates if the current userName matches the given userName
@@ -108,15 +103,21 @@ public class User implements java.io.Serializable {
     }
 
     /**
-     * Returns the User's current Game List
+     * Returns the User's current Game List (String format)
      * @return String
      */
     public String getCurrentGames(){
         return this.currentGames.toString();
     }
 
+    /**
+     * Returns the Users's Previous Game List (String format)
+     * @return
+     */
+    public String getPreviousGames(){ return this.previousGames.toString();}
+
     public String toString(){
-        return usernameToString() + " Wins: " + getWin() + "  Losses: " + getLoss();
+        return getUserName() + " Wins: " + getWin() + "  Losses: " + getLoss();
     }
 
 

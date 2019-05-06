@@ -29,6 +29,14 @@ public class MoveList {
         moves.clear();
     }
 
+
+    public Move getFirstMove(){
+        if( moves.size() == 0)
+                return null;
+        else
+            return moves.get(0);
+    }
+
     /**
      * Returns the String representation of the move List
      * @return String
@@ -37,15 +45,12 @@ public class MoveList {
     public String toString() {
         if( moves.isEmpty() )
             return "No moves in list";
-
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < moves.size(); i++) {
             sb.append( moves.get(i) );
             sb.append( "\n" );
         }
-
         return  sb.toString();
-
     }
 }
 

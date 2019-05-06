@@ -63,7 +63,7 @@ public class UserList{
     public String toString(){
         StringBuilder build = new StringBuilder();
         for (int i = 0; i < users.size(); i++) {
-            build.append(users.get(i).usernameToString() + " ");
+            build.append(users.get(i).getUserName() + " ");
         }
         String build1 = build.toString();
         return build1;
