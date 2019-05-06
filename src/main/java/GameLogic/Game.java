@@ -7,14 +7,13 @@ import java.util.*;
 //TODO: Add a win and loss to the correct users
 
 public class Game{
-    //The two Users Needed for each game
-    private User User1, User2;
-    //Used to know if the game is still in progress
-    private boolean play = true;
-    //Ints used for placing a piece at a specific location
-    private int x, y;
+    private User User1, User2;      //The two Users Needed for each game
+    private boolean play = true;    //Used to know if the game is still in progress
+    private int x, y;               //Ints used for placing a piece at a specific location
+
     //Board used for storing every point
-    private Board gameBoard = new Board();  //Josh changed from public to private
+    public Board gameBoard = new Board();  //Josh changed back to public
+
     private int id = 0;
 
     /**
