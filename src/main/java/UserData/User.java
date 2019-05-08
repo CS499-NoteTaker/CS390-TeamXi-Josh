@@ -94,7 +94,7 @@ public class User implements java.io.Serializable {
      * @param otherUserName Name to compare the current userName to
      * @return boolean
      */
-    public boolean UsernameEquals(String otherUserName){
+    public boolean usernameEquals(String otherUserName){
         if(this.userName.equals(otherUserName)){
             return true;
         }
