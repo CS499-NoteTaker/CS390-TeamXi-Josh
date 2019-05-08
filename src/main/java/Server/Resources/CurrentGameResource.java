@@ -1,12 +1,18 @@
 package Server.Resources;
 
 import GameLogic.Game;
+import GameLogic.Piece;
+import GameLogic.Point;
 import UserData.Controller;
 import UserData.GameList;
+import UserData.User;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.ws.rs.*;
 import java.io.InputStream;
+
+import static GameLogic.Piece.B;
 
 @Path("current")
 public class CurrentGameResource {
