@@ -1,14 +1,13 @@
 package Server.Resources;
 
+import UserData.Leaderboard;
+import UserData.UserList;
 import com.google.gson.Gson;
-import UserData.*;
-import com.google.gson.JsonObject;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.InputStream;
-import java.util.*;
 
 //TODO: leaderboard does not print out the string, users should be added to this list elsewhere
 
@@ -40,7 +39,7 @@ public class LeaderboardResource {
     public String getLeaderboard(){
         leaderboard = new Leaderboard(users);
         Gson g = new Gson();
-        return g.toJson(leaderboard.toStringForWebClientDisplay());
+        return g.toJson(leaderboard.getLeaderboardObjectArray());
     }
 
     @POST

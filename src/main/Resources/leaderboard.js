@@ -9,21 +9,32 @@ var buttonClickEvent = function(e) {
     // see:  https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
     fetch("/leaderboard", { method: "GET"} )
         .then( function(response) {
-              let el = document.getElementById("response-area");
-              if( ! response.ok ) {
-                  el.innerText = "Error code: " + response.status;
-                  el.style.fontWeight = "bold";
-                  el.style.color = "red";
-              } else {
-                  response.text().then( function(value) {
-                      value = value;
-                      el.innerText = "Leaderboard: \n" + value;
-                      el.style.color = "green";
-                      el.style.fontWeight = "bold";
-                  });
-              }
-            });
+
+        let el = document.getElementById("f");
+        if( ! response.ok ) {
+            el.innerText = "Error code: " + response.status;
+            el.style.fontWeight = "bold";
+            el.style.color = "red";
+        } else {
+            response.json().then(function(data){
+                var displayString = "1. " + data[0].userName;
+                for(var i = 1; i < data.length; i++){
+                    displayString += "\n" + (i + 1) + ". " + data[i].userName + " Wins: " + data[i].wins + " Losses: " +
+                     data[i].losses;
+                }
+                el.value = displayString;
+            })
+
+        }
+        });
 };
 
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
 
 document.addEventListener("DOMContentLoaded", main);
