@@ -77,7 +77,7 @@ public class UserTest {
     @Test
     public void UsernameEquals01(){
         User Spenser = new User("Spenser");
-        Assert.assertFalse(Spenser.UsernameEquals("joe"));
+        Assert.assertFalse(Spenser.usernameEquals("joe"));
     }
 
     @Test
