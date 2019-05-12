@@ -2,6 +2,8 @@ var main = function(){
     drawBoard();
     let btn = document.getElementById("loginbtn");
     btn.addEventListener("click", buttonClickEvent);
+    let createBtn = document.getElementById("createbtn");
+    createBtn.addEventListener("click", buttonClickCreate);
 };
 
 var drawBoard = function(){
@@ -49,17 +51,32 @@ var drawBoard = function(){
 
 };
 
+var buttonClickEvent = function(e) {
+   console.log("I'm clicked");
+    fetch("/user", { method: "GET"} )
+        .then( function(response) {
+              if( ! response.ok ) {
+                   alert("Error code: " + response.status);
+              } else {
+                  response.text().then( function(value) {
+                      alert("Welcome " + value);
+                  });
+              }
+            });
+};
 
-var buttonClickEvent = function(e){
+var buttonClickCreate = function(e){
     console.log("I'm clicked");
     var req = new XMLHttpRequest();
-    var user = document.getElementById("login").value;
+    var user = document.getElementById("create").value;
 
     console.log(user);
 
+    alert("Welcome " + user);
     req.open("POST", "/user");
     req.send(user);
-    return false;
+
 }
+
 
 document.addEventListener("DOMContentLoaded", main);

@@ -10,31 +10,30 @@ public class UserList{
         Kaitlyn.addWin();
         Kaitlyn.addWin();
         Kaitlyn.addWin();
-
-
-
+        Kaitlyn.addLoss();
 
         User Spenser = new User("Spenser");
         Spenser.addWin();
         Spenser.addWin();
         Spenser.addWin();
         Spenser.addWin();
-
+        Spenser.addLoss();
+        Spenser.addLoss();
 
         User Sola = new User("Sola");
         Sola.addWin();
         Sola.addWin();
-
+        Sola.addLoss();
 
         User Holden = new User("Holden");
         Holden.addWin();
         Holden.addWin();
         Holden.addLoss();
 
-
         User Josh = new User("Josh");
         Josh.addWin();
         Josh.addWin();
+        Josh.addLoss();
 
         users.add(Kaitlyn);
         users.add(Spenser);

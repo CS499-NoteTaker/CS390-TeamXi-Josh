@@ -1,4 +1,5 @@
 
+import Core.UserData.Controller;
 import Core.UserData.Leaderboard;
 import Core.UserData.User;
 import Core.UserData.UserList;
@@ -20,17 +21,17 @@ public class LeaderBoardTest {
         chad.addWin();
         chad.addWin();
         chad.addLoss();
-        UserList userList = new UserList();
+        UserList userList = Controller.userList;
         userList.addUser(adam);
         userList.addUser(joe);
         userList.addUser(chad);
 
-        this.leaderboard = new Leaderboard(userList);
+        this.leaderboard = new Leaderboard();
 ;    }
 
     @Test
     public void testToString()
     {
-        Assert.assertEquals("Kaitlyn: 3 Spenser: 4 Sola: 2 Josh: 2 Joe: 0 Adam: 1 Holden: 2 Chad: 2 ", leaderboard.toString());
+        Assert.assertEquals("Sola: 2 Spenser: 4 Kaitlyn: 3 Holden: 2 Josh: 2 Adam: 1 Joe: 0 Chad: 2 ", leaderboard.toString());
     }
 }

@@ -10,7 +10,6 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.InputStream;
 
-//TODO: leaderboard does not print out the string, users should be added to this list elsewhere
 
 @Singleton
 @Path("leaderboard")
@@ -33,12 +32,12 @@ public class LeaderboardResource {
 
 
     private Leaderboard leaderboard;
-    UserList users = new UserList();
+    UserList users = Controller.userList;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getLeaderboard(){
-        leaderboard = new Leaderboard(users);
+        leaderboard = new Leaderboard();
         Gson g = new Gson();
         return g.toJson(leaderboard.getLeaderboardObjectArray());
     }

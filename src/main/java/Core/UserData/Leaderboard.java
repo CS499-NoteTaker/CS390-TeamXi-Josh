@@ -1,4 +1,5 @@
 package Core.UserData;
+
 import java.util.*;
     public class Leaderboard {
         //Array used to Sort the leaderboard object
@@ -6,10 +7,9 @@ import java.util.*;
 
         /**
          * Constructor for the leaderboaroard
-         * @param users The Users that are apart of the leaderboard
          */
-        public Leaderboard(UserList users){
-            leaderboard = sortUsersByWinLossRatioHighestToLowest(users);
+        public Leaderboard(){
+            leaderboard = sortUsersByWinLossRatioHighestToLowest(Controller.userList);
         }
 
         /**
@@ -33,12 +33,26 @@ import java.util.*;
          * @return The List of users on the Leader board
          */
         public ArrayList<User> sortUsersByWinLossRatioHighestToLowest(UserList users){
-            ArrayList<User> usersSorted = new ArrayList<User>();
+            users = Controller.userList;
+            User[] sortedUsers = new User[users.getSize()];
             for(int i = 0; i < users.getSize(); i++){
-                System.out.println("SORTING PROCESS: [" + i + "] " + users.getUserByIndex(i).getUserName());
-                usersSorted = putUserInRightPlace(users.getUserByIndex(i), usersSorted);
+                sortedUsers[i] = users.getUserByIndex(i);
             }
-            return usersSorted;
+
+            int n = users.getSize();
+            for (int i = 0; i < n-1; i++)
+                for (int j = 0; j < n-i-1; j++)
+                    if (Double.compare(users.getUserByIndex(i).getWinLossRatio(), users.getUserByIndex(j+1).getWinLossRatio()) < 0)
+                    {
+                        // swap arr[j+1] and arr[i]
+                        User temp = sortedUsers[j];
+                        sortedUsers[j] = sortedUsers[j + 1];
+                        sortedUsers[j + 1] = temp;
+                    }
+
+            ArrayList<User> sortedList = new ArrayList<>(Arrays.asList(sortedUsers));
+
+            return sortedList;
         }
 
         /**
@@ -51,7 +65,7 @@ import java.util.*;
             } else {
                 int i = usersSorted.size() - 1;
                 while(!usersSorted.contains(user) && (i >= 0)){
-                    if(usersSorted.get(i).getWinLossRatio() <= user.getWinLossRatio()){
+                    if(Double.compare(usersSorted.get(i).getWinLossRatio(), user.getWinLossRatio()) < 0){
                         usersSorted.add(i + 1, user);
                     }
                     i--;

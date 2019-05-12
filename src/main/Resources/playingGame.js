@@ -29,18 +29,18 @@ function handleClick(e){
             ctx.fillText("⚫", posx - 6, posy + 10);
 
 
-    if(posx / 22 >= 22/2){
-        posx = ((Math.ceil(posx/22) * 22) + 22) / 22;
+    if(posx / 44 >= 44/2){
+        posx = ((Math.ceil(posx/44) * 44) + 44) / 44;
     }
     else{
-       posx = ((Math.floor(posx/22) * 22) + 22) / 22;
+       posx = ((Math.floor(posx/44) * 44) + 44) / 44;
     }
 
-    if(posy % 22 >= 22/2){
-            posy = ((Math.ceil(posy/22) * 22) + 22) / 22;
+    if(posy % 44 >= 44/2){
+            posy = ((Math.ceil(posy/44) * 44) + 44) / 44;
         }
         else{
-           posy = ((Math.floor(posy/22) * 22) + 22) / 22;
+           posy = ((Math.floor(posy/44) * 44) + 44) / 44;
         }
 
     console.log(posx + " " +posy)

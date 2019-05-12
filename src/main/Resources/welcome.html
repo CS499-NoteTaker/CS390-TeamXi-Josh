@@ -44,20 +44,32 @@
 </div>
 </div>
 
+<h2 style = "text-align: center">Welcome to Connect Six by Team Xi!</h2>
+
+<div style = "text-align: center">
+    <form>
+        Sign in:<br>
+        <input id = "login" type = "text">
+        <input id = "loginbtn" type = "button" onclick="this.disabled = true" value ="Submit">
+    </form>
+</div>
+
+<div style = "text-align: center">
+    <form>
+        Create new:<br>
+        <input id = "create" type = "text">
+        <input id = "createbtn" type = "button" onclick="this.disabled = true" value ="Submit">
+    </form>
+</div>
+
 <!--Canvas to draw the board onto-->
 <div id = "canvas-center">
 <canvas width="880" height = "880" id = "canvas-board"></canvas>
 </div>
 
-<h2 style = "text-align: center">Welcome to Connect Six by Team Xi!</h2>
 
-<div style = "text-align: center">
-<form>
-Sign in!<br>
-    <input id = "login" type = "text">
-    <input id = "loginbtn" type = "submit">
-</form>
-</div>
+
+
 
 <!--load the javascript script for the client application-->
 <script src="/welcome/welcome.js"></script>

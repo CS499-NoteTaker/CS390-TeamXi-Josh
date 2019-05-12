@@ -12,7 +12,7 @@ import java.io.InputStream;
 @Path("user")
 public class UserResource {
 
-    private UserList users = new UserList();
+
 
     @GET
     public InputStream getClient() {return this.getClass().getResourceAsStream("/user.html");}
@@ -20,7 +20,7 @@ public class UserResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getUsers(){
-        return users.toString();
+        return Controller.userList.toString();
     }
     /**
      * Takes a username and returns the user as a Json object if found in the Controller userList
