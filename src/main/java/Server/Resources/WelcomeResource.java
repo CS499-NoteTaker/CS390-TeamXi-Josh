@@ -1,6 +1,6 @@
 package Server.Resources;
 
-import UserData.User;
+import Core.UserData.User;
 
 import javax.ws.rs.*;
 import java.io.InputStream;

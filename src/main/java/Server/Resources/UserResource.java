@@ -1,8 +1,8 @@
 package Server.Resources;
 
-import UserData.Controller;
-import UserData.User;
-import UserData.UserList;
+import Core.UserData.Controller;
+import Core.UserData.User;
+import Core.UserData.UserList;
 import com.google.gson.Gson;
 
 import javax.ws.rs.*;

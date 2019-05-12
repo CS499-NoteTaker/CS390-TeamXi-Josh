@@ -1,5 +1,4 @@
-package UserData;
-import UserData.*;
+package Core.UserData;
 import java.util.*;
 
 public class UserList{

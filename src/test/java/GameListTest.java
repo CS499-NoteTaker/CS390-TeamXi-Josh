@@ -1,6 +1,6 @@
-import GameLogic.Game;
-import UserData.GameList;
-import UserData.User;
+import Core.GameLogic.Game;
+import Core.UserData.GameList;
+import Core.UserData.User;
 import org.junit.Assert;
 import org.junit.Test;
 

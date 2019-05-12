@@ -1,14 +1,12 @@
 package Server.Resources;
 
 import com.google.gson.Gson;
-import UserData.*;
-import com.google.gson.JsonObject;
+import Core.UserData.*;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.InputStream;
-import java.util.*;
 
 //TODO: leaderboard does not print out the string, users should be added to this list elsewhere
 

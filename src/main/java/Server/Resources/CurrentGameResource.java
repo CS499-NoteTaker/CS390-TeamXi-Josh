@@ -1,8 +1,7 @@
 package Server.Resources;
 
-import GameLogic.Game;
-import UserData.Controller;
-import UserData.GameList;
+import Core.GameLogic.Game;
+import Core.UserData.Controller;
 import com.google.gson.Gson;
 
 import javax.ws.rs.*;

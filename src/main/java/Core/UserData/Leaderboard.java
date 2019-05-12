@@ -1,4 +1,4 @@
-package UserData;
+package Core.UserData;
 import java.util.*;
     public class Leaderboard {
         //Array used to Sort the leaderboard object

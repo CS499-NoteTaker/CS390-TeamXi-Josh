@@ -1,19 +1,14 @@
 package Server.Resources;
 
 
-import GameLogic.Game;
-import UserData.Controller;
-import UserData.GameList;
-import UserData.User;
+import Core.GameLogic.Game;
+import Core.UserData.Controller;
+import Core.UserData.User;
 import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Scanner;
-
-import UserData.Controller;
 
 @Singleton
 @Path("game")

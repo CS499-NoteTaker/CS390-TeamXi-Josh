@@ -1,4 +1,4 @@
-package GameLogic;
+package Core.GameLogic;
 
 public class Point {
     //Variables used to set pieces

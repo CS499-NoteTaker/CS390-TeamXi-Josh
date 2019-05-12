@@ -1,4 +1,4 @@
-import GameLogic.Point;
+import Core.GameLogic.Point;
 import org.junit.*;
 
 public class PointTest {

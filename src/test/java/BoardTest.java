@@ -1,4 +1,4 @@
-import GameLogic.*;
+import Core.GameLogic.*;
 import org.junit.*;
 
 

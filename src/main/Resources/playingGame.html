@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>watch</title>
     <style>
+
+         #canvas-center{
+            border: 1px solid black;
+            width: 418px;
+            height:418px;
+            margin: 10px auto;
+        }
+
         .topnav {
             overflow: hidden;
             background-color: black;
@@ -38,10 +46,13 @@
 
 </div>
 
-<h2>I need the ability to look through and watch old games as they were played.</h2>
+<!--Canvas to draw the board onto-->
+<div id = "canvas-center">
+    <canvas width="418" height = "418" id = "canvas-board"></canvas>
+</div>
 
 <!-- Load the JavaScript script for the client application-->
-<script src="/watch/watch.js"> </script>
+<script src="/playingGame/playingGame.js"> </script>
 
 </body>
 </html>

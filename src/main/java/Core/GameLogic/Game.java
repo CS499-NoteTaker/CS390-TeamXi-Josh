@@ -1,6 +1,5 @@
-package GameLogic;
-import UserData.*;
-import java.util.*;
+package Core.GameLogic;
+import Core.UserData.*;
 
 //TODO: Implement the ability to choose a user from a list,
 //TODO: Implement the win condition, set play to false when the game is complete

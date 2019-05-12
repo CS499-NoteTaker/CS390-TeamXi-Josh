@@ -1,5 +1,5 @@
-import GameLogic.*;
-import UserData.User;
+import Core.GameLogic.*;
+import Core.UserData.User;
 import org.junit.*;
 
 public class GameTest {

@@ -2,6 +2,55 @@ var main = function(){
     drawBoard();
 };
 
+window.onload = function(){
+    canvas = document.getElementById("canvas-board");
+    ctx = canvas.getContext("2d");
+    canvas.addEventListener('click', handleClick);
+}
+
+function getMousePos(c, evt){
+   var rect = canvas.getBoundingClientRect(),
+         scaleX = canvas.width / rect.width,
+         scaleY = canvas.height / rect.height;
+    return{
+        x: (evt.clientX - rect.left) * scaleX,
+        y: (evt.clientY - rect.top) * scaleY
+    };
+}
+
+function handleClick(e){
+    var pos = getMousePos(canvas, e)
+    posx = pos.x;
+    posy = pos.y;
+
+    console.log(posx + " " +posy)
+
+    ctx.font = "15px Arial";
+            ctx.fillText("⚫", posx - 6, posy + 10);
+
+
+    if(posx / 22 >= 22/2){
+        posx = ((Math.ceil(posx/22) * 22) + 22) / 22;
+    }
+    else{
+       posx = ((Math.floor(posx/22) * 22) + 22) / 22;
+    }
+
+    if(posy % 22 >= 22/2){
+            posy = ((Math.ceil(posy/22) * 22) + 22) / 22;
+        }
+        else{
+           posy = ((Math.floor(posy/22) * 22) + 22) / 22;
+        }
+
+    console.log(posx + " " +posy)
+
+    //ctx.font = "15px Arial";
+    //    ctx.fillText("⚫", posx, posy);
+
+    return {x: posx, y: posy};
+}
+
 var drawBoard = function(){
     let canvas = document.getElementById("canvas-board");
 
@@ -28,4 +77,6 @@ var drawBoard = function(){
 
 
 };
+
+
 document.addEventListener("DOMContentLoaded", main);

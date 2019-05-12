@@ -1,6 +1,6 @@
-package GameLogic;
+package Core.GameLogic;
 
-import UserData.User;
+import Core.UserData.User;
 
 import java.util.Date;
 

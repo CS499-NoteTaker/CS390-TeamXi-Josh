@@ -1,4 +1,4 @@
-import UserData.*;
+import Core.UserData.*;
 import org.junit.*;
 
 public class UserListTest {

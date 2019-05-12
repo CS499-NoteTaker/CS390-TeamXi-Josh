@@ -1,5 +1,5 @@
-import GameLogic.Game;
-import UserData.User;
+import Core.GameLogic.Game;
+import Core.UserData.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,12 +1,9 @@
-import GameLogic.Point;
-import UserData.Leaderboard;
-import UserData.User;
-import UserData.UserList;
+import Core.UserData.Leaderboard;
+import Core.UserData.User;
+import Core.UserData.UserList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.net.InetSocketAddress;
 
 public class LeaderBoardTest {
     private Leaderboard leaderboard;

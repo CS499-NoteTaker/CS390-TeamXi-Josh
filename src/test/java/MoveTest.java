@@ -1,6 +1,6 @@
-import GameLogic.Move;
-import GameLogic.Point;
-import UserData.User;
+import Core.GameLogic.Move;
+import Core.GameLogic.Point;
+import Core.UserData.User;
 import org.junit.Assert;
 import org.junit.Test;
 

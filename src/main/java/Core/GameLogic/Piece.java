@@ -1,4 +1,4 @@
-package GameLogic;
+package Core.GameLogic;
 
 /**
  * Piece is used as a flag for the board as a representation of if the point on the board is filled
