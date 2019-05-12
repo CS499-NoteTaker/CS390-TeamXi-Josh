@@ -61,11 +61,11 @@ public class GameResource {
         user1 = WelcomeResource.currentUser;
 
 
-        // Try to make a game with another existing user
-        // otherwise it will run into error.
-        try {
-            user2 = Controller.userList.getUserByUsername(user2Name);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        
+        user2 = Controller.userList.getUserByUsername( user2Name );
+
+        // Checks to see if user2Name has been found in UserList
+        if( user2 == null ) {
             System.out.println("User 2 not found ");
             return 500;
         }
