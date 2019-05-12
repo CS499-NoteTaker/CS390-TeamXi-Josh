@@ -81,6 +81,9 @@ public class CurrentGameResource {
 
 
 
+
+
+
     @POST
     @Path("{id}/placePoint")
     public int placePointOnBoard(@PathParam("id") String gameId, String coordinateData ) {
@@ -146,6 +149,12 @@ public class CurrentGameResource {
 
         return 200;
     }
+
+
+
+
+
+
 
 
 
