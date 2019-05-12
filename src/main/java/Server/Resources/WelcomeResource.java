@@ -46,6 +46,7 @@ public class WelcomeResource {
      * @return - int: Web application code
      */
     @POST
+    @Path("/createNewUser")
     public int createNewUser(String userName) {
         userName = userName.trim();
 
@@ -68,7 +69,8 @@ public class WelcomeResource {
 
 
     @POST
-    public int logIn(String userName) {
+    @Path("login")
+    public int login(String userName) {
         userName = userName.trim();
 
         if (userName.length() == 0) {
