@@ -1,5 +1,7 @@
 var main = function(){
     drawBoard();
+    let btn = document.getElementById("loginbtn");
+    btn.addEventListener("click", buttonClickEvent);
 };
 
 var drawBoard = function(){
@@ -46,4 +48,17 @@ var drawBoard = function(){
 
 
 };
+
+var buttonClickEvent = function(e){
+var buttonClickEvent = function(e){
+    console.log("I'm clicked");
+    var req = new XMLHttpRequest();
+    var user = document.getElementById("login").value;
+
+    console.log(user);
+
+    req.open("POST", "/user");
+    req.send(user);
+}
+}
 document.addEventListener("DOMContentLoaded", main);
