@@ -83,7 +83,7 @@ public class CurrentGameResource {
 
     @POST
     @Path("{id}/placePoint")
-    public String placePointOnBoard(@PathParam("id") String gameId, String coordinateData ) {
+    public int placePointOnBoard(@PathParam("id") String gameId, String coordinateData ) {
         // Convert to an integer
         int id = -1;
         try {
@@ -132,7 +132,19 @@ public class CurrentGameResource {
 
         currentGame.gameBoard.setPointAtLocation(coordinate.x, coordinate.y, piece);
 
-        return "200";
+
+        // Checks if who wins.
+        if( currentGame.gameBoard.checkWinCondition() ) {
+            if( piece == piece.B )
+                currentGame.endGame( player1 ) ;
+            else if( piece == piece.W )
+                currentGame.endGame( player2 );
+            else
+                System.out.println("Error Winner, but wrong user");
+        }
+
+
+        return 200;
     }
 
 
