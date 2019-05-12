@@ -17,10 +17,10 @@ var buttonClickEvent = function(e) {
             el.style.color = "red";
         } else {
             response.json().then(function(data){
-                var displayString = "1. " + data[0].userName;
+                var displayString = "1. " + data[0].userName + " Wins: " + data[0].win + " Losses: " + data[0].loss;
                 for(var i = 1; i < data.length; i++){
-                    displayString += "\n" + (i + 1) + ". " + data[i].userName + " Wins: " + data[i].wins + " Losses: " +
-                     data[i].losses;
+                    displayString += "\n" + (i + 1) + ". " + data[i].userName + " Wins: " + data[i].win + " Losses: " +
+                     data[i].loss;
                 }
                 el.value = displayString;
             })

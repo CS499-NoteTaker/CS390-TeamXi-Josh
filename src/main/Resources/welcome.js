@@ -14,8 +14,8 @@ var drawBoard = function(){
 
     ctx.fillStyle = "rgb(0,0,0)";
     ctx.beginPath();
-    for (x=0;x<=w;x+=22) {
-            for (y=0;y<=h;y+=22) {
+    for (x=0;x<=w;x+=44) {
+            for (y=0;y<=h;y+=44) {
                 ctx.moveTo(x, 0);
                 ctx.lineTo(x, h);
                 ctx.stroke();

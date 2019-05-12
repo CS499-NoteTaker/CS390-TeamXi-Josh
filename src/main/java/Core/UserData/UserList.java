@@ -13,7 +13,9 @@ public class UserList{
 
 
 
+
         User Spenser = new User("Spenser");
+        Spenser.addWin();
         Spenser.addWin();
         Spenser.addWin();
         Spenser.addWin();
@@ -23,9 +25,12 @@ public class UserList{
         Sola.addWin();
         Sola.addWin();
 
+
         User Holden = new User("Holden");
         Holden.addWin();
         Holden.addWin();
+        Holden.addLoss();
+
 
         User Josh = new User("Josh");
         Josh.addWin();
