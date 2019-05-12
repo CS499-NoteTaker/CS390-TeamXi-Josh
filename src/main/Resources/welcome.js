@@ -25,10 +25,14 @@ var drawBoard = function(){
             }
         }
     ctx.stroke();
-    ctx.font = "15px Arial";
-    ctx.fillText("⚫", 3, 18);
-    ctx.fillText("⚪", 3, 85);
-    ctx.fillText("⚪", 3, 40);
+    ctx.font = "20px Arial";
+    /*
+    To place a piece on the cross: correct by taking 10 pixels
+    from the x, and adding 4 pixels to the y
+    */
+    ctx.fillText("⚫", 34, 48);
+    ctx.fillText("⚪", 78, 92);
+   /* ctx.fillText("⚪", 3, 40);
     ctx.fillText("⚫", 113, 40);
     ctx.fillText("⚪", 113, 172);
     ctx.fillText("⚫", 157, 216);
@@ -37,7 +41,7 @@ var drawBoard = function(){
     ctx.fillText("⚫", 47, 62);
     ctx.fillText("⚫", 311, 238);
     ctx.fillText("⚪", 399, 414);
-    ctx.fillText("⚫", 311, 83);
+    ctx.fillText("⚫", 311, 83);*/
 
 
 

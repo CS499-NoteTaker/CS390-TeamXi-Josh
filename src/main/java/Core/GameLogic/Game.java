@@ -10,7 +10,7 @@ public class Game{
     private boolean play = true;    //Used to know if the game is still in progress
 
     //Board used for storing every point
-    public Board gameBoard = new Board();  //Josh changed back to public
+    public Board gameBoard;  //Josh changed back to public
 
 
     /**
@@ -22,6 +22,7 @@ public class Game{
     public Game(User PlayerOne, User PlayerTwo) {
         this.User1 = PlayerOne;
         this.User2 = PlayerTwo;
+        this.gameBoard = new Board();
     }
 
     /**
