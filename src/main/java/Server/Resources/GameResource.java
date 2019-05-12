@@ -38,8 +38,8 @@ public class GameResource {
 
     //Todo this does so by retrieving string, has not tried aaccepting json object
     /**
-     * This will help to create game with user1 and user 2
-     * @param twoUsers - twoUsers separated by a white space
+     * This will help to create game with current user and opponent
+     * @param user2Name - user name of player 2 (opponent)
      * @return - returns 200 if successful
      */
     @POST
