@@ -1,6 +1,8 @@
+
 import Core.UserData.Leaderboard;
 import Core.UserData.User;
 import Core.UserData.UserList;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +31,6 @@ public class LeaderBoardTest {
     @Test
     public void testToString()
     {
-        Assert.assertEquals("Kaitlyn Spenser Sola Holden Josh Joe Adam Chad ", leaderboard.toString());
+        Assert.assertEquals("Kaitlyn: 3 Spenser: 3 Sola: 2 Holden: 2 Josh: 2 Joe: 0 Adam: 1 Chad: 2 ", leaderboard.toString());
     }
 }

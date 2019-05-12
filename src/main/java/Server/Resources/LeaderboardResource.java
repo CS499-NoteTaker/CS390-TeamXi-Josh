@@ -1,7 +1,9 @@
 package Server.Resources;
 
 import com.google.gson.Gson;
+
 import Core.UserData.*;
+
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -38,7 +40,7 @@ public class LeaderboardResource {
     public String getLeaderboard(){
         leaderboard = new Leaderboard(users);
         Gson g = new Gson();
-        return g.toJson(leaderboard.toStringForWebClientDisplay());
+        return g.toJson(leaderboard.getLeaderboardObjectArray());
     }
 
     @POST

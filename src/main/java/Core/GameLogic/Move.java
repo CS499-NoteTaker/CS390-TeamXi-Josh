@@ -10,7 +10,7 @@ public class Move {
     private Point point;    // Point that user made a move on.
 
     // Constructor
-    public Move (User u, Point p) {
+    public Move (User u , Point p) {
         this.user = u;
         this.point = p;
         this.date = new Date(); // Grabs today's date.

@@ -20,6 +20,12 @@ import java.util.*;
             return leaderboard;
         }
 
+        /**
+         * @return - Array of objects, each object a user, representing the leaderboard.
+         */
+        public Object[] getLeaderboardObjectArray(){
+            return leaderboard.toArray();
+        }
 
         /**
          * Sorts the Users By their win/loss ration with the Highest being at the top
@@ -59,23 +65,10 @@ import java.util.*;
         }
 
         /**
-         * Outputs a String with all the usernames in order of Win Loss ratio
+         * Outputs a String with all the usernames and W/L ratios in order of Win Loss ratio, highest to lowest
          * @return The Leader board
         */
         public String toString(){
-            StringBuilder build = new StringBuilder();
-            for (int i = 0; i < leaderboard.size(); i++) {
-                build.append(leaderboard.get(i).userName + " ");
-            }
-            return build.toString();
-        }
-
-        /**
-         * Outputs a string representation of the leaderboard suitable for the web client. Includes username and ...
-         * win/loss ratio.
-         * @return
-         */
-        public String toStringForWebClientDisplay(){
             StringBuilder build = new StringBuilder();
             for (int i = 0; i < leaderboard.size(); i++) {
                 build.append(leaderboard.get(i).userName + ": " + leaderboard.get(i).getWin() + ' ');
