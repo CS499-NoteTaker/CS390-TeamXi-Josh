@@ -49,7 +49,7 @@ var drawBoard = function(){
 
 };
 
-var buttonClickEvent = function(e){
+
 var buttonClickEvent = function(e){
     console.log("I'm clicked");
     var req = new XMLHttpRequest();
@@ -59,6 +59,7 @@ var buttonClickEvent = function(e){
 
     req.open("POST", "/user");
     req.send(user);
+    return false;
 }
-}
+
 document.addEventListener("DOMContentLoaded", main);
