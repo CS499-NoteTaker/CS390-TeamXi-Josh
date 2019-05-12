@@ -38,20 +38,20 @@ public class GameResource {
 
     //Todo this does so by retrieving string, has not tried aaccepting json object
     /**
-     * This will help to create game with user1 and user 2
-     * @param twoUsers - twoUsers separated by a white space
+     * This will help to create game with current user and opponent
+     * @param user2Name - user name of player 2 (opponent)
      * @return - returns 200 if successful
      */
     @POST
-    public int createGame(String twoUsers) {
-        Scanner scan = new Scanner(twoUsers);
+    public int createGame(String user2Name) {
 
-        // Checks to see if there have been an input of two users
-        if( !hasTwoUsers( twoUsers ) ) { throw new WebApplicationException(406); }
+        user2Name = user2Name.trim();
 
-        // Separates the input
-        String user1Name = scan.next();
-        String user2Name = scan.next();
+        // Checks if user has any input
+        if( user2Name.length() == 0 ) {
+            System.out.println("No string has been entered.");
+            return 500;
+        }
 
         // Creates two users for a game
         User user1;
@@ -59,9 +59,6 @@ public class GameResource {
 
         // Assigning the current user.
         user1 = WelcomeResource.currentUser;
-
-
-        
         user2 = Controller.userList.getUserByUsername( user2Name );
 
         // Checks to see if user2Name has been found in UserList
@@ -69,7 +66,6 @@ public class GameResource {
             System.out.println("User 2 not found ");
             return 500;
         } else {
-
 
             // Creates new game with two users
             Game newGame = new Game(user1, user2);
@@ -81,7 +77,7 @@ public class GameResource {
 
 
 
-
+/*
     private boolean hasTwoUsers( String twoUsers ) {
         // Removes whitespaces at the end
         twoUsers = twoUsers.trim();
@@ -102,5 +98,6 @@ public class GameResource {
 
     }
 
+*/
 
 }
