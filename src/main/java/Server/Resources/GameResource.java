@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 @Singleton
@@ -31,6 +32,9 @@ public class GameResource {
     //Get List of all games
     @GET
     public String getAllGames() {
+        //Gets the currentUserName and gets all the games.
+        String currentUserName = WelcomeResource.currentUser.getUserName();
+        ArrayList<Game> userGames = Controller.gameList.getAllUserGames( currentUserName );
 
 
 
@@ -81,6 +85,31 @@ public class GameResource {
     }
 
 
+    /**
+     * This gets a list of games converts to a list of SimpleGames and returns it.
+     * @param games - list of Game objects
+     * @return - a Simple Game object.
+     */
+    private ArrayList<SimpleGame> getGamesToSimpleGames( ArrayList<Game> games ) {
+        ArrayList<SimpleGame> simpleGames = new ArrayList<>();
+        int id;
+        User user1, user2;
+        Game tempGame;
+        SimpleGame tempSimpleGame;
+
+        for (int i = 0; i < games.size(); i++) {
+            tempGame = games.get(i);
+            id = tempGame.getID();
+            user1 = tempGame.getUser1();
+            user2 = tempGame.getUser2();
+
+            tempSimpleGame = new SimpleGame(id, user1.getUserName(), user2.getUserName());
+
+            simpleGames.add( tempSimpleGame );
+        }
+
+        return simpleGames;
+    }
 
 /*
     private boolean hasTwoUsers( String twoUsers ) {
@@ -107,11 +136,11 @@ public class GameResource {
 
 }
 
-class simpleGame {
+class SimpleGame {
     int id;
     String user1Name, user2Name;
 
-    public simpleGame(int id, String user1Name, String user2Name ) {
+    public SimpleGame(int id, String user1Name, String user2Name ) {
         this.id = id;
         this.user1Name = user1Name;
         this.user2Name = user2Name;
