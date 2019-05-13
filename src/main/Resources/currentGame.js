@@ -8,10 +8,13 @@ btn.addEventListener("click", genGames);
 
 var buttonClickEnterGame = function(e)
 {
+    document.location.href = "/playingGame"
+    /*
     var req = new XMLHttpRequest();
     var gameid = document.getElementById("IDtextfield").value;
     req.open("GET", "/current");
     req.send(gameid);
+    */
 };
 
 var genGames = function(e){
