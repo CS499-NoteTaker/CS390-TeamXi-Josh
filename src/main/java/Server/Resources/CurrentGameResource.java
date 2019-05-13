@@ -144,10 +144,33 @@ public class CurrentGameResource {
     }
 
 
-    private ArrayList<SimplePoint> getPointsToSimplePoints(ArrayList<Point> points ) {
-        
 
-        return null;
+
+
+    /**
+     * Converts an ArrayList of points to an ArrayList of SimplePoint objects
+     * @param points - Arraylist of Point Objects
+     * @return - an ArrayList of SimpleObjects
+     */
+    private ArrayList<SimplePoint> getPointsToSimplePoints(ArrayList<Point> points ) {
+        ArrayList<SimplePoint> simplePoints = new ArrayList<>();
+        int tempX, tempY;
+        Piece tempPiece;
+        Point tempPoint;
+        SimplePoint tempSimplePoint;
+
+        for (int i = 0; i < points.size(); i++ ) {
+            tempPoint = points.get(i);
+            tempX = tempPoint.getX();
+            tempY = tempPoint.getY();
+            tempPiece = tempPoint.getPiece();
+
+            tempSimplePoint = new SimplePoint(tempX, tempY, tempPiece);
+
+            simplePoints.add(tempSimplePoint);
+        }
+
+        return simplePoints;
     }
 
     /**

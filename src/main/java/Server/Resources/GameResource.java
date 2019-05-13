@@ -23,7 +23,7 @@ public class GameResource {
     @GET
     public InputStream getClient() {return this.getClass().getResourceAsStream("/GameResource.html");}
 
-    //Get List of all games
+    //Get List of all current games
     @GET
     @Path("list")
     public String getAllGames() {
@@ -39,7 +39,7 @@ public class GameResource {
 
     }
 
-    //Get List of all games
+    //Get List of all previous games
     @GET
     @Path("listPrev")
     public String getAllGamesPrev() {
