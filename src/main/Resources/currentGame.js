@@ -1,3 +1,7 @@
+var CurrentGameID = 0;
+
+
+
 var main = function(){
 let btn = document.getElementById("entergamebtn");
 btn.addEventListener("click", buttonClickEnterGame);
@@ -6,13 +10,9 @@ btn.addEventListener("click", buttonClickEnterGame);
 var buttonClickEnterGame = function(e)
 {
     var req = new XMLHttpRequest();
-    var gameid = document.getElementById("IDtextfield").value;
-    var stringid = String(gameid);
-    document.location.href = "/playingGame/" + gameid;
-    /*
-    req.open("GET", "/current");
-    req.send(gameid);
-    */
+    window.name = document.getElementById("IDtextfield").value;
+    document.location.href = "/playingGame";
+
 };
 
 document.addEventListener("DOMContentLoaded", main);
