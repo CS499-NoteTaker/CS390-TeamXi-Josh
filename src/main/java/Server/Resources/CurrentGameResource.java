@@ -93,11 +93,6 @@ public class CurrentGameResource {
             throw new WebApplicationException(404);
         }
 
-        // Parse the data from the client
-        JsonObject jsonObj = new JsonObject();
-        int xCord = Integer.parseInt( String.valueOf(jsonObj.get("x")) );
-
-
         //Todo: make sure to track the moves into the move list as well
         Piece piece;
         Coordinate coordinate;
@@ -116,7 +111,7 @@ public class CurrentGameResource {
 
 
         // Checks to see which player the current player is within the game
-        // so that a piece can be layed down accordingly
+        // so that a piece can be lied down accordingly
         if( currentUser.usernameEquals( player1.getUserName() ) ) {
             piece = Piece.B;
         } else if( currentUser.usernameEquals( player2.getUserName()) ) {
@@ -131,12 +126,16 @@ public class CurrentGameResource {
 
         // Checks if who wins.
         if( currentGame.gameBoard.checkWinCondition() ) {
-            if( piece == piece.B )
+            if( piece == piece.B ) {
+                // Player 1 wins
                 currentGame.endGame( player1 ) ;
-            else if( piece == piece.W )
-                currentGame.endGame( player2 );
-            else
+            }
+            else if( piece == piece.W ) {
+                // Player 2 wins
+                currentGame.endGame(player2);
+            } else {
                 System.out.println("Error Winner, but wrong user");
+            }
         }
 
 
