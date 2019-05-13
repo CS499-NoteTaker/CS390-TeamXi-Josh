@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 
 import javax.ws.rs.*;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 @Path("current")
 public class CurrentGameResource {
@@ -143,6 +144,32 @@ public class CurrentGameResource {
     }
 
 
+    private ArrayList<SimplePoint> getPointsToSimplePoints(ArrayList<Point> points ) {
+        
+
+        return null;
+    }
+
+    /**
+     * This returns all the occupied points from a game
+     * @param game - game object to receive points from
+     * @return - list of occupied points
+     */
+    private ArrayList<Point> getAllOccupiedPoints( Game game ) {
+        ArrayList<Point> occupiedPoints = new ArrayList<>();
+        Point tempPoint;
+
+        for (int i = 0; i < 19; i++ ) {
+            for (int j = 0; j < 19; j++ ) {
+                tempPoint = game.gameBoard.getPointAtLocation(i, j);
+
+                if ( tempPoint.isOccupied() )
+                    occupiedPoints.add( tempPoint );
+            }
+        }
+
+        return occupiedPoints;
+    }
 
 
 
@@ -164,6 +191,17 @@ public class CurrentGameResource {
 
         public void setX(int x) { this.x = x; }
         public void setY(int y) { this.y = y; }
+    }
+
+    class SimplePoint {
+        int x, y;
+        Piece piece;
+
+        public SimplePoint( int x, int y, Piece piece) {
+            this.x = x;
+            this.y = y;
+            this.piece = piece;
+        }
     }
 
 
