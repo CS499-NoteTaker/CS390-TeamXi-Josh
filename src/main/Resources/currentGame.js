@@ -19,7 +19,7 @@ var buttonClickEnterGame = function(e)
 
 var genGames = function(e){
     console.log("IM CLICKED GEN GAMES HEHEXD");
-    fetch("/game", { method: "GET"} )
+   /* fetch("/game", { method: "GET"} )
             .then( function(response) {
             let el = document.getElementById("currentGames");
             if( ! response.ok ) {
@@ -33,7 +33,7 @@ var genGames = function(e){
                 })
 
             }
-            });
+            });*/
 };
 
 document.addEventListener("DOMContentLoaded", main);
