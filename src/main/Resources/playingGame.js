@@ -53,8 +53,10 @@ var drawBoard = function(){
 };
 
 var addPiecesToBoard = function(){
-    var board =
-}
+
+
+
+};
 
 
 document.addEventListener("DOMContentLoaded", main);
