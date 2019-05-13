@@ -19,7 +19,7 @@ var buttonClickEnterGame = function(e)
 };
 
 var genGames = function(e){
-     fetch("/game", { method: "GET"} )
+     fetch("/game/list", { method: "GET"} )
             .then( function(response) {
                   let el = document.getElementById("currentGames");
                   if( ! response.ok ) {
@@ -28,7 +28,7 @@ var genGames = function(e){
                       el.style.color = "red";
                   } else {
                       response.text().then( function(value) {
-                          el.innerText = "Response: " + value;
+                          el.innerText = value;
                           el.style.color = "green";
                           el.style.fontWeight = "bold";
                       });

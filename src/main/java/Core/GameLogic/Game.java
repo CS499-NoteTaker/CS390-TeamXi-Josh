@@ -8,7 +8,8 @@ import Core.UserData.*;
 public class Game{
     private User User1, User2;      //The two Users Needed for each game
     private boolean play = true;//Used to know if the game is still in progress
-    private int id = 0;
+    public static int globalId = 0;
+    public int id;
     //Board used for storing every point
     public Board gameBoard;  //Josh changed back to public
 
@@ -65,7 +66,8 @@ public class Game{
     }
 
     public int getID(){
-        return id + 1;
+        globalId += 1;
+        return globalId;
     }
 
 

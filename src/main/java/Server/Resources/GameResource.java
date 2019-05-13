@@ -25,6 +25,7 @@ public class GameResource {
 
     //Get List of all games
     @GET
+    @Path("list")
     public String getAllGames() {
         // Gets the currentUserName
         String currentUserName = WelcomeResource.currentUser.getUserName();
@@ -32,7 +33,6 @@ public class GameResource {
         ArrayList<Game> userGames = Controller.gameList.getAllUserGames( currentUserName );
         // Converts all userGames into a list of SimpleGames
         ArrayList<SimpleGame> userSimpleGames = getGamesToSimpleGames( userGames );
-
         // Converts userSimple games to Json string.
         Gson gson = new Gson();
         return gson.toJson( userSimpleGames );
@@ -95,7 +95,7 @@ public class GameResource {
 
         for (int i = 0; i < games.size(); i++) {
             tempGame = games.get(i);
-            id = tempGame.getID();
+            id = tempGame.id;
             user1 = tempGame.getUser1();
             user2 = tempGame.getUser2();
 
