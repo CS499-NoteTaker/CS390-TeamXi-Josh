@@ -4,6 +4,7 @@ var main = function(){
     btn.addEventListener("click", buttonClickEvent);
     let createBtn = document.getElementById("createbtn");
     createBtn.addEventListener("click", buttonClickCreate);
+    //document.getElementById("CurrentUserName").value = window.name;
 };
 
 var drawBoard = function(){
@@ -96,7 +97,10 @@ var buttonClickCreate = function(e){
     console.log(user);
     req.open("POST", "/user");
     req.send(user);
+    document.getElementById("CurrentUserName").value = document.getElementById("create").value;
+    window.name = document.getElementById("create").value;
     clearFields();
+
 
 }
 

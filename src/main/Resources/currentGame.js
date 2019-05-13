@@ -7,16 +7,17 @@ btn.addEventListener("click", buttonClickEnterGame);
 let genButton = document.getElementById("genGames");
 genButton.addEventListener("click", genGames);
 document.getElementById("CurrentUserName").value = window.name;
+//localStorage.gameId = document.getElementById("CurrentUserName").value
 };
 
 var buttonClickEnterGame = function(e)
 {
-    var Gameid = document.getElementById("IDtextfield").value;
-    var req = new XMLHttpRequest();
-    window.name = document.getElementById("IDtextfield").value;
-    if(Gameid !== null){
+    //var Gameid = document.getElementById("IDtextfield").value;
+    //window.name = document.getElementById("IDtextfield").value;
+    //Trying to disable buttons if the field is empty
+    //if(Gameid != null){
     document.location.href = "/playingGame";
-    }
+    //}
 
 
 };
