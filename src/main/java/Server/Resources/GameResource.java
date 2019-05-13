@@ -31,8 +31,13 @@ public class GameResource {
     //Get List of all games
     @GET
     public String getAllGames() {
+
+
+
         Gson gson = new Gson();
         return gson.toJson( Controller.gameList );
+
+
     }
 
 

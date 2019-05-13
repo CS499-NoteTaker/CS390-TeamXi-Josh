@@ -68,7 +68,7 @@ public class WelcomeResource {
 
 
     @POST
-    @Path("login")
+    @Path("/login")
     public int login(String userName) {
         userName = userName.trim();
 
