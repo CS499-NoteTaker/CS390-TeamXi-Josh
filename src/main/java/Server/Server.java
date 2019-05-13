@@ -11,7 +11,7 @@ import java.net.URI;
 
 public class Server {
     //port # and URI for the server
-    public static final int PORT = 1337;
+    public static final int PORT = 5001;
     public static final String URI = "http://0.0.0.0/";
 
     //Packages that contain the resource classes
