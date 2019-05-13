@@ -53,22 +53,13 @@ var drawBoard = function(){
 
 var buttonClickEvent = function(e) {
        let user = document.getElementById("login").value;
-
-
-        fetch("/WelcomeResource/login", { method: "GET"} )
+        fetch("/WelcomeResource/login", { method: "POST"} )
                .then( function(response) {
                if( ! response.ok ) {
                    alert("Incorrect user");
                } else {
-                  /* response.json().then(function(data){
-                       for(var i = 1; i < data.length; i++){
-                           displayString += "\n" + (i + 1) + ". " + data[i].userName + " Wins: " + data[i].win + " Losses: " +
-                            data[i].loss;
-                       }
-                       el.value = displayString;
-                   })*/
 
-                    alert("Welcome " + response + "!");
+                    alert("Welcome " + currentUser + "!");
                }
                });
                clearFields();
