@@ -36,16 +36,38 @@ var drawBoard = function(){
     */
     ctx.fillText("⚫", 34, 48);
     ctx.fillText("⚪", 78, 92);
-   /* ctx.fillText("⚪", 3, 40);
-    ctx.fillText("⚫", 113, 40);
-    ctx.fillText("⚪", 113, 172);
-    ctx.fillText("⚫", 157, 216);
-    ctx.fillText("⚪", 200, 150);
-    ctx.fillText("⚪", 135, 216);
-    ctx.fillText("⚫", 47, 62);
-    ctx.fillText("⚫", 311, 238);
-    ctx.fillText("⚪", 399, 414);
-    ctx.fillText("⚫", 311, 83);*/
+    ctx.fillText("⚫", 518, 356);
+    ctx.fillText("⚪", 254, 224);
+    ctx.fillText("⚫", 386, 488);
+    ctx.fillText("⚪", 474, 708);
+    ctx.fillText("⚫", 78, 840);
+    ctx.fillText("⚪", 166, 576);
+    ctx.fillText("⚫", 254, 840);
+    ctx.fillText("⚪", 650, 796);
+    ctx.fillText("⚫", 254, 532);
+    ctx.fillText("⚪", 836, 180);
+    ctx.fillText("⚫", 254, 444);
+    ctx.fillText("⚪", 34, 224);
+    ctx.fillText("⚫", 298, 576);
+    ctx.fillText("⚪", 782, 136);
+    ctx.fillText("⚫", 694, 488);
+    ctx.fillText("⚪", 298, 136);
+    ctx.fillText("⚫", 34, 444);
+    ctx.fillText("⚪", 826, 532);
+    ctx.fillText("⚫", 650, 576);
+    ctx.fillText("⚪", 430, 400);
+    ctx.fillText("⚫", 650, 620);
+    ctx.fillText("⚪", 122, 268);
+    ctx.fillText("⚫", 518, 576);
+    ctx.fillText("⚪", 298, 268);
+    ctx.fillText("⚫", 210, 576);
+    ctx.fillText("⚪", 650, 796);
+    ctx.fillText("⚫", 254, 620);
+    ctx.fillText("⚪", 298, 136);
+    ctx.fillText("⚫", 386, 48);
+    ctx.fillText("⚪", 254, 488);
+    ctx.fillText("⚫", 122, 224);
+    ctx.fillText("⚪", 694, 312);
 
 
 
