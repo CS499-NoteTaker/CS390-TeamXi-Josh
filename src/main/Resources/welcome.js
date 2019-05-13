@@ -74,10 +74,10 @@ var drawBoard = function(){
 };
 
 var buttonClickEvent = function(e) {
-       let user = document.getElementById("login").value;
        var req = new XMLHttpRequest();
+       var user = document.getElementById("login").value;
        console.log(user);
-       req.open("POST", "/WelcomeResource/login");
+       req.open("POST", "/welcome/login");
        req.send(user);
        alert("Welcome " + user + "!");
        clearFields();

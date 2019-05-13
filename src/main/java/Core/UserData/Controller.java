@@ -4,7 +4,7 @@ import Core.GameLogic.Game;
 
 public class Controller {
 
-    public static GameList gameList = new GameList();
+    public static GameList gameList;
     public static UserList userList = new UserList();
 
 

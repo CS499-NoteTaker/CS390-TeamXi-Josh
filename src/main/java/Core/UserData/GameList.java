@@ -9,8 +9,11 @@ public class GameList {
     public ArrayList<Game> games = new ArrayList<>();
 
     public GameList() {
-        /*Game test = new Game(Controller.userList.getUserByIndex(0), Controller.userList.getUserByIndex(1));
-        games.add(test);*/
+        User Kaitlyn = Controller.userList.getUserByUsername("Kaitlyn");
+        User Sola = Controller.userList.getUserByUsername("Sola");
+
+        Game test = new Game(Kaitlyn, Sola);
+        games.add(test);
     }
 
     /**
