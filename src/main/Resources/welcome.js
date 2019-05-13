@@ -78,7 +78,10 @@ var buttonClickEvent = function(e) {
        var user = document.getElementById("login").value;
        req.open("POST", "/welcome/login");
        req.send(user);
+       document.getElementById("CurrentUserName").value = document.getElementById("login").value;
        clearFields();
+       window.name = document.getElementById("CurrentUserName").value;
+       console.log(window.name);
 
 };
 

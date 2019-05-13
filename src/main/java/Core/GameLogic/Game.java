@@ -12,6 +12,7 @@ public class Game{
     public int id;
     //Board used for storing every point
     public Board gameBoard;  //Josh changed back to public
+    private boolean PlayerOneTurn; //Boolean to tell which players turn it is
 
 
     /**
@@ -25,6 +26,34 @@ public class Game{
         this.User2 = PlayerTwo;
         this.gameBoard = new Board();
         this.id = getID();
+        PlayerOneTurn = true;
+    }
+
+    /**
+     * Determines which players turn it is based on a boolean
+     * @return a string determined by which players turn it is
+     */
+    public String whichPlayerTurn(){
+        if(PlayerOneTurn){
+            return "PlayerOne";
+        }
+        else
+        {
+            return "PlayerTwo";
+        }
+    }
+
+    /**
+     * Switches the boolean that determines which players turn it is
+     */
+    public void switchPlayersTurn(){
+        if(PlayerOneTurn){
+            PlayerOneTurn = false;
+        }
+        else
+        {
+            PlayerOneTurn = true;
+        }
     }
 
     /**

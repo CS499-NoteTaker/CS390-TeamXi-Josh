@@ -1,6 +1,7 @@
 var main = function(){
     drawBoard();
     addPiecesToBoard();
+document.getElementById("CurrentUserName").value = window.name;
 };
 
 

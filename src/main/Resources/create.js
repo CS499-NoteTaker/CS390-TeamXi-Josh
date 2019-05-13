@@ -1,6 +1,7 @@
 var main = function(){
     let btn = document.getElementById("create");
     btn.addEventListener("click", buttonClickEvent);
+document.getElementById("CurrentUserName").value = window.name;
 };
 
 /*clicking this button should create the game and automatically lead to a dynamic playingGame page which allows for player one to play
