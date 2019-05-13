@@ -31,7 +31,7 @@ public class GameResource {
     }
 
 
-    //Todo this does so by retrieving string, has not tried aaccepting json object
+    //Todo this does so by retrieving string, has not tried accepting json object
     /**
      * This will help to create game with current user and opponent
      * @param user2Name - user name of player 2 (opponent)
@@ -39,7 +39,6 @@ public class GameResource {
      */
     @POST
     public int createGame(String user2Name) {
-
         user2Name = user2Name.trim();
 
         // Checks if user has any input

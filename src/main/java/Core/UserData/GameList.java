@@ -9,12 +9,8 @@ public class GameList {
     public ArrayList<Game> games = new ArrayList<>();
 
     public GameList() {
-        User Kaitlyn = Controller.userList.getUserByUsername("Kaitlyn");
-        User Sola = Controller.userList.getUserByUsername("Sola");
-
-        Game test = new Game(Kaitlyn, Sola);
-        games.add(test);
     }
+
 
     /**
      * Adds the given game into the List of games
