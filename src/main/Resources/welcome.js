@@ -79,10 +79,10 @@ var buttonClickEvent = function(e) {
        var user = document.getElementById("login").value;
        req.open("POST", "/welcome/login");
        req.send(user);
-       document.getElementById("CurrentUserName").value = document.getElementById("login").value;
+       //document.getElementById("CurrentUserName").value = document.getElementById("login").value;
        clearFields();
-       window.name = document.getElementById("CurrentUserName").value;
-       console.log(window.name);
+       //window.name = document.getElementById("CurrentUserName").value;
+       //console.log(window.name);
 
 };
 
@@ -98,7 +98,7 @@ var buttonClickCreate = function(e){
     req.open("POST", "/user");
     req.send(user);
     document.getElementById("CurrentUserName").value = document.getElementById("create").value;
-    window.name = document.getElementById("create").value;
+    //window.name = document.getElementById("create").value;
     clearFields();
 
 

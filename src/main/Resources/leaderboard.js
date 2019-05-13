@@ -1,7 +1,7 @@
 var main = function(){
 let btn = document.getElementById("test-button");
 btn.addEventListener("click", buttonClickEvent);
-document.getElementById("CurrentUserName").value = window.name;
+//document.getElementById("CurrentUserName").value = window.name;
 };
 
 var buttonClickEvent = function(e) {
