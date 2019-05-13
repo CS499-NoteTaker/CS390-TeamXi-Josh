@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 @Singleton
@@ -31,7 +32,6 @@ public class GameResource {
     //Get List of all games
     @GET
     public String getAllGames() {
-
 
 
         Gson gson = new Gson();
@@ -107,11 +107,11 @@ public class GameResource {
 
 }
 
-class simpleGame {
+class SimpleGame {
     int id;
     String user1Name, user2Name;
 
-    public simpleGame(int id, String user1Name, String user2Name ) {
+    public SimpleGame(int id, String user1Name, String user2Name ) {
         this.id = id;
         this.user1Name = user1Name;
         this.user2Name = user2Name;
