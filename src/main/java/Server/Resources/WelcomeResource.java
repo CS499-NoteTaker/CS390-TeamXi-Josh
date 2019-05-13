@@ -50,12 +50,12 @@ public class WelcomeResource {
         userName = userName.trim();
 
         if (userName.length() == 0) {
-            System.out.println("There no user name inputed");
+            System.out.println("You didn't put anything in the username field.");
             return 406;
 
         } else if (Controller.userList.contains(userName)) {
-            System.out.print("Already contains user name:" + userName);
-            return 406;
+            System.out.print("User " + userName + " already exists.");
+            return 407;
         }
 
         User newUser = new User(userName);
@@ -73,12 +73,12 @@ public class WelcomeResource {
         userName = userName.trim();
 
         if (userName.length() == 0) {
-            System.out.println("There no user name inputted");
+            System.out.println("You didn't put anything in the username field.");
             return 406;
 
         } else if ( !Controller.userList.contains( userName ) ) {
-            System.out.println("This user name does not exist.");
-            return 406;
+            System.out.println("This is not a user in the registry.");
+            return 407;
         }
 
 
