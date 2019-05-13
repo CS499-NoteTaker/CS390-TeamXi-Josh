@@ -32,6 +32,10 @@ public class GameResource {
     //Get List of all games
     @GET
     public String getAllGames() {
+        //Gets the currentUserName and gets all the games.
+        String currentUserName = WelcomeResource.currentUser.getUserName();
+        ArrayList<Game> userGames = Controller.gameList.getAllUserGames( currentUserName );
+
 
 
         Gson gson = new Gson();
@@ -81,6 +85,31 @@ public class GameResource {
     }
 
 
+    /**
+     * This gets a list of games converts to a list of SimpleGames and returns it.
+     * @param games - list of Game objects
+     * @return - a Simple Game object.
+     */
+    private ArrayList<SimpleGame> getGamesToSimpleGames( ArrayList<Game> games ) {
+        ArrayList<SimpleGame> simpleGames = new ArrayList<>();
+        int id;
+        User user1, user2;
+        Game tempGame;
+        SimpleGame tempSimpleGame;
+
+        for (int i = 0; i < games.size(); i++) {
+            tempGame = games.get(i);
+            id = tempGame.getID();
+            user1 = tempGame.getUser1();
+            user2 = tempGame.getUser2();
+
+            tempSimpleGame = new SimpleGame(id, user1.getUserName(), user2.getUserName());
+
+            simpleGames.add( tempSimpleGame );
+        }
+
+        return simpleGames;
+    }
 
 /*
     private boolean hasTwoUsers( String twoUsers ) {
