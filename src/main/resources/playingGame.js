@@ -1,7 +1,11 @@
 var main = function(){
     drawBoard();
     addPiecesToBoard();
-//document.getElementById("CurrentUserName").value = window.name;
+    let btn = document.getElementById("submitbtn");
+    btn.addEventListener("click", addPiecesToBoard);
+    document.getElementById("CurrentUserName").value = window.name;
+
+    //document.getElementById("CurrentUserName").value = window.name;
 console.log(CurrentGameID)
 };
 
@@ -55,13 +59,35 @@ var drawBoard = function(){
 
 };
 
-var addPiecesToBoard = function(){
-//console.log(" GAMEID: " + localStorage.getItem("GAMEID"));
-console.log(window.name);
-//GameID = window.name;
-//req = new XMLHttpRequest();
-//req.open("GET", "/current" + GameID);
+var addPiecesToBoard = function(e){
+    var gameid = window.name;
+    var s = "/current/" + gameid + "/placePoint";
+    console.log(gameid);
 
+        let x = document.getElementById("Xcord").value - 1;
+        let y = document.getElementById("Ycord").value - 1;
+        let coor = {x: x, y: y };
+        let data = JSON.stringify(coor);
+        console.log(data);
+        fetch(s, { method: "POST", body: data} )
+                    .then( function(response) {
+                          if( ! response.ok ) {
+                             console.log("no");
+                          } else {
+                              response.text().then( function(value) {
+                                 console.log("ok");
+                                 /*
+                                  x = (x * 44) + 78;
+                                  y = (y * 44) + 92;
+                                  to make place on the right place on board ^
+                                 ctx.fillText("", x, y);
+                                 ⚫: black
+                                 ⚪: white
+                                 check which player then place piece
+                                 */
+                              });
+                          }
+                        });
 
 };
 
