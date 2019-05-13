@@ -10,6 +10,8 @@ public class GameList {
 
     public GameList() {
         games = new ArrayList<>();
+        Game test = new Game(Controller.userList.findUser("Kaitlyn"), Controller.userList.findUser("Sola"));
+        games.add(test);
     }
 
     /**

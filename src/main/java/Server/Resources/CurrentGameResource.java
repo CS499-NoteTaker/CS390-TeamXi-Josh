@@ -36,9 +36,6 @@ public class CurrentGameResource {
     }
 
 
-
-
-
     /**
      * This will get the board information in json
      * @param GameId -  gameIndex

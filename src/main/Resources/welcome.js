@@ -52,19 +52,10 @@ var drawBoard = function(){
 };
 
 var buttonClickEvent = function(e) {
-      /* var req = new XMLHttpRequest();
-       var user = document.getElementById("login").value;
-
-       console.log(user);
-
-       req.open("GET", "/user");
-       req.send(user);
-       alert("Welcome " + user + "!");
-       clearFields();*/
        let user = document.getElementById("login").value;
 
 
-        fetch("/user/{user}", { method: "GET"} )
+        fetch("/WelcomeResource/login", { method: "GET"} )
                .then( function(response) {
                if( ! response.ok ) {
                    alert("Incorrect user");
