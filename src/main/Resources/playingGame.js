@@ -2,6 +2,7 @@ var main = function(){
     drawBoard();
     addPiecesToBoard();
 //document.getElementById("CurrentUserName").value = window.name;
+console.log(CurrentGameID)
 };
 
 
@@ -62,6 +63,18 @@ console.log(window.name);
 //req.open("GET", "/current" + GameID);
 
 
+};
+
+var placeBlack = function(X,Y){
+    let canvas = document.getElementById("canvas-board");
+    let ctx = canvas.getContext("2d");
+    ctx.fillText("⚪", (78 + (44*X)), (92 + (44*Y)));
+};
+
+var placeWhite = function(X,Y){
+let canvas = document.getElementById("canvas-board");
+    let ctx = canvas.getContext("2d");
+    ctx.fillText("⚫", (78 + (44*X)), 9(2 + (44*Y)));
 };
 
 
