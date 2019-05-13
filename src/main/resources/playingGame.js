@@ -1,3 +1,8 @@
+let canvas = document.getElementById("canvas-board");
+    let ctx = canvas.getContext("2d");
+    let w = canvas.width;
+    let h = canvas.height;
+
 var main = function(){
     drawBoard();
     fillBoard();
@@ -14,12 +19,6 @@ console.log(CurrentGameID)
 
 
 var drawBoard = function(){
-    let canvas = document.getElementById("canvas-board");
-
-    let ctx = canvas.getContext("2d");
-    let w = canvas.width;
-    let h = canvas.height;
-
     ctx.fillStyle = "rgb(255, 255, 255)";
     ctx.fillRect(0, 0, w, h);
 
@@ -98,7 +97,12 @@ var addPiecesToBoard = function(e){
                                     ⚪: white
                                     check which player then place piece
                                     */
+                                     console.log(x + " " + y)
 
+                                     x = (x * 44) + 78;
+                                      y = (y * 44) + 92;
+                                      console.log(x + " " + y)
+                                      //ctx.fillText("⚫", x, y);
                                  });
                               }
                           });
@@ -147,22 +151,24 @@ var fillBoard = function() {
                  response.json().then(function(pointsData) {
                  console.log("pointsData size: " + pointsData.length)
                  for(var i = 0; i < pointsData.length; i++) {
-                    console.log( pointsData[i] );
-                    pointX = ( (pointsData[i].x + 1) * 44) + 78;
-                    pointY = ( (pointsData[i].y + 1) * 44) + 92;
+                    //pointX = ( (pointsData[i].x + 1) * 44) + 78;
+                    //pointY = ( (pointsData[i].y + 1) * 44) + 92;
 
+                    console.log( pointX + " " + pointY );
                     pointPiece = pointsData[i].piece
 
-
+                    var x = (pointsData[i].x * 44) + 78;
+                    var y = (pointsData[i].y * 44) + 92;
+                    //ctx.fillText("⚫", x, y);
                     
                     //placeBlack( pointX, pointY);
 
-                    /*
+
                     if (pointPiece == "B") {
-                        placeBlack( pointX, pointY);
+                        placeBlack( pointsData[i].x, pointsData[i].y);
                     } else { //(pointPiece == "W") {
-                        placeWhite( pointX, pointY );
-                    }*/
+                        placeWhite( pointsData[i].x, pointsData[i].y);
+                    }
 
 
 
