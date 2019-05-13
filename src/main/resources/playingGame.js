@@ -60,19 +60,9 @@ var addPiecesToBoard = function(e){
     var gameid = window.name;
     var s = "/current/" + gameid + "/placePoint";
     console.log(gameid);
- /*fetch("/current", { method: "GET/{gameid}/occupiedPoints"} )
-        .then( function(response) {
-        if( ! response.ok ) {
-            console.log(response.status);
-        } else {
-            response.json().then(function(data){
-                console.log(data);
-            })
 
-        }
-        });*/
-        let x = document.getElementById("Xcord").value;
-        let y = document.getElementById("Ycord").value;
+        let x = document.getElementById("Xcord").value - 1;
+        let y = document.getElementById("Ycord").value - 1;
         let coor = {x: x, y: y };
         let data = JSON.stringify(coor);
         console.log(data);
@@ -84,13 +74,13 @@ var addPiecesToBoard = function(e){
                               response.text().then( function(value) {
                                  console.log("ok");
                                  /*
+                                  x = (x * 44) + 78;
+                                  y = (y * 44) + 92;
+                                  to make place on the right place on board ^
                                  ctx.fillText("", x, y);
                                  ⚫: black
                                  ⚪: white
                                  check which player then place piece
-                                 x = x * 44 - 10;
-                                 y = y * 44 + 4;
-                                 to make place on the right place on board ^
                                  */
                               });
                           }
