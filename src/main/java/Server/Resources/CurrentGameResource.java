@@ -143,7 +143,34 @@ public class CurrentGameResource {
         return 200;
     }
 
+    //Get List of all current games
+    @GET
+    @Path("{id}/occupiedPoints")
+    public String getAllOccupiedPoints( @PathParam("id") String gameId) {
+        // Convert to an integer
+        int id = -1;
+        try {
+            id = Integer.parseInt( gameId );
+        } catch( NumberFormatException e ) {
+            throw new WebApplicationException(404);
+        }
 
+        // Validate range
+        if( id < 0 || id >= Controller.gameList.getSize() ) {
+            throw new WebApplicationException(404);
+        }
+
+        // Gets the currentGame from id as path parameter
+        Game currentGame = Controller.gameList.getGameAtIndex(id);
+        // Then gets all the occupied points in the currentGame
+        ArrayList<Point> occupiedPoints = getAllOccupiedPoints( currentGame );
+        // Converts all the Points to Simple Points
+        ArrayList<SimplePoint> simplePoints = getPointsToSimplePoints( occupiedPoints );
+
+        Gson gson = new Gson();
+        return gson.toJson( simplePoints );
+
+    }
 
 
 
