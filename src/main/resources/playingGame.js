@@ -2,7 +2,8 @@ var main = function(){
     drawBoard();
     let btn = document.getElementById("submitbtn");
     btn.addEventListener("click", addPiecesToBoard);
-document.getElementById("CurrentUserName").value = window.name;
+
+    document.getElementById("CurrentUserName").value = window.name;
 
 };
 
@@ -60,6 +61,8 @@ var addPiecesToBoard = function(e){
     var gameid = window.name;
     var s = "/current/" + gameid + "/placePoint";
     console.log(gameid);
+    let canvas = document.getElementById("canvas-board");
+    let ctx = canvas.getContext("2d");
 
         let x = document.getElementById("Xcord").value - 1;
         let y = document.getElementById("Ycord").value - 1;
@@ -82,6 +85,9 @@ var addPiecesToBoard = function(e){
                                  ⚪: white
                                  check which player then place piece
                                  */
+                                 x = (x * 44) + 78;
+                                 y = (y * 44) + 92;
+                                 ctx.fillText("⚫", x, y);
                               });
                           }
                         });
