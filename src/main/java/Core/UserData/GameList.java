@@ -49,7 +49,7 @@ public class GameList {
             tempGame = games.get(i);
             tempUser1 = tempGame.getUser1();
             tempUser2 = tempGame.getUser2();
-
+            
             // If userName is player 1 or 2.
             if ( tempUser1.getUserName().equals(userName) || tempUser2.getUserName().equals(userName)  )
                 userGames.add(tempGame);

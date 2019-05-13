@@ -10,6 +10,7 @@ public class UserList{
         Kaitlyn.addWin();
         Kaitlyn.addWin();
         Kaitlyn.addWin();
+        Kaitlyn.addWin();
         Kaitlyn.addLoss();
 
         User Spenser = new User("Spenser");

@@ -14,6 +14,11 @@ var buttonClickEvent = function(e){
 
     req.open("POST", "/game");
     req.send(play2);
-}
+    clearFields();
+};
+
+function clearFields() {
+     document.getElementById("player2").value = "";
+};
 
 document.addEventListener("DOMContentLoaded", main);
