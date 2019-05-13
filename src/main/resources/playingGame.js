@@ -83,6 +83,15 @@ var addPiecesToBoard = function(e){
                           } else {
                               response.text().then( function(value) {
                                  console.log("ok");
+                                 /*
+                                 ctx.fillText("", x, y);
+                                 ⚫: black
+                                 ⚪: white
+                                 check which player then place piece
+                                 x = x * 44 - 10;
+                                 y = y * 44 + 4;
+                                 to make place on the right place on board ^
+                                 */
                               });
                           }
                         });
