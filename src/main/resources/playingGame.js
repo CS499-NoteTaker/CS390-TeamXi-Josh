@@ -1,5 +1,6 @@
 var main = function(){
     drawBoard();
+    fillBoard();
     addPiecesToBoard();
     let btn = document.getElementById("submitbtn");
     btn.addEventListener("click", addPiecesToBoard);
@@ -76,37 +77,104 @@ var addPiecesToBoard = function(e){
                           if( ! response.ok ) {
                              console.log("no");
                           } else {
-                              response.text().then( function(value) {
-                                 console.log("ok");
-                                 /*
-                                  x = (x * 44) + 78;
-                                  y = (y * 44) + 92;
-                                  to make place on the right place on board ^
-                                 ctx.fillText("", x, y);
-                                 ⚫: black
-                                 ⚪: white
-                                 check which player then place piece
-                                 */
-                                 x = (x * 44) + 78;
-                                 y = (y * 44) + 92;
-                                 ctx.fillText("⚫", x, y);
-                              });
-                          }
-                        });
+                                response.text().then( function(value) {
+                                console.log("ok");
+
+                                fillBoard();
+
+
+
+                                // Calls getPiecesOnBoard resource method
+
+
+
+                                    /*
+                                    x = (x * 44) + 78;
+                                    y = (y * 44) + 92;
+                                    to make place on the right place on board ^
+                                    ctx.fillText("", x, y);
+                                    ⚫: black
+                                    ⚪: white
+                                    check which player then place piece
+                                    */
+
+                                 });
+                              }
+                          });
+
+
+
+
 
 };
+
+
 
 var placeBlack = function(X,Y){
     let canvas = document.getElementById("canvas-board");
     let ctx = canvas.getContext("2d");
-    ctx.fillText("⚪", (78 + (44*X)), (92 + (44*Y)));
+    X = (X * 44) + 78;
+    Y = (Y * 44) + 92;
+    ctx.fillText("⚪", X, Y );
 };
 
 var placeWhite = function(X,Y){
-let canvas = document.getElementById("canvas-board");
+    let canvas = document.getElementById("canvas-board");
     let ctx = canvas.getContext("2d");
-    ctx.fillText("⚫", (78 + (44*X)), 9(2 + (44*Y)));
+    X = (X * 44) + 78;
+    Y = (Y * 44) + 92;
+    ctx.fillText("⚫", X, Y );
 };
 
+
+var fillBoard = function() {
+    var gameid = window.name;
+    var getPointsUrl = "/current/" + gameid + "/occupiedPoints";
+
+    fetch(getPointsUrl, { method: "GET" })
+         .then( function(response)  {
+
+             if( !response.ok) {
+                 console.log("Error: wasn't able to get OccupiedPoints approprately")
+             } else {
+                 var pointX = 0;
+                 var pointY = 0;
+                 var pointPiece = "";
+                 response.json().then(function(pointsData) {
+                 console.log("pointsData size: " + pointsData.length)
+                 for(var i = 0; i < pointsData.length; i++) {
+                    console.log( pointsData[i] );
+                    pointX = ( (pointsData[i].x + 1) * 44) + 78;
+                    pointY = ( (pointsData[i].y + 1) * 44) + 92;
+
+                    console.log(pointX + " " + pointY);
+                    pointPiece = pointsData[i].piece
+
+
+                    if (pointPiece == "B") {
+                        placeBlack( pointX, pointY);
+                    } else { //(pointPiece == "W") {
+                        placeWhite( pointX, pointY );
+                    }
+
+
+
+                 }
+
+
+
+                 })
+
+
+
+
+
+             }
+
+
+         });
+
+
+};
 
 document.addEventListener("DOMContentLoaded", main);
