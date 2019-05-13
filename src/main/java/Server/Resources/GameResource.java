@@ -8,7 +8,8 @@ import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
-import java.util.Scanner;
+import java.io.InputStream;
+
 
 @Singleton
 @Path("game")
@@ -18,15 +19,9 @@ public class GameResource {
     // Now referring to Controller.games static variable
 
 
-    public GameResource() {
-        //Controller.gameList.addGameToList( new Game( new User("Josh"), new User("Daniel")) );
-    }
 
-
-
-    //Todo: Uncomment next two lines
-//    @GET
-//    public InputStream getClient() {return this.getClass().getResourceAsStream("/GameResource.html");}
+    @GET
+    public InputStream getClient() {return this.getClass().getResourceAsStream("/GameResource.html");}
 
     //Get List of all games
     @GET
