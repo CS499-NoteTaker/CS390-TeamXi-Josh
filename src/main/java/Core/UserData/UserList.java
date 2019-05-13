@@ -79,7 +79,7 @@ public class UserList{
      */
     public User findUser(String TheUser) {
         for(int i = 0; i < users.size(); i++) {
-            if(TheUser.compareTo(users.get(i).userName) == 0) {
+            if(TheUser.equals(users.get(i).userName)) {
                 User user = users.get(i);
                 int TheUserInt = users.indexOf(user);
                 return users.get(TheUserInt);

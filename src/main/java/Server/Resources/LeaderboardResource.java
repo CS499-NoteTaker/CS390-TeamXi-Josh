@@ -32,7 +32,7 @@ public class LeaderboardResource {
 
 
     private Leaderboard leaderboard;
-    UserList users = Controller.userList;
+    private UserList users = Controller.userList;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)

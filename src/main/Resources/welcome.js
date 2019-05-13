@@ -75,16 +75,12 @@ var drawBoard = function(){
 
 var buttonClickEvent = function(e) {
        let user = document.getElementById("login").value;
-        fetch("/WelcomeResource/login", { method: "POST"} )
-               .then( function(response) {
-               if( ! response.ok ) {
-                   alert("Incorrect user");
-               } else {
-
-                    alert("Welcome " + currentUser + "!");
-               }
-               });
-               clearFields();
+       var req = new XMLHttpRequest();
+       console.log(user);
+       req.open("POST", "/WelcomeResource/login");
+       req.send(user);
+       alert("Welcome " + user + "!");
+       clearFields();
 };
 
 function clearFields() {
@@ -92,7 +88,6 @@ function clearFields() {
      document.getElementById("login").value = "";
      document.getElementById("create").value = "";
 };
-
 
 var buttonClickCreate = function(e){
     var req = new XMLHttpRequest();

@@ -73,7 +73,7 @@ public class WelcomeResource {
         userName = userName.trim();
 
         if (userName.length() == 0) {
-            System.out.println("There no user name inputed");
+            System.out.println("There no user name inputted");
             return 406;
 
         } else if ( !Controller.userList.contains( userName ) ) {

@@ -6,12 +6,11 @@ import java.util.ArrayList;
 
 public class GameList {
     //The List of all Games
-    public ArrayList<Game> games;
+    public ArrayList<Game> games = new ArrayList<>();
 
     public GameList() {
-        games = new ArrayList<>();
-        Game test = new Game(Controller.userList.findUser("Kaitlyn"), Controller.userList.findUser("Sola"));
-        games.add(test);
+        /*Game test = new Game(Controller.userList.getUserByIndex(0), Controller.userList.getUserByIndex(1));
+        games.add(test);*/
     }
 
     /**
