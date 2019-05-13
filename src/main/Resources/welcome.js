@@ -79,15 +79,8 @@ var buttonClickEvent = function(e) {
        console.log(user);
        req.open("POST", "/welcome/login");
        req.send(user);
-       if(request.response == 406){
-          alert("You either put in empty spaces or nothing at all in the username field.");
-       } else if (request.response == 407){
-          alert("This is not a user in the registry.");
-       } else if (request.response == 200){
-          alert("Welcome " + user + "!");
-       }
-       alert("Nothing seems to have happened.");
        clearFields();
+
 };
 
 function clearFields() {

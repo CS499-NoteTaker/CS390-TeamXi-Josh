@@ -74,8 +74,8 @@ public class User implements java.io.Serializable {
      * @return win/loss
      */
     public double getWinLossRatio(){
-        if(this.win == 0 || this.loss == 0){
-            return 0.0;
+        if(this.loss == 0){
+            return this.win;
         }
         return this.win / this.loss;
     }

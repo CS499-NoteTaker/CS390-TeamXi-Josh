@@ -27,7 +27,7 @@ public class GameResource {
     @GET
     public String getAllGames() {
         Gson gson = new Gson();
-        return gson.toJson( Controller.gameList );
+        return gson.toJson( Controller.gameList.getAllGames() );
     }
 
 
@@ -65,6 +65,7 @@ public class GameResource {
             Game newGame = new Game(user1, user2);
             Controller.gameList.addGameToList(newGame);
 
+            System.out.print(newGame.getUser1());
             return 200;
         }
     }

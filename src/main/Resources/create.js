@@ -9,14 +9,11 @@ and then player two. */
 var buttonClickEvent = function(e){
     console.log("I'm clicked");
     var req = new XMLHttpRequest();
-    var play1 = document.getElementById("player1").value;
     var play2 = document.getElementById("player2").value;
-    var dat = play1 + " " + play2;
-    var data = dat;
-    console.log(data);
+    console.log(play2);
 
     req.open("POST", "/game");
-    req.send(data);
+    req.send(play2);
 }
 
 document.addEventListener("DOMContentLoaded", main);

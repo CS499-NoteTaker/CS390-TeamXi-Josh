@@ -1,5 +1,6 @@
 package Server;
 
+import Core.UserData.Controller;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -25,6 +26,7 @@ public class Server {
 
     public static void main(String[] args){
         startServer();
+        Controller.createGame();
     }
 
 }
