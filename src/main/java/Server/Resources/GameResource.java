@@ -18,8 +18,6 @@ public class GameResource {
     // Fields
     // Now referring to Controller.games static variable
 
-
-
     @GET
     public InputStream getClient() {return this.getClass().getResourceAsStream("/GameResource.html");}
 

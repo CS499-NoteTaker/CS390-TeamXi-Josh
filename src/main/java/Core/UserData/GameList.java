@@ -10,8 +10,6 @@ public class GameList {
 
     public GameList() {
         games = new ArrayList<>();
-        /*Game test = new Game(Controller.userList.getUserByUsername("Kaitlyn"), Controller.userList.getUserByUsername("Sola"));
-        games.add(test);*/
     }
 
 

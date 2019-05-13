@@ -1,8 +1,8 @@
 var CurrentGameID = 0;
 
 var main = function(){
-let btn = document.getElementById("entergamebtn");
-btn.addEventListener("click", buttonClickEnterGame);
+/*let btn = document.getElementById("entergamebtn");
+btn.addEventListener("click", buttonClickEnterGame);*/
 
 let genButton = document.getElementById("genGames");
 genButton.addEventListener("click", genGames);
@@ -26,7 +26,7 @@ var genGames = function(e){
                       el.style.color = "red";
                   } else {
                       response.text().then( function(value) {
-                          el.innerText = value;
+                          el.innerText = "previous: " + value;
                           el.style.color = "green";
                           el.style.fontWeight = "bold";
                       });
