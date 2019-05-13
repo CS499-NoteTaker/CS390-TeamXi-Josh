@@ -26,7 +26,9 @@ public class GameResource {
     //Get List of all games
     @GET
     public String getAllGames() {
+
         Gson gson = new Gson();
+
         return gson.toJson( Controller.gameList.getAllGames() );
     }
 
@@ -94,5 +96,17 @@ public class GameResource {
     }
 
 */
+
+}
+
+class simpleGame {
+    int id;
+    String user1Name, user2Name;
+
+    public simpleGame(int id, String user1Name, String user2Name ) {
+        this.id = id;
+        this.user1Name = user1Name;
+        this.user2Name = user2Name;
+    }
 
 }
