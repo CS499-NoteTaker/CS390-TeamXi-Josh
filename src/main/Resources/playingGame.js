@@ -56,8 +56,7 @@ var drawBoard = function(){
 };
 
 var addPiecesToBoard = function(){
-<<<<<<< HEAD
-    var gameid = localStorage.gameId;
+    var gameid = window.name;
     console.log(gameid);
  /*fetch("/current", { method: "GET/{gameid}/occupiedPoints"} )
         .then( function(response) {
@@ -69,7 +68,7 @@ var addPiecesToBoard = function(){
             })
 
         }
-        });
+        });*/
         fetch("current/{gameid}/placePoint", { method: "POST"} )
                     .then( function(response) {
                           if( ! response.ok ) {
@@ -79,7 +78,7 @@ var addPiecesToBoard = function(){
                                  console.log("ok");
                               });
                           }
-                        });*/
+                        });
 
 
 
