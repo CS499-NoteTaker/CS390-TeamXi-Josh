@@ -5,10 +5,11 @@ btn.addEventListener("click", buttonClickEnterGame);
 
 var buttonClickEnterGame = function(e)
 {
-    document.location.href = "/playingGame"
-    /*
     var req = new XMLHttpRequest();
     var gameid = document.getElementById("IDtextfield").value;
+    var stringid = String(gameid);
+    document.location.href = "/playingGame/" + gameid;
+    /*
     req.open("GET", "/current");
     req.send(gameid);
     */
