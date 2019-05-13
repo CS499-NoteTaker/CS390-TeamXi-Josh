@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 
 import javax.ws.rs.*;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 @Path("current")
 public class CurrentGameResource {
@@ -93,11 +94,6 @@ public class CurrentGameResource {
             throw new WebApplicationException(404);
         }
 
-        // Parse the data from the client
-        JsonObject jsonObj = new JsonObject();
-        int xCord = Integer.parseInt( String.valueOf(jsonObj.get("x")) );
-
-
         //Todo: make sure to track the moves into the move list as well
         Piece piece;
         Coordinate coordinate;
@@ -116,7 +112,7 @@ public class CurrentGameResource {
 
 
         // Checks to see which player the current player is within the game
-        // so that a piece can be layed down accordingly
+        // so that a piece can be lied down accordingly
         if( currentUser.usernameEquals( player1.getUserName() ) ) {
             piece = Piece.B;
         } else if( currentUser.usernameEquals( player2.getUserName()) ) {
@@ -131,19 +127,99 @@ public class CurrentGameResource {
 
         // Checks if who wins.
         if( currentGame.gameBoard.checkWinCondition() ) {
-            if( piece == piece.B )
+            if( piece == piece.B ) {
+                // Player 1 wins
                 currentGame.endGame( player1 ) ;
-            else if( piece == piece.W )
-                currentGame.endGame( player2 );
-            else
+            }
+            else if( piece == piece.W ) {
+                // Player 2 wins
+                currentGame.endGame(player2);
+            } else {
                 System.out.println("Error Winner, but wrong user");
+            }
         }
 
 
         return 200;
     }
 
+    //Get List of all current games
+    @GET
+    @Path("{id}/occupiedPoints")
+    public String getPiecesOnBoard( @PathParam("id") String gameId) {
+        // Convert to an integer
+        int id = -1;
+        try {
+            id = Integer.parseInt( gameId );
+        } catch( NumberFormatException e ) {
+            throw new WebApplicationException(404);
+        }
 
+        // Validate range
+        if( id < 0 || id >= Controller.gameList.getSize() ) {
+            throw new WebApplicationException(404);
+        }
+
+        // Gets the currentGame from id as path parameter
+        Game currentGame = Controller.gameList.getGameAtIndex(id);
+        // Then gets all the occupied points in the currentGame
+        ArrayList<Point> occupiedPoints = getAllOccupiedPoints( currentGame );
+        // Converts all the Points to Simple Points
+        ArrayList<SimplePoint> simplePoints = getPointsToSimplePoints( occupiedPoints );
+
+        Gson gson = new Gson();
+        return gson.toJson( simplePoints );
+
+    }
+
+
+
+    /**
+     * Converts an ArrayList of points to an ArrayList of SimplePoint objects
+     * @param points - Arraylist of Point Objects
+     * @return - an ArrayList of SimpleObjects
+     */
+    private ArrayList<SimplePoint> getPointsToSimplePoints(ArrayList<Point> points ) {
+        ArrayList<SimplePoint> simplePoints = new ArrayList<>();
+        int tempX, tempY;
+        Piece tempPiece;
+        Point tempPoint;
+        SimplePoint tempSimplePoint;
+
+        for (int i = 0; i < points.size(); i++ ) {
+            tempPoint = points.get(i);
+            tempX = tempPoint.getX();
+            tempY = tempPoint.getY();
+            tempPiece = tempPoint.getPiece();
+
+            tempSimplePoint = new SimplePoint(tempX, tempY, tempPiece);
+
+            simplePoints.add(tempSimplePoint);
+        }
+
+        return simplePoints;
+    }
+
+    /**
+     * This returns all the occupied points from a game
+     * @param game - game object to receive points from
+     * @return - list of occupied points
+     */
+    private ArrayList<Point> getAllOccupiedPoints( Game game ) {
+        ArrayList<Point> occupiedPoints = new ArrayList<>();
+        Point tempPoint;
+
+        for (int i = 0; i < 19; i++ ) {
+            for (int j = 0; j < 19; j++ ) {
+                tempPoint = game.gameBoard.getPointAtLocation(i, j);
+
+                if ( tempPoint.isOccupied() )
+                    occupiedPoints.add( tempPoint );
+            }
+        }
+
+        return occupiedPoints;
+    }
 
 
 
@@ -165,6 +241,17 @@ public class CurrentGameResource {
 
         public void setX(int x) { this.x = x; }
         public void setY(int y) { this.y = y; }
+    }
+
+    class SimplePoint {
+        int x, y;
+        Piece piece;
+
+        public SimplePoint( int x, int y, Piece piece) {
+            this.x = x;
+            this.y = y;
+            this.piece = piece;
+        }
     }
 
 

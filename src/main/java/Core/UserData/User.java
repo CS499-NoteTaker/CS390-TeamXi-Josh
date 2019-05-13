@@ -10,8 +10,8 @@ public class User implements java.io.Serializable {
     //Attributes to keep each users wins and losses
     int win, loss;
 
-    ArrayList<Game> currentGames = new ArrayList<>();
-    ArrayList<Game> previousGames = new ArrayList<>();
+    ArrayList<Game> currentGames;
+    ArrayList<Game> previousGames;
     /**
      * Constructor for a User Object
      * @param user the username of the user
@@ -20,6 +20,8 @@ public class User implements java.io.Serializable {
         this.userName = user;
         win = 0;
         loss = 0;
+        currentGames = new ArrayList<>();
+        previousGames = new ArrayList<>();
     }
 
     /**

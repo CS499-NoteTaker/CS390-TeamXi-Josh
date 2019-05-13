@@ -7,7 +7,7 @@ import Core.UserData.*;
 
 public class Game{
     private User User1, User2;      //The two Users Needed for each game
-    private boolean play = true;//Used to know if the game is still in progress
+    public boolean play;//Used to know if the game is still in progress
     public static int globalId = 0;
     public int id;
     //Board used for storing every point
@@ -24,6 +24,7 @@ public class Game{
     public Game(User PlayerOne, User PlayerTwo) {
         this.User1 = PlayerOne;
         this.User2 = PlayerTwo;
+        this.play = true;
         this.gameBoard = new Board();
         this.id = getID();
         PlayerOneTurn = true;

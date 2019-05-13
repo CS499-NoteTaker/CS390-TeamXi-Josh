@@ -32,6 +32,6 @@ public class LeaderBoardTest {
     @Test
     public void testToString()
     {
-        Assert.assertEquals("Sola: 2 Spenser: 4 Kaitlyn: 3 Holden: 2 Josh: 2 Adam: 1 Joe: 0 Chad: 2 ", leaderboard.toString());
+        Assert.assertEquals("Sola: 2 Spenser: 4 Kaitlyn: 4 Holden: 2 Josh: 2 Adam: 1 Joe: 0 Chad: 2 ", leaderboard.toString());
     }
 }
