@@ -55,6 +55,16 @@ var drawBoard = function(){
 
 var addPiecesToBoard = function(){
 GameID = window.name;
+//req = new XMLHttpRequest();
+//req.open("GET", "/current" + GameID);
+var Game = Controller.getGameAtIndex(GameID);
+for(startvalue = 0; startvalue < 20; startvalue = startvalue + 1 )
+{
+    for(secondvalue = 0; secondvalue < 20; secondvalue = secondvalue + 1){
+
+    console.log(Game.board.getPointAtLocation(startvalue,secondvalue))
+    }
+}
 
 
 };
