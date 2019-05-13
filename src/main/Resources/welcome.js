@@ -76,22 +76,12 @@ var drawBoard = function(){
 var buttonClickEvent = function(e) {
        var req = new XMLHttpRequest();
        var user = document.getElementById("login").value;
-       console.log(user);
        req.open("POST", "/welcome/login");
        req.send(user);
-       if(request.response == 406){
-          alert("You either put in empty spaces or nothing at all in the username field.");
-       } else if (request.response == 407){
-          alert("This is not a user in the registry.");
-       } else if (request.response == 200){
-          alert("Welcome " + user + "!");
-       }
-       alert("Nothing seems to have happened.");
        clearFields();
 };
 
 function clearFields() {
-
      document.getElementById("login").value = "";
      document.getElementById("create").value = "";
 };
@@ -99,10 +89,7 @@ function clearFields() {
 var buttonClickCreate = function(e){
     var req = new XMLHttpRequest();
     var user = document.getElementById("create").value;
-
     console.log(user);
-
-    alert("Welcome " + user + "!");
     req.open("POST", "/user");
     req.send(user);
     clearFields();
