@@ -41,6 +41,7 @@ public class CurrentGameResource {
      * @param GameId -  gameIndex
      * @return - json representation of game[id]
      */
+    @GET
     @Path("{id}")
     public String getGameInfo(@PathParam("id") String GameId){
 
