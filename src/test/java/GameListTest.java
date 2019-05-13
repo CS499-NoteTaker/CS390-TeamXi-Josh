@@ -32,13 +32,4 @@ public class GameListTest {
         Assert.assertEquals(allGames.getAllGames().get(0), allGames.getGameAtIndex(0));
 
     }
-    @Test
-    public void getSizeTest01(){
-        GameList allGames = new GameList();
-        User Spenser = new User("Spenser");
-        User Sola = new User("Sola");
-        Game first = new Game(Spenser, Sola);
-        allGames.addGameToList(first);
-        Assert.assertEquals(1,allGames.getSize());
-    }
 }

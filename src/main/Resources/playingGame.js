@@ -1,5 +1,6 @@
 var main = function(){
     drawBoard();
+    addPiecesToBoard();
 };
 
 
@@ -53,7 +54,7 @@ var drawBoard = function(){
 };
 
 var addPiecesToBoard = function(){
-
+GameID = window.name;
 
 
 };
