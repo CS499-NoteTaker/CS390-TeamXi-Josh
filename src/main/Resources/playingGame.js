@@ -1,6 +1,6 @@
 var main = function(){
     drawBoard();
-   // addPiecesToBoard();
+    addPiecesToBoard();
 document.getElementById("CurrentUserName").value = window.name;
 };
 
@@ -55,11 +55,31 @@ var drawBoard = function(){
 };
 
 var addPiecesToBoard = function(){
-Gameid = localStorage.gameId;
-console.log(Gameid);
-//GameID = window.name;
-//req = new XMLHttpRequest();
-//req.open("GET", "/current" + GameID);
+    var gameid = localStorage.gameId;
+    console.log(gameid);
+ /*fetch("/current", { method: "GET/{gameid}/occupiedPoints"} )
+        .then( function(response) {
+        if( ! response.ok ) {
+            console.log(response.status);
+        } else {
+            response.json().then(function(data){
+                console.log(data);
+            })
+
+        }
+        });
+        fetch("current/{gameid}/placePoint", { method: "POST"} )
+                    .then( function(response) {
+                          if( ! response.ok ) {
+                             console.log("no");
+                          } else {
+                              response.text().then( function(value) {
+                                 console.log("ok");
+                              });
+                          }
+                        });*/
+
+
 
 
 };

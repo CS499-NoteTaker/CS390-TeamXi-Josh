@@ -19,8 +19,6 @@ public class CurrentGameResource {
 
     }
 
-
-
     @GET
     public InputStream getPlay() { return this.getClass().getResourceAsStream("/currentGame.html");}
 
@@ -73,11 +71,6 @@ public class CurrentGameResource {
     }
 
 
-
-
-
-
-
     @POST
     @Path("{id}/placePoint")
     public int placePointOnBoard(@PathParam("id") String gameId, String coordinateData ) {
@@ -119,7 +112,7 @@ public class CurrentGameResource {
             piece = Piece.W;
         } else {
             piece = Piece.O;
-            System.out.println(" Not current user is not player1 or player2");
+            System.out.println(" Current user is not player1 or player2");
         }
 
         currentGame.gameBoard.setPointAtLocation(coordinate.x, coordinate.y, piece);
@@ -169,7 +162,6 @@ public class CurrentGameResource {
 
         Gson gson = new Gson();
         return gson.toJson( simplePoints );
-
     }
 
 
@@ -220,11 +212,6 @@ public class CurrentGameResource {
 
         return occupiedPoints;
     }
-
-
-
-
-
 
 
     class Coordinate {
