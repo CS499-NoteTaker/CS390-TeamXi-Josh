@@ -2,6 +2,7 @@ var main = function(){
     drawBoard();
     fillBoard();
     addPiecesToBoard();
+        fillBoard();
     let btn = document.getElementById("submitbtn");
     btn.addEventListener("click", addPiecesToBoard);
     document.getElementById("CurrentUserName").value = window.name;
@@ -149,6 +150,7 @@ var fillBoard = function() {
 
                     console.log(pointX + " " + pointY);
                     pointPiece = pointsData[i].piece
+                                            placeBlack( pointX, pointY);
 
 
                     if (pointPiece == "B") {
