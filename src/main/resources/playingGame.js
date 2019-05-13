@@ -1,10 +1,12 @@
 var main = function(){
     drawBoard();
+    addPiecesToBoard();
     let btn = document.getElementById("submitbtn");
     btn.addEventListener("click", addPiecesToBoard);
-
     document.getElementById("CurrentUserName").value = window.name;
 
+    //document.getElementById("CurrentUserName").value = window.name;
+console.log(CurrentGameID)
 };
 
 
@@ -92,16 +94,18 @@ var addPiecesToBoard = function(e){
                           }
                         });
 
+};
 
+var placeBlack = function(X,Y){
+    let canvas = document.getElementById("canvas-board");
+    let ctx = canvas.getContext("2d");
+    ctx.fillText("⚪", (78 + (44*X)), (92 + (44*Y)));
+};
 
-//console.log(" GAMEID: " + localStorage.getItem("GAMEID"));
-console.log(window.name);
-//GameID = window.name;
-//req = new XMLHttpRequest();
-//req.open("GET", "/current" + GameID);
-
-
-
+var placeWhite = function(X,Y){
+let canvas = document.getElementById("canvas-board");
+    let ctx = canvas.getContext("2d");
+    ctx.fillText("⚫", (78 + (44*X)), 9(2 + (44*Y)));
 };
 
 

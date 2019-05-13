@@ -15,6 +15,7 @@ var buttonClickEnterGame = function(e)
     //localStorage.setItem("GAMEID", document.getElementById("IDtextfield").value );
     //var Gameid = document.getElementById("IDtextfield").value;
     window.name = document.getElementById("IDtextfield").value;
+    CurrentGameID = Number(document.getElementById("IDtextfield").value);
     //Trying to disable buttons if the field is empty
     //if(Gameid != null){
     document.location.href = "/playingGame";

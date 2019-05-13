@@ -8,10 +8,10 @@ var main = function(){
 and then player two. */
 
 var buttonClickEvent = function(e){
-    console.log("I'm clicked");
+    //console.log("I'm clicked");
     var req = new XMLHttpRequest();
     var play2 = document.getElementById("player2").value;
-    console.log(play2);
+    //console.log(play2);
 
     req.open("POST", "/game");
     req.send(play2);
