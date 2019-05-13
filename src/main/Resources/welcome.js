@@ -45,7 +45,7 @@ var drawBoard = function(){
     ctx.fillText("⚫", 254, 840);
     ctx.fillText("⚪", 650, 796);
     ctx.fillText("⚫", 254, 532);
-    ctx.fillText("⚪", 836, 180);
+    ctx.fillText("⚪", 826, 180);
     ctx.fillText("⚫", 254, 444);
     ctx.fillText("⚪", 34, 224);
     ctx.fillText("⚫", 298, 576);
