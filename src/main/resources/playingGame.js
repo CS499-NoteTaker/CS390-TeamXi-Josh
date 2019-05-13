@@ -1,6 +1,7 @@
 var main = function(){
     drawBoard();
-    addPiecesToBoard();
+    let btn = document.getElementById("submitbtn");
+    btn.addEventListener("click", addPiecesToBoard);
 document.getElementById("CurrentUserName").value = window.name;
 
 };
@@ -55,8 +56,9 @@ var drawBoard = function(){
 
 };
 
-var addPiecesToBoard = function(){
+var addPiecesToBoard = function(e){
     var gameid = window.name;
+    var s = "/current/" + gameid + "/placePoint";
     console.log(gameid);
  /*fetch("/current", { method: "GET/{gameid}/occupiedPoints"} )
         .then( function(response) {
@@ -69,7 +71,12 @@ var addPiecesToBoard = function(){
 
         }
         });*/
-        fetch("current/{gameid}/placePoint", { method: "POST"} )
+        let x = document.getElementById("Xcord").value;
+        let y = document.getElementById("Ycord").value;
+        let coor = {x: x, y: y };
+        let data = JSON.stringify(coor);
+        console.log(data);
+        fetch(s, { method: "POST", body: data} )
                     .then( function(response) {
                           if( ! response.ok ) {
                              console.log("no");

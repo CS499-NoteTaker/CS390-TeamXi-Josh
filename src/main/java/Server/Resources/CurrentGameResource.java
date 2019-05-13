@@ -79,11 +79,13 @@ public class CurrentGameResource {
         try {
             id = Integer.parseInt( gameId );
         } catch( NumberFormatException e ) {
+            System.out.println("string conversion");
             throw new WebApplicationException(404);
         }
 
         // Validate range
-        if( id < 0 || id >= Controller.gameList.getSize() ) {
+        if( id < 0 || id > Controller.gameList.getSize() ) {
+            System.out.println("game size");
             throw new WebApplicationException(404);
         }
 
@@ -131,8 +133,6 @@ public class CurrentGameResource {
                 System.out.println("Error Winner, but wrong user");
             }
         }
-
-
         return 200;
     }
 
