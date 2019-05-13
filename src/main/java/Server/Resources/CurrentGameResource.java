@@ -146,7 +146,7 @@ public class CurrentGameResource {
     //Get List of all current games
     @GET
     @Path("{id}/occupiedPoints")
-    public String getAllOccupiedPoints( @PathParam("id") String gameId) {
+    public String getPiecesOnBoard( @PathParam("id") String gameId) {
         // Convert to an integer
         int id = -1;
         try {
