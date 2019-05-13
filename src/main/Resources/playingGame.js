@@ -2,54 +2,7 @@ var main = function(){
     drawBoard();
 };
 
-window.onload = function(){
-    canvas = document.getElementById("canvas-board");
-    ctx = canvas.getContext("2d");
-    canvas.addEventListener('click', handleClick);
-}
 
-function getMousePos(c, evt){
-   var rect = canvas.getBoundingClientRect(),
-         scaleX = canvas.width / rect.width,
-         scaleY = canvas.height / rect.height;
-    return{
-        x: (evt.clientX - rect.left) * scaleX,
-        y: (evt.clientY - rect.top) * scaleY
-    };
-}
-
-function handleClick(e){
-    var pos = getMousePos(canvas, e)
-    posx = pos.x;
-    posy = pos.y;
-
-    console.log(posx + " " +posy)
-
-    ctx.font = "15px Arial";
-            ctx.fillText("⚫", posx - 6, posy + 10);
-
-
-    if(posx / 44 >= 44/2){
-        posx = ((Math.ceil(posx/44) * 44) + 44) / 44;
-    }
-    else{
-       posx = ((Math.floor(posx/44) * 44) + 44) / 44;
-    }
-
-    if(posy % 44 >= 44/2){
-            posy = ((Math.ceil(posy/44) * 44) + 44) / 44;
-        }
-        else{
-           posy = ((Math.floor(posy/44) * 44) + 44) / 44;
-        }
-
-    console.log(posx + " " +posy)
-
-    //ctx.font = "15px Arial";
-    //    ctx.fillText("⚫", posx, posy);
-
-    return {x: posx, y: posy};
-}
 
 var drawBoard = function(){
     let canvas = document.getElementById("canvas-board");
@@ -63,16 +16,37 @@ var drawBoard = function(){
 
     ctx.fillStyle = "rgb(0,0,0)";
     ctx.beginPath();
-    for (x=0;x<=w;x+=44) {
-            for (y=0;y<=h;y+=44) {
-                ctx.moveTo(x, 0);
+    for (x=44;x<=880;x+=44) {
+            for (y=44;y<=880;y+=44) {
+                ctx.moveTo(x, 44);
                 ctx.lineTo(x, h);
                 ctx.stroke();
-                ctx.moveTo(0, y);
+                ctx.moveTo(44, y);
                 ctx.lineTo(w, y);
                 ctx.stroke();
             }
         }
+        ctx.font = "20px Arial";
+        ctx.fillText("               1      2      3      4      5      6      7      8      9     10    11    12    13    14    15    16    17    18    19", 0, 30);
+        ctx.fillText("1", 22, 88);
+        ctx.fillText("2", 22, 132);
+        ctx.fillText("3", 22, 176);
+        ctx.fillText("4", 22, 220);
+        ctx.fillText("5", 22, 264);
+        ctx.fillText("6", 22, 308);
+        ctx.fillText("7", 22, 352);
+        ctx.fillText("8", 22, 396);
+        ctx.fillText("9", 22, 440);
+        ctx.fillText("10", 15, 484);
+        ctx.fillText("11", 15, 528);
+        ctx.fillText("12", 15, 572);
+        ctx.fillText("13", 15, 616);
+        ctx.fillText("14", 15, 660);
+        ctx.fillText("15", 15, 704);
+        ctx.fillText("16", 15, 748);
+        ctx.fillText("17", 15, 792);
+        ctx.fillText("18", 15, 836);
+        ctx.fillText("19", 15, 880);
     ctx.stroke();
 
 

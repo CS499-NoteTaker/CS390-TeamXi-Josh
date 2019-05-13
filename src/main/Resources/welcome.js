@@ -52,29 +52,54 @@ var drawBoard = function(){
 };
 
 var buttonClickEvent = function(e) {
-   console.log("I'm clicked");
-    fetch("/user", { method: "GET"} )
-        .then( function(response) {
-              if( ! response.ok ) {
-                   alert("Error code: " + response.status);
-              } else {
-                  response.text().then( function(value) {
-                      alert("Welcome " + value);
-                  });
-              }
-            });
+      /* var req = new XMLHttpRequest();
+       var user = document.getElementById("login").value;
+
+       console.log(user);
+
+       req.open("GET", "/user");
+       req.send(user);
+       alert("Welcome " + user + "!");
+       clearFields();*/
+       let user = document.getElementById("login").value;
+
+
+        fetch("/user/{user}", { method: "GET"} )
+               .then( function(response) {
+               if( ! response.ok ) {
+                   alert("Incorrect user");
+               } else {
+                  /* response.json().then(function(data){
+                       for(var i = 1; i < data.length; i++){
+                           displayString += "\n" + (i + 1) + ". " + data[i].userName + " Wins: " + data[i].win + " Losses: " +
+                            data[i].loss;
+                       }
+                       el.value = displayString;
+                   })*/
+
+                    alert("Welcome " + response + "!");
+               }
+               });
+               clearFields();
 };
 
+function clearFields() {
+
+     document.getElementById("login").value = "";
+     document.getElementById("create").value = "";
+};
+
+
 var buttonClickCreate = function(e){
-    console.log("I'm clicked");
     var req = new XMLHttpRequest();
     var user = document.getElementById("create").value;
 
     console.log(user);
 
-    alert("Welcome " + user);
+    alert("Welcome " + user + "!");
     req.open("POST", "/user");
     req.send(user);
+    clearFields();
 
 }
 

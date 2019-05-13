@@ -17,11 +17,11 @@ public class UserResource {
     @GET
     public InputStream getClient() {return this.getClass().getResourceAsStream("/user.html");}
 
-    @GET
+   /* @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getUsers(){
         return Controller.userList.toString();
-    }
+    }*/
     /**
      * Takes a username and returns the user as a Json object if found in the Controller userList
      * @param username - username of the requested user
