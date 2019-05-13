@@ -132,6 +132,9 @@ var fillBoard = function() {
     var gameid = window.name;
     var getPointsUrl = "/current/" + gameid + "/occupiedPoints";
 
+    let canvas = document.getElementById("canvas-board");
+    let ctx = canvas.getContext("2d");
+
     fetch(getPointsUrl, { method: "GET" })
          .then( function(response)  {
 
@@ -148,16 +151,18 @@ var fillBoard = function() {
                     pointX = ( (pointsData[i].x + 1) * 44) + 78;
                     pointY = ( (pointsData[i].y + 1) * 44) + 92;
 
-                    console.log(pointX + " " + pointY);
                     pointPiece = pointsData[i].piece
-                                            placeBlack( pointX, pointY);
 
 
+                    
+                    //placeBlack( pointX, pointY);
+
+                    /*
                     if (pointPiece == "B") {
                         placeBlack( pointX, pointY);
                     } else { //(pointPiece == "W") {
                         placeWhite( pointX, pointY );
-                    }
+                    }*/
 
 
 
