@@ -1,7 +1,7 @@
 var CurrentGameID = 0;
 
 var main = function(){
-document.getElementById("CurrentUserName").value = window.name;
+//document.getElementById("CurrentUserName").value = window.name;
 
 /*let btn = document.getElementById("entergamebtn");
 btn.addEventListener("click", buttonClickEnterGame);*/

@@ -1,7 +1,7 @@
 var main = function(){
     drawBoard();
-   // addPiecesToBoard();
-document.getElementById("CurrentUserName").value = window.name;
+    addPiecesToBoard();
+//document.getElementById("CurrentUserName").value = window.name;
 };
 
 
@@ -55,8 +55,8 @@ var drawBoard = function(){
 };
 
 var addPiecesToBoard = function(){
-Gameid = localStorage.gameId;
-console.log(Gameid);
+//console.log(" GAMEID: " + localStorage.getItem("GAMEID"));
+console.log(window.name);
 //GameID = window.name;
 //req = new XMLHttpRequest();
 //req.open("GET", "/current" + GameID);
