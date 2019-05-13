@@ -39,6 +39,22 @@ public class GameResource {
 
     }
 
+    //Get List of all games
+    @GET
+    @Path("listPrev")
+    public String getAllGamesPrev() {
+        // Gets the currentUserName
+        String currentUserName = WelcomeResource.currentUser.getUserName();
+        // Gets All games regarding the Current User
+        ArrayList<Game> userGames = Controller.gameList.getAllUserGames( currentUserName );
+        // Converts all userGames into a list of SimpleGames
+        ArrayList<SimpleGame> userSimpleGames = getGamesToSimpleGamesPrev( userGames );
+        // Converts userSimple games to Json string.
+        Gson gson = new Gson();
+        return gson.toJson( userSimpleGames );
+
+    }
+
 
     //Todo this does so by retrieving string, has not tried accepting json object
     /**
@@ -95,13 +111,43 @@ public class GameResource {
 
         for (int i = 0; i < games.size(); i++) {
             tempGame = games.get(i);
-            id = tempGame.id;
-            user1 = tempGame.getUser1();
-            user2 = tempGame.getUser2();
+            if (tempGame.play) {
+                id = tempGame.id;
+                user1 = tempGame.getUser1();
+                user2 = tempGame.getUser2();
 
-            tempSimpleGame = new SimpleGame(id, user1.getUserName(), user2.getUserName());
+                tempSimpleGame = new SimpleGame(id, user1.getUserName(), user2.getUserName());
 
-            simpleGames.add( tempSimpleGame );
+                simpleGames.add(tempSimpleGame);
+            }
+        }
+
+        return simpleGames;
+    }
+
+    /**
+     * This gets a list of games converts to a list of SimpleGames and returns it.
+     * @param games - list of Game objects
+     * @return - a Simple Game object.
+     */
+    private ArrayList<SimpleGame> getGamesToSimpleGamesPrev( ArrayList<Game> games ) {
+        ArrayList<SimpleGame> simpleGames = new ArrayList<>();
+        int id;
+        User user1, user2;
+        Game tempGame;
+        SimpleGame tempSimpleGame;
+
+        for (int i = 0; i < games.size(); i++) {
+            tempGame = games.get(i);
+            if (!tempGame.play) {
+                id = tempGame.id;
+                user1 = tempGame.getUser1();
+                user2 = tempGame.getUser2();
+
+                tempSimpleGame = new SimpleGame(id, user1.getUserName(), user2.getUserName());
+
+                simpleGames.add(tempSimpleGame);
+            }
         }
 
         return simpleGames;

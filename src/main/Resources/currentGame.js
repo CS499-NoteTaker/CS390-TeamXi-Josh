@@ -1,7 +1,5 @@
 var CurrentGameID = 0;
 
-
-
 var main = function(){
 let btn = document.getElementById("entergamebtn");
 btn.addEventListener("click", buttonClickEnterGame);
